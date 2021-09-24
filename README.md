@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Hi my name is Kai . I am excited about this project becasue the app would actually help us!
+* Hi my name is Al. I am excited about this project because I love working in groups!
 	
 ## Technologies
 Technologies used for this project:
