@@ -6,8 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-Hi my name is Al. I am excited about this project because I love working in groups!
-	
+
+* Hello, my name is Nicky. I'm excited about the project because I like to work on apps.
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
