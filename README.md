@@ -8,6 +8,9 @@
 This browser based web application to ...
 
 * Hello, my name is Nicky. I'm excited about the project because I like to work on apps.
+* Hi my name is Kai . I am excited about this project becasue the app would actually help us!
+* Hi my name is Al. I am excited about this project because I love working in groups!
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
