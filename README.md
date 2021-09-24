@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Kai . I am excited about this project becasue the app would actually help us!
 	
 ## Technologies
 Technologies used for this project:
