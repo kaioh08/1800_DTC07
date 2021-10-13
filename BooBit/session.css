@@ -1,0 +1,155 @@
+.container{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    width: 365px;
+    height: 804px;
+    border: 5px solid black;
+    grid-template-columns:33% 33% 33%;
+    grid-template-rows: 10% 15% 60% 0% 10%;
+    display: grid;
+    justify-content: center;
+
+}
+
+.top{
+    grid-column-start: 1;
+    grid-column-end: span 3;
+    display: grid;
+    grid-template-columns:33.5% 30% 20%;
+    grid-template-rows: 90% 1px;
+    justify-content: start;
+    
+}
+
+.b{    
+
+text-align: center
+}
+.top img{
+    align-self: end;
+    justify-content: end;
+
+}
+.profile{
+    width:50px;
+    height:50px;
+    grid-column-start: 4;
+    bottom: 10px;
+    position: relative;
+}
+.book{    
+    padding:5px
+}
+.line{
+    grid-column-start: 1;
+    right:2px;
+    position: relative;
+    width:102%;
+    grid-column-end: span 4;
+    border: 4px solid black;
+
+}
+.date
+{
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    height: 30%
+
+}
+.sessions {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns:33% 33% 33%;
+    grid-auto-rows: 25%;
+    justify-content: center;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 4px solid;
+
+
+}
+
+.sessions div{
+    background-color: rgb(160, 160, 160);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height:100px;
+    text-align: center;
+    line-height:20px;
+
+}
+.sessions p{
+    font-weight: bold;
+}
+
+.sessions button{
+    background-color: rgb(227, 226, 226);
+
+    top: 30px;
+    position: relative;
+    justify-content: end;
+    height: 25px;
+    width : 100px;
+}
+
+.back{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin: 5px;
+    width: 50px;
+    height:50px;
+    position: relative;
+}
+
+.nav{
+    grid-row-start: 6;
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 4;    
+    margin: 1px;
+
+
+  
+}
+.navbar{
+    display: flex;
+    margin: -20px;
+    position: relative;
+    justify-content: center;
+    border-top: 5px solid;
+    width:101%;
+    left:18px;
+}
+
+nav figure{
+    margin: 20px;
+
+}
+
+.home{
+    width: 50px;
+    height: 30px
+}
+.search{
+    width: 30px;
+    height: 30px
+}
+.chat{
+    width: 30px;
+    height: 30px
+}
+.booked{
+    width: 30px;
+    height: 30px;
+    bottom: 3px;
+    position: relative;
+}
+
+
+
+
