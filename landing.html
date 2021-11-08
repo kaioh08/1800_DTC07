@@ -1,134 +1,253 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>My BCIT Project</title>
-    <meta name="comp1800 boilerplate code" content="Book It">
-    <meta name="author" content="BCIT">
+  <title>My BCIT Project</title>
+  <meta name="comp1800 boilerplate code" content="Book It">
+  <meta name="author" content="BCIT">
+  <!-- Bootstrap FirebaseUI CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Firebase 8 CDNs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+
+  <!-- Link to the api keys for your firebase project -->
+  <script src="./scripts/firebaseAPI.js"></script>
+
 </head>
 
 <style>
+  body {
+    position: relative;
 
-body {
-position: relative; 
+  }
 
-}
-#badminton, #table {margin-bottom: 15px; padding-top:50px;height:250px;color: #fff; background-color: #1E88E5;}
-#basketball, #volleyball {margin-bottom: 15px;padding-top:50px;height:250px;color: #fff; background-color: #673ab7;}
-#boxing, #yoga {margin-bottom: 15px; padding-top:50px;height:250px;color: #fff; background-color: #ff9800;}
-#dance {margin-bottom: 15px; padding-top:50px;height:250px;color: #fff; background-color: #00bcd4;}
-#soccer {margin-bottom: 15px; padding-top:50px;height:250px;color: #fff; background-color: #009688;}
+  #badminton {
+    background-repeat: no-repeat;
+    background-image: url("https://t4.ftcdn.net/jpg/03/08/07/57/240_F_308075782_n2CmkdBKAqF956PUbTKhIg8D2yTws1iW.jpg");
+  }
+
+  #badminton,
+  #table {
+    margin-bottom: 15px;
+    padding-top: 50px;
+    height: 240px;
+    color: #fff;
+    background-color: #1E88E5;
+  }
+
+  #basketball,
+  #volleyball {
+    margin-bottom: 15px;
+    padding-top: 50px;
+    height: 240px;
+    color: #fff;
+    background-color: #673ab7;
+  }
+
+  #boxing,
+  #yoga {
+    margin-bottom: 15px;
+    padding-top: 50px;
+    height: 240px;
+    color: #fff;
+    background-color: #ff9800;
+  }
+
+  #dance {
+    margin-bottom: 15px;
+    padding-top: 50px;
+    height: 250px;
+    color: #fff;
+    background-color: #00bcd4;
+  }
+
+  #soccer {
+    margin-bottom: 15px;
+    padding-top: 50px;
+    height: 250px;
+    color: #fff;
+    background-color: #009688;
+  }
 </style>
 
 <body class="bg-warning">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="material-icons">local_activity</i>Book It</a>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="material-icons">account_circle</i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><button class="dropdown-item" type="button">Account</button></li>
-                    <li><button class="dropdown-item" type="button">History</button></li>
-                    <li><button class="dropdown-item" type="button">FAQ</button></li>
-                    <li><button class="dropdown-item" type="button">Settings</button></li>
-                    <li><button class="dropdown-item" type="button">Log out</button></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="material-icons">local_activity</i>Book It</a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="material-icons">account_circle</i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><button class="dropdown-item" type="button">Account</button></li>
+          <li><button class="dropdown-item" type="button">History</button></li>
+          <li><button class="dropdown-item" type="button">FAQ</button></li>
+          <li><button class="dropdown-item" type="button">Settings</button></li>
+          <li><button class="dropdown-item" type="button">Log out</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 
-    <div id="badminton" class="container-fluid">
-      <h1>Badminton</h1>
-      <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-      <p>See more sessions</p>
-      <p>Available in: Vancouver, Burnaby</p>
+  <div id="badminton" class="container-fluid">
+    <h5 class="card-title" id="bad1">Sport Name</h5>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+    <p>Available in: Vancouver, Burnaby</p>
+
+    <br>
+  </div>
+  <div id="basketball" class="container-fluid">
+    <h5 class="card-title" id="basket1">Sport Name</h5>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+    <p>Available in: Vancouver, Burnaby</p>
+
+  </div>
+  <div id="boxing" class="container-fluid">
+    <h1>Boxing</h1>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+    <p>Available in: Vancouver, Burnaby, Surrey</p>
+
+  </div>
+  <div id="dance" class="container-fluid">
+    <h1>Dance Class</h1>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+  </div>
+  <div id="soccer" class="container-fluid">
+    <h1>Soccer</h1>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+  </div>
+  <div id="table" class="container-fluid">
+    <h1>Table Tennis</h1>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+  </div>
+  <div id="volleyball" class="container-fluid">
+    <h1>Volleyball</h1>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+  </div>
+  <div id="yoga" class="container-fluid">
+    <h1>Yoga</h1>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <p>See more sessions</p>
+  </div>
+
+  <div class="fixed-bottom py-3 bg-light">
+    <div class="container text-center">
+      My Sticky Footer
+    </div>
+  </div>
+
+  <footer class="navbar bg-light fixed-bottom">
+    <i class="material-icons">star</i>
+    <i class="material-icons">home</i>
+    <i class="material-icons">map</i>
+  </footer>
+
+  <footer class="navbar justify-content-evenly bg-light fixed-bottom">
+    <i class="material-icons">home</i>
+    <i class="material-icons">search</i>
+    <i class="material-icons">chat</i>
+    <i class="material-icons">calendar_today</i>
+  </footer>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
     
-      <br>
-    </div>
-    <div id="basketball" class="container-fluid">
-      <h1>Basketball</h1>
-      <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-      <p>See more sessions</p>
-      <p>Available in: Vancouver, Burnaby</p>
-    
-    </div>
-    <div id="boxing" class="container-fluid">
-      <h1>Boxing</h1>
-      <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-      <p>See more sessions</p>
-      <p>Available in: Vancouver, Burnaby, Surrey</p>
-    
-    </div>
-    <div id="dance" class="container-fluid">
-      <h1>Dance Class</h1>
-      <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-      <p>See more sessions</p>
-    </div>
-    <div id="soccer" class="container-fluid">
-        <h1>Soccer</h1>
-        <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-        <p>See more sessions</p>
-      </div>
-      <div id="table" class="container-fluid">
-        <h1>Table Tennis</h1>
-        <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-        <p>See more sessions</p>
-      </div>
-      <div id="volleyball" class="container-fluid">
-        <h1>Volleyball</h1>
-        <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-        <p>See more sessions</p>
-      </div>
-      <div id="yoga" class="container-fluid">
-        <h1>Yoga</h1>
-        <p>Upcomming Session:   Friday, NOVEMBER 05        12:30-2:30</p>
-        <p>See more sessions</p>
-      </div>
+    <script>
+    function writeSports() {
+      //define a variable for the collection you want to create in Firestore to populate data
+      var sportsRef = db.collection("Available Sports");
+      sportsRef.add({
+        code: "bad1",
+        name: "Badminton",
+        city: "Vancouver, Burnaby",
+        spots: "25/30",
+        level: "HARD AF",
+        age: "0-1 yers old",
+        duraction: "2h 30min",
+      });
+      sportsRef.add({
+        code: "basket1",
+        name: "Basketball",
+        city: "Vancouver",
+        spots: "28/30",
+        level: "Casual",
+        age: "16+",
+        duraction: "2h 30min",
+      });
+      sportsRef.add({
+        code: "box1",
+        name: "Boxing",
+        city: "Vancouver",
+        spots: "18/30",
+        level: "Causal",
+        age: "16+",
+        duraction: "2h 30min",
+      });
+      sportsRef.add({
+        code: "volley1",
+        name: "Volleyball",
+        city: "Vancouver, Burnaby",
+        spots: "28/30",
+        level: "Casual",
+        age: "16+",
+        duraction: "2h 30min",
+      });
+    }
+    // writeSports();
 
-    <div class="fixed-bottom py-3 bg-light">
-        <div class="container text-center">
-            My Sticky Footer
-        </div>
-    </div>
 
-    <footer class="navbar bg-light fixed-bottom">
-        <i class="material-icons">star</i>
-        <i class="material-icons">home</i>
-        <i class="material-icons">map</i>
-    </footer>
+function displaySports() {
+           db.collection("Available Sports").get()
+	           .then(allSports => {
+		           allSports.forEach(doc => {
+			           var sportName = doc.data().name; //gets the name field
+			           var sportID = doc.data().code; //gets the unique ID field
+			           console.log(sportID);
+			           document.getElementById(sportID).innerText = sportName;
+           })
+           })
+                        }
+  //  displaySports();
 
-    <footer class="navbar justify-content-evenly bg-light fixed-bottom">
-        <i class="material-icons">home</i>
-        <i class="material-icons">search</i>
-        <i class="material-icons">chat</i>
-        <i class="material-icons">calendar_today</i>
-    </footer>
+  </script>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
