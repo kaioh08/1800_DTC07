@@ -17,88 +17,139 @@
     <meta name="comp1800 boilerplate code" content="Book It">
     <meta name="author" content="BCIT">
     <style>
+        .container {
 
-.container{
-    text-align: center;
-    background-image: url("https://t3.ftcdn.net/jpg/02/78/42/76/360_F_278427683_zeS9ihPAO61QhHqdU1fOaPk2UClfgPcW.jpg");
-    background-repeat: no-repeat;
-    background-size: center;
-    background-position: center;
+            text-align: center;
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: center;
+            background-position: center;
 
-}
-.box {
-    background-color: rgba(0,0,0,.5);
-    color: #fff;
-    border: 4px black solid;
-    border-radius: 20px;
-}
-    
-#logo{
-    font-size: 100px;
-}
-#desciption{
-    font-size: 40px;
-}
-#button{
-    margin-top: 40%;
-    text-align: center;
-    justify-content: center;
+        }
 
-}
-.wrapper{
-    text-align: center;
-    bottom: 40%;
-    position: relative;
-}
-a.button {
-    position: relative;
-    margin-top: 100px;
-    justify-content: center;
-    display: inline-block;
-    background: #111;
-    color: #fff;
-    padding: 20px 40px;
-    margin: 20px;
-    cursor: pointer;
-    clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
-    transition: all .5s;
-  
-}
-.next{
-    font-size: 13px;
-}
-div.scrollmenu {
+        .box {
 
-margin-top: 10%;
-background-color: #333;
-overflow: auto;
-white-space: nowrap;
-position: relative;
-}
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            border: 4px black solid;
+            border-radius: 20px;
+        }
 
-div.scrollmenu a {
-font-size: 40px;
-height: 200px;
-width:250px;
-border: white solid 2px;
-display: inline-block;
-color: white;
-text-align: center;
-padding: 14px;
-text-decoration: none;
-}
+        #logo {
+            font-size: 100px;
+        }
 
-div.scrollmenu a:hover {
-  background-color: #777;
-}
+        #desciption {
+            font-size: 40px;
+        }
 
+        #button {
+            margin-top: 40%;
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        .wrapper {
+            text-align: center;
+            bottom: 40%;
+            position: relative;
+        }
+
+        a.button {
+            position: relative;
+            margin-top: 100px;
+            justify-content: center;
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            padding: 20px 40px;
+            margin: 20px;
+            cursor: pointer;
+            clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
+            transition: all .5s;
+
+        }
+
+        .next {
+            font-size: 13px;
+        }
+
+        div.scrollmenu {
+
+            margin-top: 10%;
+            background-color: #333;
+            overflow: auto;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        div.scrollmenu a {
+            font-size: 40px;
+            height: 200px;
+            width: 250px;
+            border: white solid 2px;
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+
+
+        span {
+            color: rgb(0, 115, 255);
+            position: relative;
+            font-family: "Avenir Next", sans-serif;
+            font-weight: 900;
+            font-size: 64px;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        /* We create a pseudo element and blur it using the SVG filter. We’ll grab the content from the custom HTML attribute. */
+
+        span:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: attr(filter-content);
+
+            filter: url(#motion-blur-filter);
+        }
+
+        /* We hide the SVG filter element from the DOM as it would take up some space */
+
+        svg {
+            display: none;
+        }
+
+        div.scrollmenu a:hover {
+            background-color: #777;
+        }
+
+        #icon{
+            color: rgb(0, 115, 255);
+            position: relative;
+            font-family: "Avenir Next", sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
     </style>
 </head>
 
 <body class="bg-warning">
+
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="material-icons">local_activity</i>Book It</a>
+            <a class="navbar-brand" id="icon" href="#"><i class="material-icons">local_activity</i>Book It</a>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -115,24 +166,40 @@ div.scrollmenu a:hover {
         </div>
     </nav>
 
-<div class="container bg-primary"><h1 id="logo">B</h1>
-    <div class="box"><h2 id="desciption">Any Sport With Just A click of A button</h2></div>
-<br>
-<br>
-</div>
-<div class="wrapper"><a class="button">Book It</a></div>
+    <div class="container">
+        <h1 id="logo"><span filter-content="S">Book It</span></h1>
 
-<div class="scrollmenu bg-info">
-    <a id="basket" class="bg-success" href="#Baksetball">Baksetball<p class="next">Next Session: Wednesday Nov 10th</p></a>
-    <a class="bg-primary" href="#Badminton">Badminton<p class="next">Next Session: Wednesday Nov 10th</p></a>
-    <a href="#Soccer">Soccer<p class="next">Next Session: Wednesday Nov 10th</p></a>
-    <a href="#Table">Table Tennis<p class="next">Next Session: Wednesday Nov 10th</p></a>
-    <a href="#Boxing">Boxing</a>
-    <a href="#Yoga">Yoga</a>
-    <a href="#Skating">Skating</a>
-    <a href="#Dance">Dance</a>
-    <a href="#Pickleball">Pickleball</a>
-  </div>
+        <svg xmlns="http://www.w3.org/2000/svg">
+
+            <!-- filterUnits is required to prevent clipping the blur outside the viewBox -->
+
+            <filter id="motion-blur-filter" filterUnits="userSpaceOnUse">
+
+                <!-- We only want horizontal blurring. x: 100, y: 0 -->
+
+                <feGaussianBlur stdDeviation="100 0"></feGaussianBlur>
+            </filter>
+        </svg>
+        <div class="box">
+            <h2 id="desciption">Any Sport With Just A click of A button</h2>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="wrapper"><a class="button">Book It</a></div>
+
+    <div class="scrollmenu bg-info">
+        <a id="basket" class="bg-success" href="#Baksetball">Baksetball<p class="next">Next Session: Wednesday Nov 10th
+            </p></a>
+        <a class="bg-primary" href="#Badminton">Badminton<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Soccer">Soccer<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Table">Table Tennis<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Boxing">Boxing<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Yoga">Yoga<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Skating">Skating<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Dance">Dance<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Pickleball">Pickleball<p class="next">Next Session: Wednesday Nov 10th</p></a>
+    </div>
 
 
 
