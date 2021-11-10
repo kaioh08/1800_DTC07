@@ -1,0 +1,45 @@
+.navbar {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 3.5vh 3.5vh;
+}
+
+#home {
+    grid-column: 1 / span 1;
+    grid-row: 1/ span 1;
+}
+
+#search {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#help {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#schedule {
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#homelabel {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+#searchlabel {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+}
+
+#helplabel {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+}
+
+#schedulelabel {
+    grid-column: 4 / span 1;
+    grid-row: 2 / span 1;
+}
