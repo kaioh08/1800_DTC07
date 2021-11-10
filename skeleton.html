@@ -13,6 +13,8 @@
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link href="styles/skeleton.css" rel="stylesheet">
+
     <title>My BCIT Project</title>
     <meta name="comp1800 boilerplate code" content="Book It">
     <meta name="author" content="BCIT">
@@ -35,11 +37,11 @@
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="material-icons">local_activity</i>Book It</a>
+            <a class="navbar-brand" href="#" id="icon">Book It</a>
             <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="material-icons">account_circle</i>
                 </button>
@@ -54,23 +56,18 @@
         </div>
     </nav>
 
-    <div class="fixed-bottom py-3 bg-secondary">
-        <div class="container text-center">
-            My Sticky Footer
-        </div>
+    <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
+        <i id="home" class="material-icons">home</i>
+        <i id="search" class="material-icons">search</i>
+        <i id="help" class="material-icons">help_outline</i>
+        <i id="schedule" class="material-icons">calendar_today</i>
     </div>
 
-    <footer class="navbar bg-secondary fixed-bottom">
-        <i class="material-icons">star</i>
-        <i class="material-icons">home</i>
-        <i class="material-icons">map</i>
-    </footer>
-
-    <footer class="navbar justify-content-evenly bg-secondary fixed-bottom">
-        <i id="home" class="material-icons">home</i><span id="homelabel">Home</span>
-        <i id="search" class="material-icons">search</i><span id="searchlabel">Home</span>
-        <i id="help" class="material-icons">help_outline</i><span id="helplabel">Home</span>
-        <i id="schedule" class="material-icons">calendar_today</i id="schedulelabel"><span>Home</span>
+    <footer class="navbar justify-content-evenly fixed-bottom">
+        <span id="homelabel">Home</span>
+        <span id="searchlabel">Home</span>
+        <span id="helplabel">Home</span>
+        <span id="schedulelabel">Home</span>
     </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
