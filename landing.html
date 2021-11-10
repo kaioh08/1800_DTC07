@@ -47,8 +47,8 @@
   }
 
   #badminton {
-    background-repeat: no-repeat;
-    background-image: url("https://t4.ftcdn.net/jpg/03/08/07/57/240_F_308075782_n2CmkdBKAqF956PUbTKhIg8D2yTws1iW.jpg");
+    /* background-repeat: no-repeat;
+    background-image: url("https://t4.ftcdn.net/jpg/03/08/07/57/240_F_308075782_n2CmkdBKAqF956PUbTKhIg8D2yTws1iW.jpg"); */
   }
 
   #badminton,
@@ -93,6 +93,18 @@
     color: #fff;
     background-color: #009688;
   }
+
+  .bball{
+    float: right;
+    width: 60;
+    height: 240px;
+    left:11px;
+    bottom: 50px;
+    position: relative;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+
+  }
 </style>
 
 <body class="bg-warning">
@@ -116,15 +128,18 @@
 
 
   <div id="badminton" class="container-fluid">
-    <h5 class="card-title" id="bad1">Sport Name</h5>
-    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+    <h5 class="card-title" id="bad1">Sport Name  <img  class="bball" src="https://t4.ftcdn.net/jpg/03/08/07/57/240_F_308075782_n2CmkdBKAqF956PUbTKhIg8D2yTws1iW.jpg">
+    </h5>
+    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30    
+    </p>
     <p>See more sessions</p>
     <p>Available in: Vancouver, Burnaby</p>
+
 
     <br>
   </div>
   <div id="basketball" class="container-fluid">
-    <h5 class="card-title" id="basket1">Sport Name</h5>
+    <h5 class="card-title" id="basket1">Sport Name  <img class="bball" src="https://media.istockphoto.com/photos/basketball-picture-id959080376?k=20&m=959080376&s=612x612&w=0&h=qekj8Q8B6faam_E7gnFzaK8RnK-bvicEqV9xHHh_oGM="></h5>
     <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
     <p>See more sessions</p>
     <p>Available in: Vancouver, Burnaby</p>
@@ -242,7 +257,7 @@ function displaySports() {
            })
            })
                         }
-  //  displaySports();
+   displaySports();
 
   </script>
 
