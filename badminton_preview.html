@@ -41,6 +41,11 @@
 </head>
 
 <style>
+            @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+*{
+  font-family: 'Nunito', sans-serif;
+
+}
     body {
         position: relative;
 
@@ -49,7 +54,7 @@
     #badminton,
     #table {
         margin-bottom: 15px;
-        padding-top: 50px;
+        padding-top: 20px;
         height: 240px;
         color: #fff;
         background-color: #1E88E5;
@@ -58,7 +63,7 @@
     #basketball,
     #volleyball {
         margin-bottom: 15px;
-        padding-top: 50px;
+        padding-top: 20px;
         height: 240px;
         color: #fff;
         background-color: #673ab7;
@@ -67,7 +72,7 @@
     #boxing,
     #yoga {
         margin-bottom: 15px;
-        padding-top: 50px;
+        padding-top: 20px;
         height: 240px;
         color: #fff;
         background-color: #ff9800;
@@ -75,7 +80,7 @@
 
     #dance {
         margin-bottom: 15px;
-        padding-top: 50px;
+        padding-top: 20px;
         height: 250px;
         color: #fff;
         background-color: #00bcd4;
@@ -83,7 +88,7 @@
 
     #soccer {
         margin-bottom: 15px;
-        padding-top: 50px;
+        padding-top: 20px;
         height: 250px;
         color: #fff;
         background-color: #009688;
@@ -96,7 +101,6 @@
         margin: 0;
         padding: 0;
         background: #5CA4EA;
-        overflow: hidden;
         font-family: 'Lato', sans-serif;
     }
 
@@ -127,14 +131,33 @@
         font-size: 18px;
         font-weight: 100;
     }
+    .material-icons{
+            color: rgb(0, 115, 255);
+    }
+    #icon {
+        color: rgb(0, 115, 255);
+        position: relative;
+        font-family: "Avenir Next", sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-style: italic;
+        letter-spacing: 0.05em;
+        display: inline-block;
+    }
+
+    #badheader{
+        color:white;
+        background-image: url("https://media.gettyimages.com/videos/abstract-background-video-id481035861?s=640x640");
+        text-shadow: 2px 2px #090000;
+    }
 </style>
 
 <body class="bg-warning">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="material-icons">local_activity</i>Book It</a>
+            <a class="navbar-brand" id="icon" href="#"><i class="material-icons"></i>Book It</a>
             <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="material-icons">account_circle</i>
                 </button>
@@ -149,19 +172,19 @@
         </div>
     </nav>
 
-    <h1 class="card-title" id="bad1">Sport Name</h1>
+    <div id="badheader"><h1 class="card-title" id="bad1">Sport Name</h1></div>
 
 
     <div id="badminton" class="container-fluid">
         <h4>Date: <span id="monday2">...</span></h4>
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
-        <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span id="monday7">...</span></p> 
+        <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
+                id="monday7">...</span></p>
         <button class="btnn">
             <span>Book it</span>
         </button>
 
-        <h1 class="card-title" id="bad2">Sport Name</h1>
-
+        <h1 class="card-title" id="bad2"></h1>
 
 
         <br>
@@ -169,29 +192,50 @@
     <div id="basketball" class="container-fluid">
         <h4>Date: <span id="tuesday2">...</span></h4>
         <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
-        <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span id="tuesday7">...</span></p>
-<button class="btnn">
+        <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span
+                id="tuesday7">...</span></p>
+        <button class="btnn">
             <span>Book it</span>
         </button>
     </div>
-    <div id="boxing" class="container-fluid">
-        <h1>Boxing</h1>
-        <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-        <p>See more sessions</p>
-        <p>Available in: Vancouver, Burnaby, Surrey</p>
 
+    <h1 class="card-title" id="bad3"></h1>
+
+
+    <div id="boxing" class="container-fluid">
+        <h4>Date: <span id="wednesday2">...</span></h4>
+        <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
+        <p>Duration: <span id="wednesday5">...</span>, Available Spots: <span id="wednesday6">...</span>, <span
+                id="wednesday7">...</span></p>
+        <button class="btnn">
+            <span>Book it</span>
+        </button>
     </div>
+    <h1 class="card-title" id="bad4"></h1>
+
     <div id="dance" class="container-fluid">
-        <h1>Dance Class</h1>
-        <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-        <p>See more sessions</p>
+        <h4>Date: <span id="thursday2">...</span></h4>
+        <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
+        <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
+                id="thursday7">...</span></p>
+        <button class="btnn">
+            <span>Book it</span>
+        </button>
     </div>
+
+    <h1 class="card-title" id="bad5"></h1>
+
     <div id="soccer" class="container-fluid">
-        <h1>Soccer</h1>
-        <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-        <p>See more sessions</p>
+        <h4>Date: <span id="friday2">...</span></h4>
+        <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
+        <p>Duration: <span id="friday5">...</span>, Available Spots: <span id="friday6">...</span>, <span
+                id="friday7">...</span></p>
+        <button class="btnn">
+            <span>Book it</span>
+        </button>
     </div>
-    <div id="table" class="container-fluid">
+
+    <!-- <div id="table" class="container-fluid">
         <h1>Table Tennis</h1>
         <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
         <p>See more sessions</p>
@@ -205,7 +249,7 @@
         <h1>Yoga</h1>
         <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
         <p>See more sessions</p>
-    </div>
+    </div> -->
 
 
 
@@ -217,11 +261,6 @@
     </div>
 
 
-    <footer class="navbar bg-light fixed-bottom">
-        <i class="material-icons">star</i>
-        <i class="material-icons">home</i>
-        <i class="material-icons">map</i>
-    </footer>
 
     <footer class="navbar justify-content-evenly bg-light fixed-bottom">
         <i class="material-icons">home</i>
@@ -248,14 +287,12 @@
                 code5: "monday5",
                 code6: "monday6",
                 code7: "monday7",
-                // code5: "monday5",
-                // code4: "monday4",
                 city: "Vancouver",
-                date: "Monday, Dec 5",
+                date: "Monday, Dec 6",
                 spots: "28/30",
                 location: "Delbrook Community Center",
                 age: "All Ages",
-                duration: "2 hours",
+                time: "6:30am - 8:30am",
                 price: "5$",
             });
             badmintonRef.add({
@@ -267,38 +304,86 @@
                 code5: "tuesday5",
                 code6: "tuesday6",
                 code7: "tuesday7",
-                // code5: "monday5",
-                // code4: "monday4",
                 city: "Burnaby",
-                date: "Tuesday, Dec 6",
+                date: "Tuesday, Dec 7",
                 spots: "10/30",
                 location: "Bonsor Community Center",
                 age: "All Ages",
-                duration: "2 hours",
+                time: "10:30am - 12:30am",
                 price: "5$",
-
             });
             badmintonRef.add({
                 code: "bad3",
                 name: "",
-                code2: "tuesday2",
-                code3: "tuesday3",
-                code4: "tuesday4",
-                code5: "tuesday5",
-                code6: "tuesday6",
-                code7: "tuesday7",
-                // code5: "monday5",
-                // code4: "monday4",
-                city: "Burnaby",
-                date: "Tuesday, Dec 6",
+                code2: "wednesday2",
+                code3: "wednesday3",
+                code4: "wednesday4",
+                code5: "wednesday5",
+                code6: "wednesday6",
+                code7: "wednesday7",
+                city: "Richmond",
+                date: "Wednesday, Dec 8",
                 spots: "10/30",
-                location: "Bonsor Community Center",
+                location: "South Arm Community Center",
                 age: "All Ages",
-                duration: "2 hours",
+                time: "6:30am - 8:30am",
                 price: "5$",
 
             });
+            badmintonRef.add({
+                code: "bad4",
+                name: "",
+                code2: "thursday2",
+                code3: "thursday3",
+                code4: "thursday4",
+                code5: "thursday5",
+                code6: "thursday6",
+                code7: "thursday7",
+                city: "Vancouver",
+                date: "Thursday, Dec 9",
+                spots: "10/30",
+                location: "Delbrooke Community Center",
+                age: "All Ages",
+                time: "2 hours",
+                price: "5$",
 
+            });
+            badmintonRef.add({
+                code: "bad5",
+                name: "",
+                code2: "friday2",
+                code3: "friday3",
+                code4: "friday4",
+                code5: "friday5",
+                code6: "friday6",
+                code7: "friday7",
+                city: "Burnaby",
+                date: "Friday, Dec 10",
+                spots: "10/30",
+                location: "Bonsor Community Center",
+                age: "All Ages",
+                time: "2 hours",
+                price: "5$",
+            });
+
+            // badmintonRef.add({
+            //     code: "bad6",
+            //     name: "",
+            //     code2: "wednesday2",
+            //     code3: "wednesday3",
+            //     code4: "wednesday4",
+            //     code5: "wednesday5",
+            //     code6: "wednesday6",
+            //     code7: "wednesday7",
+            //     city: "Burnaby",
+            //     date: "Wednesday, Dec 11",
+            //     spots: "10/30",
+            //     location: "Christine Sinclair Community Center",
+            //     age: "All Ages",
+            //     duration: "2 hours",
+            //     price: "5$",
+
+            // });
 
         }
 
@@ -322,7 +407,7 @@
                         var mondate = doc.data().date;
                         var monloc = doc.data().location;
                         var moncity = doc.data().city;
-                        var monlength = doc.data().duration;
+                        var monlength = doc.data().time;
                         var monspots = doc.data().spots;
                         var monprice = doc.data().price;
 
@@ -338,10 +423,6 @@
 
 
 
-                        // document.getElementById(badID).innerText = date;
-
-                        db.collection("Hikes").get()
-
 
 
 
@@ -349,6 +430,7 @@
                     })
                 })
         }
+
         // writeBadSpots();
 
         displayBadminton();
