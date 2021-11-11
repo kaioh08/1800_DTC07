@@ -76,18 +76,18 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
-        let bookingID = localStorage.getItem("bookingID");
+        let bookingID = localStorage.getItem("Badminton");
 
-        db.collection("Bookings").where("code", "==", bookingID)
+        db.collection("Badminton").where("code", "==", code)
             .get()
-            .then(queryBooking => {
-                size = queryBooking.size;
-                Bookings = queryBooking.docs;
+            .then(queryBadminton => {
+                size = queryBadminton.size;
+                Bookings = queryBadminton.docs;
 
                 if (size = 1) {
-                    var thisBooking = Bookings[0].data();
-                    name = thisBooking.name;
-                    document.getElementById("BookingName").innerHTML = name;
+                    var thisBadminton = Badminton[0].data();
+                    name = thisBadminton.name;
+                    document.getElementById("Badminton").innerHTML = name;
                 } else {
                     console.log("Query has more than one data")
                 }
