@@ -103,6 +103,34 @@
                 console.log("Error getting documents: ", error);
             });
         
+            function displayBookings() {
+                db.collection("Badminton").get()
+                    .then(allBadminton => {
+                        allBadminton.forEach(doc => {
+                            var bookingName = doc.data().name;
+                            var bookingID = doc.data().code;
+                            var bookingID2 = doc.data().code2;
+                            var bookingID3 = doc.data().code3;
+                            var bookingID4 = doc.data().code4;
+                            var bookingID5 = doc.data().code5;
+
+                            var mondate = doc.data().date;
+                            var monloc = doc.data().location;
+                            var moncity = doc.data().city;
+                            var monlength = doc.data().time;
+
+                            console.log(bookingID);
+                            document.getElementById(code).innerText = bookingName;
+                            document.getElementById(badID2).innerText = mondate;
+                            document.getElementById(badID3).innerText = monloc;
+                            document.getElementById(badID4).innerText = moncity;
+                            document.getElementById(badID4).innerText = monlength;
+                        })
+                    })
+            }
+        
+            displayBookings();
+        
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
