@@ -76,7 +76,26 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
-    
+        let bookingID = localStorage.getItem("bookingID");
+
+        db.collection("Bookings").where("code", "==", bookingID)
+            .get()
+            .then(queryBooking => {
+                size = queryBooking.size;
+                Bookings = queryBooking.docs;
+
+                if (size = 1) {
+                    var thisBooking = Bookings[0].data();
+                    name = thisBooking.name;
+                    document.getElementById("BookingName").innerHTML = name;
+                } else {
+                    console.log("Query has more than one data")
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+        
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
