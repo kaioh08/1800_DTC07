@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap%27');
+*{
+  font-family: 'Nunito', sans-serif;
+
+}
+
+#icon {
+    color: rgb(0, 115, 255);
+    position: relative;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    display: inline-block;
+}
+
+.material-icons{
+    color: rgb(0, 115, 255);
+
+}
