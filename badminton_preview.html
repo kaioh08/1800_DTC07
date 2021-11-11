@@ -180,7 +180,7 @@
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <button class="btnn">
+        <button class="btnn" onclick="setBookingData('bad1')">
             <span>Book it</span>
         </button>
 
@@ -434,6 +434,9 @@
         // writeBadSpots();
 
         displayBadminton();
+
+        function setBookingData(id);
+            localStorage.setItem ('sportID', id)
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
