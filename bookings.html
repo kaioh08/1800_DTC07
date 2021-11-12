@@ -92,7 +92,7 @@
         <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
         <p>Duration: <span id="friday5">...</span></p>
     </div>
-    
+
 
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
         <i id="home" class="material-icons">home</i>
@@ -111,53 +111,33 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
+        function displayBookings() {
+            db.collection("Badminton").get()
+                .then(allBadminton => {
+                    allBadminton.forEach(doc => {
+                        var bookingName = doc.data().name;
+                        var bookingID = doc.data().code;
+                        var bookingID2 = doc.data().code2;
+                        var bookingID3 = doc.data().code3;
+                        var bookingID4 = doc.data().code4;
+                        var bookingID5 = doc.data().code5;
 
-        db.collection("Badminton").where("code", "==", code)
-            .get()
-            .then(queryBadminton => {
-                size = queryBadminton.size;
-                Bookings = queryBadminton.docs;
+                        var mondate = doc.data().date;
+                        var monloc = doc.data().location;
+                        var moncity = doc.data().city;
+                        var monlength = doc.data().time;
 
-                if (size = 1) {
-                    var thisBadminton = Badminton[0].data();
-                    name = thisBadminton.name;
-                    document.getElementById("Badminton").innerHTML = name;
-                } else {
-                    console.log("Query has more than one data")
-                }
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
-        
-            function displayBookings() {
-                db.collection("Badminton").get()
-                    .then(allBadminton => {
-                        allBadminton.forEach(doc => {
-                            var bookingName = doc.data().name;
-                            var bookingID = doc.data().code;
-                            var bookingID2 = doc.data().code2;
-                            var bookingID3 = doc.data().code3;
-                            var bookingID4 = doc.data().code4;
-                            var bookingID5 = doc.data().code5;
-
-                            var mondate = doc.data().date;
-                            var monloc = doc.data().location;
-                            var moncity = doc.data().city;
-                            var monlength = doc.data().time;
-
-                            console.log(bookingID);
-                            document.getElementById(code).innerText = bookingName;
-                            document.getElementById(badID2).innerText = mondate;
-                            document.getElementById(badID3).innerText = monloc;
-                            document.getElementById(badID4).innerText = moncity;
-                            document.getElementById(badID4).innerText = monlength;
-                        })
+                        console.log(bookingID);
+                        document.getElementById(code).innerText = bookingName;
+                        document.getElementById(badID2).innerText = mondate;
+                        document.getElementById(badID3).innerText = monloc;
+                        document.getElementById(badID4).innerText = moncity;
+                        document.getElementById(badID4).innerText = monlength;
                     })
-            }
-        
-            displayBookings();
-        
+                })
+        }
+
+        displayBookings();
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
