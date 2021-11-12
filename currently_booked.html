@@ -123,7 +123,28 @@
         <a id="display" href="landing.html" ><span>Reserve a spot!</span></a>
   </div>
 
+  <div class="container">
+    <div class="card-group" id="hikeCardGroup">
+        
+        <template id="hikeCardTemplate">
+            <div class="card">
+                <img class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">placeholder</h5>
+                    <p class="card-length">placeholder</p>
+                    <a href="review.html" class="link-primary">Write a review</a>
+                    <br>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <a href="#" class="btn btn-primary" style="float: right">Read more</a>
+                </div>
+            </div>
+    </template>
+    
+    </div>
+</div>
 
+       
 
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
         <i id="home" class="material-icons">home</i>
@@ -155,7 +176,30 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+<script> 
 
+function displayHikes() {
+  let hikeCardTemplate = document.getElementById("hikeCardTemplate");
+  let hikeCardGroup = document.getElementById("hikeCardGroup");
+  
+  db.collection("Badminton_monday").get()
+      .then(allHikes => {
+          allHikes.forEach(doc => {
+              var hikeName = doc.data().name; //gets the name field
+              var hikeID = doc.data().code; //gets the unique ID field
+              var hikeLength = doc.data().length; //gets the length field
+
+
+              let testHikeCard = hikeCardTemplate.content.cloneNode(true);
+              testHikeCard.querySelector('.card-title').innerHTML = hikeName;
+              testHikeCard.querySelector('.card-length').innerHTML = hikeLength;
+              testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
+              testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
+              hikeCardGroup.appendChild(testHikeCard);
+          })
+
+      })
+}        </script>
 </body>
 
 </html>
