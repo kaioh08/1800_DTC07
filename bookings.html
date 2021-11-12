@@ -113,8 +113,8 @@
     <script>
         function displayBookings() {
             db.collection("Badminton").get()
-                .then(allSpots => {
-                    allSpots.forEach(doc => {
+                .then(allBadminton => {
+                    allBadminton.forEach(doc => {
                         var bookingName = doc.data().name;
                         var bookingID = doc.data().code;
                         var bookingID2 = doc.data().code2;
