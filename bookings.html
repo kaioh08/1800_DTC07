@@ -113,8 +113,8 @@
     <script>
         function displayBookings() {
             db.collection("Badminton").get()
-                .then(allBadminton => {
-                    allBadminton.forEach(doc => {
+                .then(allSpots => {
+                    allSpots.forEach(doc => {
                         var bookingName = doc.data().name;
                         var bookingID = doc.data().code;
                         var bookingID2 = doc.data().code2;
@@ -128,11 +128,11 @@
                         var monlength = doc.data().time;
 
                         console.log(bookingID);
-                        document.getElementById(code).innerText = bookingName;
-                        document.getElementById(badID2).innerText = mondate;
-                        document.getElementById(badID3).innerText = monloc;
-                        document.getElementById(badID4).innerText = moncity;
-                        document.getElementById(badID4).innerText = monlength;
+                        document.getElementById(bookingID).innerText = bookingName;
+                        document.getElementById(bookingID2).innerText = mondate;
+                        document.getElementById(bookingID3).innerText = monloc;
+                        document.getElementById(bookingID4).innerText = moncity;
+                        document.getElementById(bookingID5).innerText = monlength;
                     })
                 })
         }
