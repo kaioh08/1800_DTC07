@@ -180,7 +180,7 @@
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <button class="btnn" id="testtest" onclick="setBookingData('bad1')">
+        <button class="btnn" id="testtest"  onclick="myFunction()">
             <span>Book it</span>
         </button>
 
@@ -275,6 +275,26 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
 
     <script>
+        function myFunction(){
+            var badmintonMonRef = db.collection("Badminton_monday");
+            badmintonMonRef.add({
+                code: "bad1",
+                name: "Badminton",
+                code2: "monday2",
+                code3: "monday3",
+                code4: "monday4",
+                code5: "monday5",
+                code6: "monday6",
+                code7: "monday7",
+                city: "Vancouver",
+                date: "Monday, Dec 6",
+                spots: "28/30",
+                location: "Delbrook Community Center",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            });
+        }
         function writeBadSpots() {
             //define a variable for the collection you want to create in Firestore to populate data
             var badmintonRef = db.collection("Badminton");
