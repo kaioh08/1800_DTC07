@@ -144,7 +144,12 @@
       </div>
     </div>
   </nav>
-
+  
+  <div class="container-fluid bg-warning text-light p-1">
+        <h1 class="display-4">Hello, <span id="name-goes-here"></span></h1>
+        <hr>
+        <p>Pick a session from below:</p>
+</div>
 
   <div id="badminton" class="container-fluid">
     <h5> <span class="card-title" id="bad1">Sport Name </span><span><img  class="bball" src="https://t4.ftcdn.net/jpg/03/08/07/57/240_F_308075782_n2CmkdBKAqF956PUbTKhIg8D2yTws1iW.jpg"></span></h5>
@@ -224,6 +229,31 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
     
     <script>
+function insertName() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {                                              
+                    // Do something for the current logged-in user here: 
+                    console.log(user.uid);
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                    .then(userDoc => {
+                        var user_Name = userDoc.data().name;
+                        console.log(user_Name);
+                        //method #1:  insert with html only
+                        //document.getElementById("name-goes-here").innerText = n;    //using javascript
+                        //method #2:  insert using jquery
+                        $("#name-goes-here").text(user_Name);                         //using jquery
+                    })
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+
+
     function writeSports() {
       //define a variable for the collection you want to create in Firestore to populate data
       var sportsRef = db.collection("Available Sports");
@@ -288,6 +318,8 @@ function displaySports() {
            })
                         }
    displaySports();
+   insertName();
+
 
   </script>
 
