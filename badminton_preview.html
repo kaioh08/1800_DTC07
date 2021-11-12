@@ -186,7 +186,8 @@
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <a class="btnn" href="bookings.html" role="button" onclick="setBookingData(id)">Book It</a>
+        <button class="btnn" id="testtest" onclick="setBookingData('bad1')">
+            <span>Book it</span>
         </button>
 
         <h1 class="card-title" id="bad2"></h1>
@@ -436,8 +437,14 @@
 
         displayBadminton();
 
-        function setBookingData(id);
-        localStorage.setItem('sportID', id)
+        // function setBookingData(id);
+        //     localStorage.setItem ('sportID', id)
+
+            
+    document.getElementById("testtest").onclick = function () {
+        location.href = "confirmation.html";
+    };
+
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->

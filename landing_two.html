@@ -61,7 +61,7 @@
             position: relative;
         }
 
-        a.button {
+        /* a.button {
             font-size:50px;
             position: relative;
             margin-top: 100px;
@@ -75,7 +75,69 @@
             clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
             transition: all .5s;
 
-        }
+        } */
+
+        .wrapper{    
+            text-align: center;
+    justify-content: center;  
+    top: 45px;
+    padding: 2em;
+    overflow: hidden;
+    grid-column: 1/11;
+    grid-row: 12/ span 4;
+    position: relative;
+
+  
+  }
+  
+  #display{
+    padding: 2em;
+    width: 200%;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    box-shadow: 5px 10px 8px #888888;
+  
+  }
+  
+  #display span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  #display:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(0, 115, 255);
+    transition: all .35s;
+  }
+  
+  #display:hover{
+    color: #fff;
+  }
+  
+  #display:hover:after{
+    width: 100%;
+  }
+
+
+
+
+
+
+
+
 
         .next {
             font-size: 13px;
@@ -104,7 +166,7 @@
 
 
 
-        span {
+       #logo span{
             color: rgb(0, 115, 255);
             position: relative;
             font-family: "Avenir Next", sans-serif;
@@ -195,7 +257,9 @@
         <br>
         <br>
     </div>
-    <div class="wrapper"><a class="button">Book Session</a></div>
+    <div class="wrapper"><a id="display" href="login_page.html" ><span>Log In</span></a></div>
+
+    
 
     <div class="scrollmenu bg-info">
         <a id="basket" class="bg-success" href="#Baksetball">Baksetball<p class="next">Next Session: Wednesday Nov 10th
