@@ -57,7 +57,7 @@
         </div>
     </nav>
     <div id="top"><h1>Great, Youre Booked!</h1>
-    </div>
+    <!-- </div>
     <div id="confirm">This is the confirmation page!</div>
     <div id="container">
         <div id="inside">
@@ -76,13 +76,34 @@
         <div class="wrapper">
             <a id="display" href="currently_booked.html" ><span>Go Your bookings!</span></a>
       </div>
-    </div>
+    </div> -->
 
 
 
 
 
+    <div class="container">
+        <div class="card-group" id="hikeCardGroup">
+            
+            <template id="hikeCardTemplate">
+                <div class="card">
+                    <img class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">placeholder</h5>
+                        <p class="card-length">placeholder</p>
+                        <a href="review.html" class="link-primary">Write a review</a>
+                        <br>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                        </p>
+                        <a href="#" class="btn btn-primary" style="float: right">Read more</a>
+                    </div>
+                </div>
+        </template>
 
+        </div>
+        <div class="wrapper">
+            <a id="display" href="currently_booked.html" onclick="myFunction()" ><span>Go Your bookings!</span></a>
+      </div>
 
 
 
@@ -114,7 +135,32 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
-    
+    function displayHikes() {
+            let hikeCardTemplate = document.getElementById("hikeCardTemplate");
+            let hikeCardGroup = document.getElementById("hikeCardGroup");
+            
+            db.collection("BadmintonMonday").get()
+                .then(allHikes => {
+                    allHikes.forEach(doc => {
+                        var hikeName = doc.data().name; //gets the name field
+                        var hikeID = doc.data().code; //gets the unique ID field
+												var hikeLength = doc.data().length; //gets the length field
+
+
+                        let testHikeCard = hikeCardTemplate.content.cloneNode(true);
+                        testHikeCard.querySelector('.card-title').innerHTML = hikeName;
+                        testHikeCard.querySelector('.card-length').innerHTML = hikeLength;
+                        testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
+                        testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
+                        hikeCardGroup.appendChild(testHikeCard);
+                    })
+
+                })
+        }        
+        displayHikes();
+        // writeHikes();
+        insertName();
+        read_display_quote();
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
