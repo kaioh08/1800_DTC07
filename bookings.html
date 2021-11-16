@@ -64,7 +64,35 @@
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span></p>
     </div>
-    
+
+    <div id="booking2" class="container-fluid">
+        <h3 class="card-title" id="bad2">Sport Name</h3>
+        <h4>Date: <span id="tuesday2">...</span></h4>
+        <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
+        <p>Duration: <span id="tuesday5">...</span></p>
+    </div>
+
+    <div id="booking3" class="container-fluid">
+        <h3 class="card-title" id="bad3">Sport Name</h3>
+        <h4>Date: <span id="wednesday2">...</span></h4>
+        <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
+        <p>Duration: <span id="wednesday5">...</span></p>
+    </div>
+
+    <div id="booking4" class="container-fluid">
+        <h3 class="card-title" id="bad4">Sport Name</h3>
+        <h4>Date: <span id="thursday2">...</span></h4>
+        <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
+        <p>Duration: <span id="thursday5">...</span></p>
+    </div>
+
+    <div id="booking5" class="container-fluid">
+        <h3 class="card-title" id="bad5">Sport Name</h3>
+        <h4>Date: <span id="friday2">...</span></h4>
+        <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
+        <p>Duration: <span id="friday5">...</span></p>
+    </div>
+
 
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
         <i id="home" class="material-icons">home</i>
@@ -83,54 +111,33 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
-        let bookingID = localStorage.getItem("sportID");
+        function displayBookings() {
+            db.collection("Badminton").get()
+                .then(allBadminton => {
+                    allBadminton.forEach(doc => {
+                        var bookingName = doc.data().name;
+                        var bookingID = doc.data().code;
+                        var bookingID2 = doc.data().code2;
+                        var bookingID3 = doc.data().code3;
+                        var bookingID4 = doc.data().code4;
+                        var bookingID5 = doc.data().code5;
 
-        db.collection("Badminton").where("code", "==", code)
-            .get()
-            .then(queryBadminton => {
-                size = queryBadminton.size;
-                Bookings = queryBadminton.docs;
+                        var mondate = doc.data().date;
+                        var monloc = doc.data().location;
+                        var moncity = doc.data().city;
+                        var monlength = doc.data().time;
 
-                if (size = 1) {
-                    var thisBadminton = Badminton[0].data();
-                    name = thisBadminton.name;
-                    document.getElementById("Badminton").innerHTML = name;
-                } else {
-                    console.log("Query has more than one data")
-                }
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
-        
-            function displayBookings() {
-                db.collection("Badminton").get()
-                    .then(allBadminton => {
-                        allBadminton.forEach(doc => {
-                            var bookingName = doc.data().name;
-                            var bookingID = doc.data().code;
-                            var bookingID2 = doc.data().code2;
-                            var bookingID3 = doc.data().code3;
-                            var bookingID4 = doc.data().code4;
-                            var bookingID5 = doc.data().code5;
-
-                            var mondate = doc.data().date;
-                            var monloc = doc.data().location;
-                            var moncity = doc.data().city;
-                            var monlength = doc.data().time;
-
-                            console.log(bookingID);
-                            document.getElementById(code).innerText = bookingName;
-                            document.getElementById(badID2).innerText = mondate;
-                            document.getElementById(badID3).innerText = monloc;
-                            document.getElementById(badID4).innerText = moncity;
-                            document.getElementById(badID4).innerText = monlength;
-                        })
+                        console.log(bookingID);
+                        document.getElementById(bookingID).innerText = bookingName;
+                        document.getElementById(bookingID2).innerText = mondate;
+                        document.getElementById(bookingID3).innerText = monloc;
+                        document.getElementById(bookingID4).innerText = moncity;
+                        document.getElementById(bookingID5).innerText = monlength;
                     })
-            }
-        
-            displayBookings();
-        
+                })
+        }
+
+        displayBookings();
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
