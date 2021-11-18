@@ -56,8 +56,10 @@
             </div>
         </div>
     </nav>
-    <div id="top"><h1>Great, Youre Booked!</h1>
-        </div>
+    <div id="top">
+        <h1>Great, Youre Booked!</h1>
+    </div>
+    <div id="confirm">This is the confirmation page!</div>
     <!-- </div>
     <div id="confirm">This is the confirmation page!</div>
     <div id="container">
@@ -85,7 +87,7 @@
 
     <div class="container">
         <div class="card-group" id="hikeCardGroup">
-            
+
             <template id="hikeCardTemplate">
                 <div class="card">
                     <img class="card-img-top">
@@ -94,23 +96,25 @@
                         <p class="card-length">placeholder</p>
                         <a href="review.html" class="link-primary">Write a review</a>
                         <br>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.
                         </p>
-                        <a href="#" class="btn btn-primary" style="float: right">Read more</a>
+                        <!-- <a href="#" class="btn btn-primary" style="float: right">Read more</a> -->
                     </div>
                 </div>
-        </template>
+            </template>
 
         </div>
     </div>
-        <div class="wrapper">
-            <a id="display" href="currently_booked.html" onclick="myFunction()" ><span>Go Your bookings!</span></a>
-      </div>
+    <div class="wrapper">
+        <button type="button" class="btn btn-primary" href="currently_booked.html" onclick="deleteData()">Go To My Events</button>
+
+    </div>
 
 
 
 
-    
+
 
 
 
@@ -133,16 +137,16 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
-    function displayHikes() {
+        function displayHikes() {
             let hikeCardTemplate = document.getElementById("hikeCardTemplate");
             let hikeCardGroup = document.getElementById("hikeCardGroup");
-            
-            db.collection("BadmintonMonday").get()
+
+            db.collection("temp_data").get()
                 .then(allHikes => {
                     allHikes.forEach(doc => {
                         var hikeName = doc.data().name; //gets the name field
                         var hikeID = doc.data().code; //gets the unique ID field
-												var hikeLength = doc.data().length; //gets the length field
+                        var hikeLength = doc.data().length; //gets the length field
 
 
                         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
@@ -154,11 +158,42 @@
                     })
 
                 })
-        }        
+        }
+        // document.getElementById("display").onclick = function(){
+            // var del = document.getElementById("display").addEventListener("click", deleteData());
+            var del = document.getElementById("display")
+            // del.onclick=deleteData();
+            // del.addEventListener("click", deleteData());
+            function deleteData() {
+                db.collection("temp_data").doc("test").delete();
+                db.collection("temp_data").doc("test").delete().then(() => {
+                    location.href = "currently_booked.html"
+                    console.log("Document successfully deleted!");
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
+            }
+        // }
+
+        // .then(() => {
+        //     location.href = "confirmation.html";
+        // })
+        // .catch((error) => {
+        //     console.error("Error writing document: ", error);
+        // });;
+        // }
+        // document.getElementById("display").addEventListener("click", (e) =>{
+        //     e.stopPropagation();
+        //     let id = e.target.
+        // })
+
+
+
         displayHikes();
         // writeHikes();
-        insertName();
-        read_display_quote();
+        // insertName();
+        // read_display_quote();
+        // deleteData();
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
