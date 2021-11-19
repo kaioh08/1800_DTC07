@@ -84,19 +84,18 @@
 
 
 
-
     <div class="container">
-        <div class="card-group" id="hikeCardGroup">
+        <div class="card-group" id="tempCardGroup">
 
-            <template id="hikeCardTemplate">
+            <template id="tempCardTemplate">
                 <div class="card">
                     <img class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">placeholder</h5>
-                        <p class="card-length">placeholder</p>
-                        <a href="review.html" class="link-primary">Write a review</a>
-                        <br>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                        <h3 class="card-title">placeholder</h3>
+                        <h4 class="card-mondate">...</h4>
+                        <p class="card-monlength">placeholder</p>
+                        <p class="card-moncity">placeholder</p>
+                        <p class="card-monloc">This card has supporting text below as a natural lead-in to additional
                             content.
                         </p>
                         <!-- <a href="#" class="btn btn-primary" style="float: right">Read more</a> -->
@@ -137,24 +136,33 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <script>
-        function displayHikes() {
-            let hikeCardTemplate = document.getElementById("hikeCardTemplate");
-            let hikeCardGroup = document.getElementById("hikeCardGroup");
+        function displayTempData() {
+            let tempCardTemplate = document.getElementById("tempCardTemplate");
+            let tempCardGroup = document.getElementById("tempCardGroup");
 
             db.collection("temp_data").get()
-                .then(allHikes => {
-                    allHikes.forEach(doc => {
-                        var hikeName = doc.data().name; //gets the name field
-                        var hikeID = doc.data().code; //gets the unique ID field
-                        var hikeLength = doc.data().length; //gets the length field
+                .then(allTemp => {
+                    allTemp.forEach(doc => {
+                        var sportID = doc.data().code; //gets the unique ID field
+                        var sportName = doc.data().name;
+                        var monloc = doc.data().location;
+                        var moncity = doc.data().city;
+                        var monlength = doc.data().time;
+                        var monspots = doc.data().spots;
+                        var monprice = doc.data().price;
+                        var mondate = doc.data().date;
 
 
-                        let testHikeCard = hikeCardTemplate.content.cloneNode(true);
-                        testHikeCard.querySelector('.card-title').innerHTML = hikeName;
-                        testHikeCard.querySelector('.card-length').innerHTML = hikeLength;
-                        testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
-                        testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
-                        hikeCardGroup.appendChild(testHikeCard);
+                        let testTempCard = tempCardTemplate.content.cloneNode(true);
+                        testTempCard.querySelector('.card-title').innerHTML = sportName;
+                        testTempCard.querySelector('.card-monlength').innerHTML = monlength;
+                        testTempCard.querySelector('.card-moncity').innerHTML = moncity;
+                        testTempCard.querySelector('.card-mondate').innerHTML = mondate;
+                        testTempCard.querySelector('.card-monloc').innerHTML = monloc;
+
+                        // testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
+                        testTempCard.querySelector('img').src = `./images/${sportID}.jpg`;
+                        tempCardGroup.appendChild(testTempCard);
                     })
 
                 })
@@ -162,6 +170,7 @@
         // document.getElementById("display").onclick = function(){
             // var del = document.getElementById("display").addEventListener("click", deleteData());
             var del = document.getElementById("display")
+            
             // del.onclick=deleteData();
             // del.addEventListener("click", deleteData());
             function deleteData() {
@@ -189,7 +198,7 @@
 
 
 
-        displayHikes();
+        displayTempData();
         // writeHikes();
         // insertName();
         // read_display_quote();
