@@ -53,7 +53,7 @@
 
     }
 
-    #badminton,
+    #Basketball,
     #table {
         margin-bottom: 15px;
         padding-top: 20px;
@@ -149,7 +149,7 @@
         display: inline-block;
     }
 
-    #badheader {
+    #basheader {
         /* text-shadow: 2px 2px #090000; */
         color: rgb(255, 255, 255);
     }
@@ -175,24 +175,24 @@
         </div>
     </nav>
 
-    <div id="badheader">
+    <div id="basheader">
         <h3>You are previewing sessions for: </h3>
-        <h3 class="card-title" id="bad1">Sport Name</h3>
+        <h3 class="card-title" id="bas1">Sport Name</h3>
         <h3>Week of: <span id="testdate">Date</span></h3>
 
     </div>
 
 
-    <div id="badminton" class="container-fluid">
+    <div id="Basketball" class="container-fluid">
         <h4>Date: <span id="nextmonday">...</span></h4>
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <button class="btnn" id="book-mon-bad" onclick="myFunction(); return false;">
+        <button class="btnn" id="book-mon-bas" onclick="myFunction(); return false;">
             <span>Book it</span>
         </button>
 
-        <h1 class="card-title" id="bad2"></h1>
+        <h1 class="card-title" id="bas2"></h1>
 
 
         <br>
@@ -202,12 +202,12 @@
         <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
         <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span
                 id="tuesday7">...</span></p>
-        <button class="btnn" id="book-tues-bad" onclick="setBookingData('bad1')">
+        <button class="btnn" id="book-tues-bas" onclick="setBookingData('bas1')">
             <span>Book it</span>
         </button>
     </div>
 
-    <h1 class="card-title" id="bad3"></h1>
+    <h1 class="card-title" id="bas3"></h1>
 
 
     <div id="boxing" class="container-fluid">
@@ -215,30 +215,30 @@
         <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
         <p>Duration: <span id="wednesday5">...</span>, Available Spots: <span id="wednesday6">...</span>, <span
                 id="wednesday7">...</span></p>
-        <button class="btnn" id="book-weds-bad" onclick="setBookingData('bad1')">
+        <button class="btnn" id="book-weds-bas" onclick="setBookingData('bas1')">
             <span>Book it</span>
         </button>
     </div>
-    <h1 class="card-title" id="bad4"></h1>
+    <h1 class="card-title" id="bas4"></h1>
 
     <div id="dance" class="container-fluid">
         <h4>Date: <span id="nextthursday">...</span></h4>
         <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
         <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
                 id="thursday7">...</span></p>
-        <button class="btnn" id="book-thurs-bad" onclick="setBookingData('bad1')">
+        <button class="btnn" id="book-thurs-bas" onclick="setBookingData('bas1')">
             <span>Book it</span>
         </button>
     </div>
 
-    <h1 class="card-title" id="bad5"></h1>
+    <h1 class="card-title" id="bas5"></h1>
 
     <div id="soccer" class="container-fluid">
         <h4>Date: <span id="nextfriday">...</span></h4>
         <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
         <p>Duration: <span id="friday5">...</span>, Available Spots: <span id="friday6">...</span>, <span
                 id="friday7">...</span></p>
-        <button class="btnn" id="book-fri-bad" onclick="setBookingData('bad1')">
+        <button class="btnn" id="book-fri-bas" onclick="setBookingData('bas1')">
             <span>Book it</span>
         </button>
     </div>
@@ -282,10 +282,10 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
 
     <script>
-        // document.getElementById("book-mon-bad").addEventListener(click, myFunction);
+        // document.getElementById("book-mon-bas").addEventListener(click, myFunction);
         // function myFunction() {
-        //     var badmintonMonRef = db.collection("temp_data");
-        //     badmintonMonRef.add({
+        //     var BasketballMonRef = db.collection("temp_data");
+        //     BasketballMonRef.add({
         //         id: "BBY01",
         //         code: "BBY01",
         //         name: "Outside My house Lake Park Trail", //replace with your own city?
@@ -303,7 +303,7 @@
         //                 });;
         // }
 
-        document.getElementById("book-mon-bad").onclick = function () {
+        document.getElementById("book-mon-bas").onclick = function () {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
                     id: "BBY01",
@@ -325,12 +325,12 @@
 
         };
 
-        function writeBadSpots() {
+        function writebasSpots() {
             //define a variable for the collection you want to create in Firestore to populate data
-            var badmintonRef = db.collection("Badminton");
-            badmintonRef.add({
-                code: "bad1",
-                name: "Badminton",
+            var basketballRef = db.collection("Basketball");
+            basketballRef.add({
+                code: "bas1",
+                name: "Basketball",
                 code3: "monday3",
                 code4: "monday4",
                 code5: "monday5",
@@ -344,8 +344,8 @@
                 time: "6:30am - 8:30am",
                 price: "5$",
             });
-            badmintonRef.add({
-                code: "bad2",
+            basketballRef.add({
+                code: "bas2",
                 name: "",
                 code3: "tuesday3",
                 code4: "tuesday4",
@@ -360,8 +360,8 @@
                 time: "10:30am - 12:30am",
                 price: "5$",
             });
-            badmintonRef.add({
-                code: "bad3",
+            basketballRef.add({
+                code: "bas3",
                 name: "",
                 code3: "wednesday3",
                 code4: "wednesday4",
@@ -377,8 +377,8 @@
                 price: "5$",
 
             });
-            badmintonRef.add({
-                code: "bad4",
+            basketballRef.add({
+                code: "bas4",
                 name: "",
                 code3: "thursday3",
                 code4: "thursday4",
@@ -394,8 +394,8 @@
                 price: "5$",
 
             });
-            badmintonRef.add({
-                code: "bad5",
+            basketballRef.add({
+                code: "bas5",
                 name: "",
                 code3: "friday3",
                 code4: "friday4",
@@ -411,8 +411,8 @@
                 price: "5$",
             });
 
-            // badmintonRef.add({
-            //     code: "bad6",
+            // basketballRef.add({
+            //     code: "bas6",
             //     name: "",
             //     code2: "wednesday2",
             //     code3: "wednesday3",
@@ -432,22 +432,22 @@
 
         }
 
-        function displayBadminton() {
-            db.collection("Badminton").get()
+        function displayBasketball() {
+            db.collection("Basketball").get()
                 .then(allSpots => {
                     allSpots.forEach(doc => {
                         var sportName = doc.data().name; //gets the name field
                         var sportID = doc.data().code;
                         //gets the unique ID field
-                         //hange the badminton ode to class
-                        // var badDate = doc.data().date // gest date
-                        // var badSpot = doc.data().spots
-                        var badID3 = doc.data().code3;
-                        var badID4 = doc.data().code4;
-                        var badID5 = doc.data().code5;
-                        var badID6 = doc.data().code6;
-                        var badID7 = doc.data().code7;
-                        var badID8 = doc.data().code8;
+                         //hange the Basketball ode to class
+                        // var basDate = doc.data().date // gest date
+                        // var basSpot = doc.data().spots
+                        var basID3 = doc.data().code3;
+                        var basID4 = doc.data().code4;
+                        var basID5 = doc.data().code5;
+                        var basID6 = doc.data().code6;
+                        var basID7 = doc.data().code7;
+                        var basID8 = doc.data().code8;
 
                         var monloc = doc.data().location;
                         var moncity = doc.data().city;
@@ -457,11 +457,11 @@
 
                         console.log(sportID);
                         document.getElementById(sportID).innerText = sportName;
-                        document.getElementById(badID3).innerText = monloc;
-                        document.getElementById(badID4).innerText = moncity;
-                        document.getElementById(badID5).innerText = monlength;
-                        document.getElementById(badID6).innerText = monspots;
-                        document.getElementById(badID7).innerText = monprice;
+                        document.getElementById(basID3).innerText = monloc;
+                        document.getElementById(basID4).innerText = moncity;
+                        document.getElementById(basID5).innerText = monlength;
+                        document.getElementById(basID6).innerText = monspots;
+                        document.getElementById(basID7).innerText = monprice;
 
 
 
@@ -470,9 +470,9 @@
         }
 
 
-        // writeBadSpots();
+        // writebasSpots();
         // myFunction();
-        displayBadminton();
+        displayBasketball();
   
     </script>
     <script>
@@ -500,11 +500,11 @@
         document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options); 
         document.getElementById("nextfriday").innerText = f.toLocaleDateString("en-US", options);
 
-        // function writeBadSpots2() {
+        // function writebasSpots2() {
         //     //define a variable for the collection you want to create in Firestore to populate data
-        //     var badmintonsRef = db.collection("Badminton2");
-        //     badmintonsRef.add({
-        //         code: "bad12",
+        //     var BasketballsRef = db.collection("Basketball2");
+        //     BasketballsRef.add({
+        //         code: "bas12",
         //     })
         // }
         // const d = new Date();
@@ -522,7 +522,7 @@
         //     })
         // }
         // writeDate();
-        // writeBadSpots2();
+        // writebasSpots2();
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
