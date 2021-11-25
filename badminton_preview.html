@@ -188,7 +188,7 @@
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <button class="btnn" id="book-mon-bad" onclick="myFunction(); return false;">
+        <button class="btnn" id="book-mon-bad" onclick="addBadThur(); myFunction()">
             <span>Book it</span>
         </button>
 
@@ -226,7 +226,7 @@
         <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
         <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
                 id="thursday7">...</span></p>
-        <button class="btnn" id="book-thurs-bad" onclick="setBookingData('bad1')">
+        <button class="btnn" id="book-thurs-bad" onclick="addBadThur()">
             <span>Book it</span>
         </button>
     </div>
@@ -282,6 +282,55 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
 
     <script>
+        function addBadThur() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            var email = userDoc.data().email;
+                            console.log(user_Name);
+                            var currentUser = db.collection(email);
+                            currentUser.add({
+                                    code: "bad1",
+                                    name: "Badminton",
+                                    code3: "monday3",
+                                    code4: "monday4",
+                                    code5: "monday5",
+                                    code6: "monday6",
+                                    code7: "monday7",
+                                    city: "Vancouver",
+                                    date: "Monday, Dec 6",
+                                    spots: "28/30",
+                                    location: "Delbrook Community Center",
+                                    age: "All Ages",
+                                    time: "6:30am - 8:30am",
+                                    price: "5$",
+                                })
+                                .then(userDoc => {
+                                    console.log(email);
+                                })
+
+                            //method #1:  insert with html only
+                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
+                            //method #2:  insert using jquery
+                            $("#name-goes-here").text(user_Name); //using jquery
+
+                        })
+
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+
+
         // document.getElementById("book-mon-bad").addEventListener(click, myFunction);
         // function myFunction() {
         //     var badmintonMonRef = db.collection("temp_data");
@@ -306,14 +355,15 @@
         document.getElementById("book-mon-bad").onclick = function () {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
-                    id: "BBY01",
-                    code: "BBY01",
-                    name: "Outside My house Lake Park Trail", //replace with your own city?
-                    city: "Burnaby",
-                    province: "BC",
-                    level: "easy",
-                    length: "10 km",
-                    length_time: "2h 33mm"
+                code: "bad1",
+                name: "Badminton",
+                city: "Vancouver",
+                date: "Monday, Dec 6",
+                spots: "28/30",
+                location: "Delbrook Community Center",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
                 })
                 .then(() => {
                     location.href = "confirmation.html";
@@ -439,7 +489,7 @@
                         var sportName = doc.data().name; //gets the name field
                         var sportID = doc.data().code;
                         //gets the unique ID field
-                         //hange the badminton ode to class
+                        //hange the badminton ode to class
                         // var badDate = doc.data().date // gest date
                         // var badSpot = doc.data().spots
                         var badID3 = doc.data().code3;
@@ -473,10 +523,14 @@
         // writeBadSpots();
         // myFunction();
         displayBadminton();
-  
     </script>
     <script>
-        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
         var m = new Date();
         m.setDate(m.getDate() + ((7 - m.getDay()) % 7 + 1) % 7);
         const t = new Date();
@@ -497,7 +551,7 @@
         document.getElementById("nextmonday").innerText = m.toLocaleDateString("en-US", options);
         document.getElementById("nexttuesday").innerText = t.toLocaleDateString("en-US", options);
         document.getElementById("nextwednesday").innerText = w.toLocaleDateString("en-US", options);
-        document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options); 
+        document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options);
         document.getElementById("nextfriday").innerText = f.toLocaleDateString("en-US", options);
 
         // function writeBadSpots2() {
