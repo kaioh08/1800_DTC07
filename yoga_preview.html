@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>My BCIT Project</title>
+    <meta name="comp1800 boilerplate code" content="Book It">
+    <meta name="author" content="BCIT">
+    <!-- Bootstrap FirebaseUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="./scripts/firebaseAPI.js"></script>
+    <link rel="stylesheet" href="./styles/yoga_style.css">
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="icon" href="#"><i class="material-icons"></i>Book It</a>
+            <div class="btn-group">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="material-icons">account_circle</i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><button class="dropdown-item" type="button">Account</button></li>
+                    <li><button class="dropdown-item" type="button">History</button></li>
+                    <li><button class="dropdown-item" type="button">FAQ</button></li>
+                    <li><button class="dropdown-item" type="button">Settings</button></li>
+                    <li><button class="dropdown-item" type="button">Log out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="badheader">
+        <h3>You are previewing sessions for: </h3>
+        <h3 class="card-title" id="yoga1">Sport Name</h3>
+        <h3>Week of: <span id="testdate">Date</span></h3>
+
+    </div>
+
+
+    <div id="first_session" class="container-fluid">
+        <h4>Date: <span id="nextmonday">...</span></h4>
+        <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
+        <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
+                id="monday7">...</span></p>
+        <button class="btnn" id="book-mon-bad" onclick="addYogaMon()">
+            <span>Book it</span>
+        </button>
+
+        <h1 class="card-title" id="yoga2"></h1>
+
+
+        <br>
+    </div>
+    <div id="second_session" class="container-fluid">
+        <h4>Date: <span id="nexttuesday">...</span></h4>
+        <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
+        <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span
+                id="tuesday7">...</span></p>
+        <button class="btnn" id="book-tues-bad" onclick="addYogaTues()">
+            <span>Book it</span>
+        </button>
+    </div>
+
+    <h1 class="card-title" id="yoga3"></h1>
+
+
+    <div id="third_session" class="container-fluid">
+        <h4>Date: <span id="nextwednesday">...</span></h4>
+        <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
+        <p>Duration: <span id="wednesday5">...</span>, Available Spots: <span id="wednesday6">...</span>, <span
+                id="wednesday7">...</span></p>
+        <button class="btnn" id="book-weds-bad" onclick="setBookingData('bad1')">
+            <span>Book it</span>
+        </button>
+    </div>
+    <h1 class="card-title" id="yoga4"></h1>
+
+    <div id="fourth_session" class="container-fluid">
+        <h4>Date: <span id="nextthursday">...</span></h4>
+        <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
+        <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
+                id="thursday7">...</span></p>
+        <button class="btnn" id="book-thurs-bad" onclick="addBadThur()">
+            <span>Book it</span>
+        </button>
+    </div>
+
+    <h1 class="card-title" id="yoga5"></h1>
+
+    <div id="fifth_session" class="container-fluid">
+        <h4>Date: <span id="nextfriday">...</span></h4>
+        <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
+        <p>Duration: <span id="friday5">...</span>, Available Spots: <span id="friday6">...</span>, <span
+                id="friday7">...</span></p>
+        <button class="btnn" id="book-fri-bad" onclick="setBookingData('bad1')">
+            <span>Book it</span>
+        </button>
+    </div>
+
+    <!-- <div id="table" class="container-fluid">
+        <h1>Table Tennis</h1>
+        <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+        <p>See more sessions</p>
+    </div>
+    <div id="volleyball" class="container-fluid">
+        <h1>Volleyball</h1>
+        <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+        <p>See more sessions</p>
+    </div>
+    <div id="yoga" class="container-fluid">
+        <h1>Yoga</h1>
+        <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
+        <p>See more sessions</p>
+    </div> -->
+
+
+
+
+    <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
+        <i id="home" class="material-icons">home</i>
+        <i id="search" class="material-icons">search</i>
+        <i id="help" class="material-icons">help_outline</i>
+        <i id="schedule" class="material-icons">calendar_today</i>
+    </div>
+
+    <footer class="navbar justify-content-evenly fixed-bottom">
+        <span id="homelabel">Home</span>
+        <span id="searchlabel">Search</span>
+        <span id="helplabel">Help</span>
+        <span id="schedulelabel">Bookings</span>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
+
+    <script>
+        function addYogaTues() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            var email = userDoc.data().email;
+                            console.log(user_Name);
+                            var currentUser = db.collection(email);
+                            currentUser.doc("yoga1").set({
+                                    code: "yoga1",
+                                    name: "Yoga",
+                                    code3: "monday3",
+                                    code4: "monday4",
+                                    code5: "monday5",
+                                    code6: "monday6",
+                                    code7: "monday7",
+                                    city: "Vancouver",
+                                    date: "Tuesday, Dec 7",
+                                    spots: "28/30",
+                                    location: "Britannia Community Centre",
+                                    age: "All Ages",
+                                    time: "6:30am - 8:30am",
+                                    price: "5$",
+                                })
+                                .then(add_to_temp())
+                                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("doesi t write?");
+                })
+
+                        })
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+
+        function addYogaMon() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            var email = userDoc.data().email;
+                            console.log(user_Name);
+                            var currentUser = db.collection(email);
+                            currentUser.doc("yoga1").set({
+                                    code: "yoga1",
+                                    name: "Yoga",
+                                    code3: "monday3",
+                                    code4: "monday4",
+                                    code5: "monday5",
+                                    code6: "monday6",
+                                    code7: "monday7",
+                                    city: "Vancouver",
+                                    date: "Monday Dec ",
+                                    spots: "28/30",
+                                    location: "Britannia Community Centre",
+                                    age: "All Ages",
+                                    time: "6:30am - 8:30am",
+                                    price: "5$",
+                                })
+                                .then(add_to_temp())
+                                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("doesi t write?");
+                })
+
+                        })
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+
+
+        function add_to_temp() {
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("test").set({
+                code: "yoga1",
+                name: "Yoga",
+                city: "Vancouver",
+                date: "Tuesday, Dec 7",
+                spots: "0/30",
+                location: "Britannia Community Centre",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+                })
+                .then(() => {
+                    location.href = "confirmation.html";
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+
+        };
+
+        function writeYogaSpots() {
+            //define a variable for the collection you want to create in Firestore to populate data
+            var yogaRef = db.collection("Yoga");
+            yogaRef.add({
+                code: "yoga1",
+                name: "Yoga",
+                code3: "monday3",
+                code4: "monday4",
+                code5: "monday5",
+                code6: "monday6",
+                code7: "monday7",
+                city: "Vancouver",
+                date: "Monday, Dec 6",
+                spots: "28/30",
+                location: "The Yoga Bar",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            });
+            yogaRef.add({
+                code: "yoga2",
+                name: "",
+                code3: "tuesday3",
+                code4: "tuesday4",
+                code5: "tuesday5",
+                code6: "tuesday6",
+                code7: "tuesday7",
+                city: "Burnaby",
+                date: "Tuesday, Dec 7",
+                spots: "10/30",
+                location: "Bonsor Community Center",
+                age: "All Ages",
+                time: "10:30am - 12:30am",
+                price: "5$",
+            });
+            yogaRef.add({
+                code: "yoga3",
+                name: "",
+                code3: "wednesday3",
+                code4: "wednesday4",
+                code5: "wednesday5",
+                code6: "wednesday6",
+                code7: "wednesday7",
+                city: "Richmond",
+                date: "Wednesday, Dec 8",
+                spots: "10/30",
+                location: "South Arm Community Center",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+
+            });
+            yogaRef.add({
+                code: "yoga4",
+                name: "",
+                code3: "thursday3",
+                code4: "thursday4",
+                code5: "thursday5",
+                code6: "thursday6",
+                code7: "thursday7",
+                city: "Vancouver",
+                date: "Thursday, Dec 9",
+                spots: "10/30",
+                location: "Delbrooke Community Center",
+                age: "All Ages",
+                time: "2 hours",
+                price: "5$",
+
+            });
+            yogaRef.add({
+                code: "yoga5",
+                name: "",
+                code3: "friday3",
+                code4: "friday4",
+                code5: "friday5",
+                code6: "friday6",
+                code7: "friday7",
+                city: "Burnaby",
+                date: "Friday, Dec 10",
+                spots: "10/30",
+                location: "Bonsor Community Center",
+                age: "All Ages",
+                time: "2 hours",
+                price: "5$",
+            });
+
+
+        }
+
+        function displayYoga() {
+            db.collection("Yoga").get()
+                .then(allSpots => {
+                    allSpots.forEach(doc => {
+                        var sportName = doc.data().name; //gets the name field
+                        var sportID = doc.data().code;
+                        //gets the unique ID field
+                        //hange the badminton ode to class
+                        // var badDate = doc.data().date // gest date
+                        // var badSpot = doc.data().spots
+                        var badID3 = doc.data().code3;
+                        var badID4 = doc.data().code4;
+                        var badID5 = doc.data().code5;
+                        var badID6 = doc.data().code6;
+                        var badID7 = doc.data().code7;
+                        var badID8 = doc.data().code8;
+
+                        var monloc = doc.data().location;
+                        var moncity = doc.data().city;
+                        var monlength = doc.data().time;
+                        var monspots = doc.data().spots;
+                        var monprice = doc.data().price;
+
+                        console.log(sportID);
+                        document.getElementById(sportID).innerText = sportName;
+                        document.getElementById(badID3).innerText = monloc;
+                        document.getElementById(badID4).innerText = moncity;
+                        document.getElementById(badID5).innerText = monlength;
+                        document.getElementById(badID6).innerText = monspots;
+                        document.getElementById(badID7).innerText = monprice;
+
+
+
+                    })
+                })
+        }
+
+        // writeYogaSpots();
+        displayYoga();
+    </script>
+    <script>
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        var m = new Date();
+        m.setDate(m.getDate() + ((7 - m.getDay()) % 7 + 1) % 7);
+        const t = new Date();
+        t.setDate(t.getDate() + ((7 - t.getDay()) % 7 + 2) % 8);
+        const w = new Date();
+        w.setDate(w.getDate() + ((7 - w.getDay()) % 7 + 3) % 9);
+        const th = new Date();
+        th.setDate(th.getDate() + ((7 - th.getDay()) % 7 + 4) % 10);
+        const f = new Date();
+        f.setDate(f.getDate() + ((7 - f.getDay()) % 7 + 5) % 11);
+
+        document.getElementById("testdate").innerText = m.toLocaleDateString("en-US", options);
+        document.getElementById("nextmonday").innerText = m.toLocaleDateString("en-US", options);
+        document.getElementById("nexttuesday").innerText = t.toLocaleDateString("en-US", options);
+        document.getElementById("nextwednesday").innerText = w.toLocaleDateString("en-US", options);
+        document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options);
+        document.getElementById("nextfriday").innerText = f.toLocaleDateString("en-US", options);
+
+    </script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>

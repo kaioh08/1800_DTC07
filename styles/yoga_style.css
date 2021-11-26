@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+
+* {
+    font-family: 'Nunito', sans-serif;
+
+}
+
+body {
+    position: relative;
+    background-color: #EDAFB8;
+
+}
+
+#first_session{
+    margin-bottom: 15px;
+    padding-top: 20px;
+    height: 240px;
+    color: black;
+    background-color: #F7E1D7;
+}
+
+#second_session{
+    margin-bottom: 15px;
+    padding-top: 20px;
+    height: 240px;
+    color: black;
+    background-color: #DEDBD2;
+}
+
+#third_session{
+    margin-bottom: 15px;
+    padding-top: 20px;
+    height: 240px;
+    color: black;
+    background-color: #B0C4B1;
+}
+
+#fourth_session{
+    margin-bottom: 15px;
+    padding-top: 20px;
+    height: 250px;
+    color: white;
+    background-color: #4A5759;
+}
+
+#fifth_session{
+    margin-bottom: 15px;
+    padding-top: 20px;
+    height: 250px;
+    color: white;
+    background-color: #845A6D;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.blacktext{
+    color: black;
+}
+
+.btnn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: #3E1929;
+    border: 1px solid #040e17;
+    outline: none;
+    transition: 1s ease-in-out;
+    color: black;
+}
+
+
+.btnn:hover {
+    transition: 1s ease-in-out;
+    background: #646a71;
+}
+
+.btnn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btnn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.material-icons {
+    color: rgb(0, 115, 255);
+}
+
+#icon {
+    color: rgb(0, 115, 255);
+    position: relative;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    display: inline-block;
+}
+
+#badheader {
+    /* text-shadow: 2px 2px #090000; */
+    color: black;
+}
+
+
