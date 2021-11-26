@@ -169,15 +169,14 @@
         <div class="card-group" id="eventCardGroup">
 
             <template id="eventCardTemplate">
-                <div class="card" style="background-color: #1E88E5; color:white">
+                <div class="card mx-3" style="width: 18rem; background-color: #1E88E5; color:white">
                     <img class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">placeholder</h3>
                         <h4 class="card-mondate">...</h4>
                         <p class="card-monlength">placeholder</p>
                         <p class="card-moncity">placeholder</p>
-                        <a href="#" class="btn btn-primary" style="border:white 1px solid" onclick="deleteEvents()">Cancel Session</a>
-                        <button type="button" class="btn btn-primary" href="currently_booked.html" onclick="deleteEvents()">Go To My Events</button>
+                        <a href="#" class="btn btn-primary" style="border:white 1px solid">Cancel Session</a>
                     </div>
                 </div>
             </template>
@@ -189,32 +188,9 @@
             Events</button>
 
     </div> -->
-    <div class="container" style="width:20%">
-        <div class="card-group" id="hikeCardGroup">
 
-            <template id="hikeCardTemplate">
-                <div class="card">
-                    <img class="card-img-top" style="height: 50%">
-                    <div class="card-body">
-                        <h3 class="card-title">placeholder</h3>
-                        <h4 class="card-mondate">...</h4>
-                        <p class="card-monlength">placeholder</p>
-                        <p class="card-moncity">placeholder</p>
-                        <!-- <p class="card-monloc">placeholder</p>
-                        <p class="card-button">placeholder</p> -->
-                        <a href="#" class="btn btn-primary" style="float: right">Read more</a>
-
-                        <!-- <a class="card-href btn btn-primary" href="#">Get Details</a>
-                        <a href="#" class="btn btn-primary" style="float: right">Read more</a> -->
-                    </div>
-
-                </div>
-            </template>
-
-        </div>
-    </div>
     <div class="wrapper">
-        <button type="button" class="btn btn-primary" onclick="location.href='landing.html';">Book Another
+        <button type="button" class="btn btn-primary" onclick="location.href='events_page.html';">Book Another
             Session</button>
 
     </div>
@@ -254,12 +230,9 @@
     <script>
         function displaystuff() {
             firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
                 if (user) {
 
-                    //go to the correct user document by referencing to the user uid
                     currentUser = db.collection("users").doc(user.uid);
-                    //get the document for current user.
                     currentUser.get()
                         .then(userDoc => {
                             var user_Name = userDoc.data().name;
@@ -272,8 +245,8 @@
                             db.collection(email).get()
                                 .then(allEvents => {
                                     allEvents.forEach(doc => {
-                                        console.log(doc.data().date);
-                                        console.log("Sdfsdf");
+                                        // console.log(doc.data().date);
+                                        // console.log("Sdfsdf");
 
                                         var sportName = doc.data().name; //gets the name field
                                         var sportID = doc.data()
@@ -298,55 +271,26 @@
                                             moncity + ", " + monloc;
                                         testEventCard.querySelector('.card-mondate').innerHTML =
                                             mondate;
-                                        // testEventCard.querySelector('.card-monloc').innerHTML =
-                                        //     "<button class='btn btn-primary' onclick='console.log('sadasdas')'>Cancel Session</button>";
-                                        // console.log(sportID);
-                                        testEventCard.querySelector('a').onclick = () => db.collection(email).doc(sportID).delete();
+
+                                        testEventCard.querySelector('a').onclick = () => db
+                                            .collection(email).doc(sportID).delete().then(
+                                                StatusCompletedSucceeded());;
                                         testEventCard.querySelector('img').src =
                                             `./images/${sportID}.jpg`;
                                         eventCardGroup.appendChild(testEventCard);
-
                                     })
-
                                 })
 
-
-                            //method #1:  insert with html only
-                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                            //method #2:  insert using jquery
-                            $("#name-goes-here").text(user_Name); //using jquery
-
                         })
-
-
-
-
                 } else {
                     // No user is signed in.
                 }
             });
-
         }
-        function deleteEvents(){
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                    currentUser = db.collection("users").doc(user.uid);
-                    currentUser.get()
-                        .then(userDoc => {
-                            var user_Name = userDoc.data().name;
-                            var email = userDoc.data().email;
-                            db.collection(email).doc(code = "bad1").delete();
-                        })
-                        .then(location.reload(true))
+        async function StatusCompletedSucceeded() {
+        
 
-
-
-
-                } else {
-                    // No user is signed in.
-                }
-            });
-
+            
         }
 
         displaystuff();
