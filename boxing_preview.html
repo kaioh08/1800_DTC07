@@ -276,8 +276,8 @@
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
         <i id="home" class="material-icons">home</i>
         <i id="search" class="material-icons">search</i>
-        <i id="help" class="material-icons">help_outline</i>
-        <i id="schedule" class="material-icons">calendar_today</i>
+        <a href="help.html"><i id="help" class="material-icons">help_outline</i></a>
+        <a href="currently_booked.html"><i id="schedule" class="material-icons">calendar_today</i></a>
     </div>
 
     <footer class="navbar justify-content-evenly fixed-bottom">
@@ -288,6 +288,54 @@
     </footer>
 
     <script>
+        function addBoxThur() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            var email = userDoc.data().email;
+                            console.log(user_Name);
+                            var currentUser = db.collection(email);
+                            currentUser.add({
+                                    code: "box1",
+                                    name: "Boxing",
+                                    code3: "monday3",
+                                    code4: "monday4",
+                                    code5: "monday5",
+                                    code6: "monday6",
+                                    code7: "monday7",
+                                    city: "Vancouver",
+                                    date: "Monday, Dec 6",
+                                    spots: "28/30",
+                                    location: "Delbrook Community Center",
+                                    age: "All Ages",
+                                    time: "6:30am - 8:30am",
+                                    price: "5$",
+                                })
+                                .then(userDoc => {
+                                    console.log(email);
+                                })
+
+                            //method #1:  insert with html only
+                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
+                            //method #2:  insert using jquery
+                            $("#name-goes-here").text(user_Name); //using jquery
+
+                        })
+
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+
         document.getElementById("book-mon-box").onclick = function () {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
