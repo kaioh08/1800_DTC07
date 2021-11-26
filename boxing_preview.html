@@ -59,7 +59,7 @@
         padding-top: 20px;
         height: 240px;
         color: #fff;
-        background-color: #1E88E5;
+        background-color: #673ab7;
     }
 
     #basketball,
@@ -85,7 +85,7 @@
         padding-top: 20px;
         height: 240px;
         color: #fff;
-        background-color: #ff9800;
+        background-color: #1E88E5;
     }
 
     #dance {
@@ -157,7 +157,7 @@
         display: inline-block;
     }
 
-    #badheader {
+    #boxheader {
         /* text-shadow: 2px 2px #090000; */
         color: rgb(255, 255, 255);
     }
@@ -183,7 +183,7 @@
         </div>
     </nav>
 
-    <div id="badheader">
+    <div id="boxheader">
         <h3>You are previewing sessions for: </h3>
         <h3 class="card-title" id="box1">Sport Name</h3>
         <h3>Week of: <span id="testdate">Date</span></h3>
@@ -196,7 +196,7 @@
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <button class="btnn" id="book-mon-bad" onclick="addBadThur(); myFunction()">
+        <button class="btnn" id="book-mon-box" onclick="addBadThur(); myFunction()">
             <span>Book it</span>
         </button>
 
@@ -210,7 +210,7 @@
         <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
         <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span
                 id="tuesday7">...</span></p>
-        <button class="btnn" id="book-tues-bad" onclick="setBookingData('box1')">
+        <button class="btnn" id="book-tues-box" onclick="setBookingData('box1')">
             <span>Book it</span>
         </button>
     </div>
@@ -223,7 +223,7 @@
         <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
         <p>Duration: <span id="wednesday5">...</span>, Available Spots: <span id="wednesday6">...</span>, <span
                 id="wednesday7">...</span></p>
-        <button class="btnn" id="book-weds-bad" onclick="setBookingData('box1')">
+        <button class="btnn" id="book-weds-box" onclick="setBookingData('box1')">
             <span>Book it</span>
         </button>
     </div>
@@ -234,7 +234,7 @@
         <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
         <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
                 id="thursday7">...</span></p>
-        <button class="btnn" id="book-thurs-bad" onclick="addBadThur('box1')">
+        <button class="btnn" id="book-thurs-box" onclick="addBadThur('box1')">
             <span>Book it</span>
         </button>
     </div>
@@ -246,7 +246,7 @@
         <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
         <p>Duration: <span id="friday5">...</span>, Available Spots: <span id="friday6">...</span>, <span
                 id="friday7">...</span></p>
-        <button class="btnn" id="book-fri-bad" onclick="setBookingData('box1')">
+        <button class="btnn" id="book-fri-box" onclick="setBookingData('box1')">
             <span>Book it</span>
         </button>
     </div>
@@ -267,7 +267,10 @@
         <p>See more sessions</p>
     </div> -->
 
+    <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
 
 
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
@@ -284,13 +287,8 @@
         <span id="schedulelabel">Bookings</span>
     </footer>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
-
     <script>
-        document.getElementById("book-mon-bas").onclick = function () {
+        document.getElementById("book-mon-box").onclick = function () {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
                     code: "box1",
@@ -313,7 +311,7 @@
 
         };
 
-        function writeBadSpots() {
+        function writeboxSpots() {
             //define a variable for the collection you want to create in Firestore to populate data
             var boxingRef = db.collection("Boxing");
             boxingRef.add({
@@ -428,14 +426,14 @@
                         var sportID = doc.data().code;
                         //gets the unique ID field
                         //hange the badminton ode to class
-                        // var badDate = doc.data().date // gest date
-                        // var badSpot = doc.data().spots
-                        var badID3 = doc.data().code3;
-                        var badID4 = doc.data().code4;
-                        var badID5 = doc.data().code5;
-                        var badID6 = doc.data().code6;
-                        var badID7 = doc.data().code7;
-                        var badID8 = doc.data().code8;
+                        // var boxDate = doc.data().date // gest date
+                        // var boxSpot = doc.data().spots
+                        var boxID3 = doc.data().code3;
+                        var boxID4 = doc.data().code4;
+                        var boxID5 = doc.data().code5;
+                        var boxID6 = doc.data().code6;
+                        var boxID7 = doc.data().code7;
+                        var boxID8 = doc.data().code8;
 
                         var monloc = doc.data().location;
                         var moncity = doc.data().city;
@@ -445,11 +443,11 @@
 
                         console.log(sportID);
                         document.getElementById(sportID).innerText = sportName;
-                        document.getElementById(badID3).innerText = monloc;
-                        document.getElementById(badID4).innerText = moncity;
-                        document.getElementById(badID5).innerText = monlength;
-                        document.getElementById(badID6).innerText = monspots;
-                        document.getElementById(badID7).innerText = monprice;
+                        document.getElementById(boxID3).innerText = monloc;
+                        document.getElementById(boxID4).innerText = moncity;
+                        document.getElementById(boxID5).innerText = monlength;
+                        document.getElementById(boxID6).innerText = monspots;
+                        document.getElementById(boxID7).innerText = monprice;
 
 
 
@@ -458,10 +456,9 @@
         }
 
 
-        // writeBadSpots();
+        // writeBoxSpots();
         // myFunction();
         displayBoxing();
-        
     </script>
     <script>
         var options = {
