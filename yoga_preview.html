@@ -43,7 +43,6 @@
 
 
 <body>
-=======
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,7 +67,7 @@
 
     <div id="yogheader">
         <h3>You are previewing sessions for: </h3>
-        <h3 class="card-title" id="yog1">Sport Name</h3>
+        <h3 class="card-title" id="yoga1">Sport Name</h3>
         <h3>Week of: <span id="testdate">Date</span></h3>
 
     </div>
@@ -208,15 +207,9 @@
                 if (user) {
 
                     //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid);
+                    currentUser = db.collection("users").doc(user.uid).collection("savedSports");
                     //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            var user_Name = userDoc.data().name;
-                            var email = userDoc.data().email;
-                            console.log(user_Name);
-                            var currentUser = db.collection(email);
-                            currentUser.doc("yoga1").set({
+                    currentUser.doc("yoga1").set({
                                     code: "yoga1",
                                     name: "Yoga",
                                     code3: "monday3",
@@ -238,7 +231,6 @@
                     console.log("doesi t write?");
                 })
 
-                        })
 
                 } else {
                     // No user is signed in.
@@ -304,13 +296,8 @@
                 time: "10:30am - 12:30am",
                 price: "5$",
             });
-<<<<<<< HEAD
             yogaRef.add({
                 code: "yoga3",
-=======
-            basketballRef.add({
-                code: "yog3",
->>>>>>> 50d8b53f487b58f54d36fc25db76a3cc1315bdac
                 name: "",
                 code3: "wednesday3",
                 code4: "wednesday4",
