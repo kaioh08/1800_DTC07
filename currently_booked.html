@@ -123,9 +123,9 @@
         <a id="display" href="landing.html" ><span>Book an event!</span></a>
   </div> -->
     <!-- <div class="container"> -->
-        <h1>Your Booked Sessions</h1>
-        <!-- Here is container for cards  -->
-        <!-- <div class="container">
+    <h1>Your Booked Sessions</h1>
+    <!-- Here is container for cards  -->
+    <!-- <div class="container">
             <div id="countries-go-here" class="row row-cols-auto">
 
 
@@ -165,21 +165,19 @@
     </div>
 </div> -->
 
-    <div class="container">
+    <div class="container" style="width:70%">
         <div class="card-group" id="eventCardGroup">
 
             <template id="eventCardTemplate">
-                <div class="card">
+                <div class="card" style="background-color: #1E88E5; color:white">
                     <img class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">placeholder</h3>
                         <h4 class="card-mondate">...</h4>
                         <p class="card-monlength">placeholder</p>
                         <p class="card-moncity">placeholder</p>
-                        <p class="card-monloc">This card has supporting text below as a natural lead-in to additional
-                            content.
-                        </p>
-                        <!-- <a href="#" class="btn btn-primary" style="float: right">Read more</a> -->
+                        <a href="#" class="btn btn-primary" style="border:white 1px solid" onclick="deleteEvents()">Cancel Session</a>
+                        <button type="button" class="btn btn-primary" href="currently_booked.html" onclick="deleteEvents()">Go To My Events</button>
                     </div>
                 </div>
             </template>
@@ -191,29 +189,33 @@
             Events</button>
 
     </div> -->
-    <div class="container">
+    <div class="container" style="width:20%">
         <div class="card-group" id="hikeCardGroup">
 
             <template id="hikeCardTemplate">
                 <div class="card">
-                    <img class="card-img-top">
+                    <img class="card-img-top" style="height: 50%">
                     <div class="card-body">
                         <h3 class="card-title">placeholder</h3>
                         <h4 class="card-mondate">...</h4>
                         <p class="card-monlength">placeholder</p>
                         <p class="card-moncity">placeholder</p>
-                        <p class="card-monloc">This card has supporting text below as a natural lead-in to additional
-                            content.
-                        </p>
-                        <!-- <a href="#" class="btn btn-primary" style="float: right">Read more</a> -->
+                        <!-- <p class="card-monloc">placeholder</p>
+                        <p class="card-button">placeholder</p> -->
+                        <a href="#" class="btn btn-primary" style="float: right">Read more</a>
+
+                        <!-- <a class="card-href btn btn-primary" href="#">Get Details</a>
+                        <a href="#" class="btn btn-primary" style="float: right">Read more</a> -->
                     </div>
+
                 </div>
             </template>
 
         </div>
     </div>
     <div class="wrapper">
-        <button type="button" class="btn btn-primary" onclick="location.href='landing.html';" >Book Another Session</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='landing.html';">Book Another
+            Session</button>
 
     </div>
 
@@ -293,16 +295,19 @@
                                         testEventCard.querySelector('.card-monlength')
                                             .innerHTML = monlength;
                                         testEventCard.querySelector('.card-moncity').innerHTML =
-                                            moncity;
+                                            moncity + ", " + monloc;
                                         testEventCard.querySelector('.card-mondate').innerHTML =
                                             mondate;
-                                        testEventCard.querySelector('.card-monloc').innerHTML =
-                                            monloc;
-                                        console.log(sportID);
-                                        testEventCard.querySelector('img').src = `./images/${sportID}.jpg`;
+                                        // testEventCard.querySelector('.card-monloc').innerHTML =
+                                        //     "<button class='btn btn-primary' onclick='console.log('sadasdas')'>Cancel Session</button>";
+                                        // console.log(sportID);
+                                        testEventCard.querySelector('a').onclick = () => db.collection(email).doc(sportID).delete();
+                                        testEventCard.querySelector('img').src =
+                                            `./images/${sportID}.jpg`;
                                         eventCardGroup.appendChild(testEventCard);
 
                                     })
+
                                 })
 
 
@@ -313,8 +318,8 @@
 
                         })
 
-             
-   
+
+
 
                 } else {
                     // No user is signed in.
@@ -322,7 +327,27 @@
             });
 
         }
+        function deleteEvents(){
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    currentUser = db.collection("users").doc(user.uid);
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            var email = userDoc.data().email;
+                            db.collection(email).doc(code = "bad1").delete();
+                        })
+                        .then(location.reload(true))
 
+
+
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+
+        }
 
         displaystuff();
     </script>
