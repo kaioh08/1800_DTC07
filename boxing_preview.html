@@ -79,6 +79,7 @@
         color: #fff;
         background-color: #ff9800;
     }
+
     #Boxing {
         margin-bottom: 15px;
         padding-top: 20px;
@@ -289,92 +290,22 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
 
     <script>
-        function addBadThur() {
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {
-
-                    //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid);
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            var user_Name = userDoc.data().name;
-                            var email = userDoc.data().email;
-                            console.log(user_Name);
-                            var currentUser = db.collection(email);
-                            currentUser.add({
-                                    code: "box1",
-                                    name: "Boxing",
-                                    code3: "monday3",
-                                    code4: "monday4",
-                                    code5: "monday5",
-                                    code6: "monday6",
-                                    code7: "monday7",
-                                    city: "Vancouver",
-                                    date: "Monday, Dec 6",
-                                    spots: "28/30",
-                                    location: "Delbrook Community Center",
-                                    age: "All Ages",
-                                    time: "6:30am - 8:30am",
-                                    price: "5$",
-                                })
-                                .then(userDoc => {
-                                    console.log(email);
-                                })
-
-                            //method #1:  insert with html only
-                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                            //method #2:  insert using jquery
-                            $("#name-goes-here").text(user_Name); //using jquery
-
-                        })
-
-
-                } else {
-                    // No user is signed in.
-                }
-            });
-        }
-
-
-        // document.getElementById("book-mon-bad").addEventListener(click, myFunction);
-        // function myFunction() {
-        //     var badmintonMonRef = db.collection("temp_data");
-        //     badmintonMonRef.add({
-        //         id: "BBY01",
-        //         code: "BBY01",
-        //         name: "Outside My house Lake Park Trail", //replace with your own city?
-        //         city: "Burnaby",
-        //         province: "BC",
-        //         level: "easy",
-        //         length: "10 km",
-        //         length_time: "2h 33mm"
-        //     })
-        //     .then(() => {
-        //                 location.href = "confirmation.html";
-        //             })
-        //             .catch((error) => {
-        //                     console.error("Error writing document: ", error);
-        //                 });;
-        // }
-
-        document.getElementById("book-mon-bad").onclick = function () {
+        document.getElementById("book-mon-bas").onclick = function () {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
-                code: "box1",
-                name: "Boxing",
-                city: "Vancouver",
-                date: "Monday, Dec 6",
-                spots: "28/30",
-                location: "Delbrook Community Center",
-                age: "All Ages",
-                time: "6:30am - 8:30am",
-                price: "5$",
+                    code: "box1",
+                    name: "Boxing",
+                    city: "Vancouver",
+                    date: "Monday, Dec 6",
+                    spots: "28/30",
+                    location: "Delbrook Community Center",
+                    age: "All Ages",
+                    time: "6:30am - 8:30am",
+                    price: "5$",
                 })
                 .then(() => {
                     location.href = "confirmation.html";
-                    console.log("doesi t write?");
+                    console.log("does it write?");
                 })
                 .catch((error) => {
                     console.error("Error writing document: ", error);
@@ -530,6 +461,7 @@
         // writeBadSpots();
         // myFunction();
         displayBoxing();
+        
     </script>
     <script>
         var options = {
