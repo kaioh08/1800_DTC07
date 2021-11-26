@@ -53,13 +53,13 @@
 
     }
 
-    #badminton,
+    #Basketball,
     #table {
         margin-bottom: 15px;
         padding-top: 20px;
         height: 240px;
         color: #fff;
-        background-color: #673ab7;
+        background-color: #1E88E5;
     }
 
     #basketball,
@@ -78,14 +78,6 @@
         height: 240px;
         color: #fff;
         background-color: #ff9800;
-    }
-
-    #Boxing {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 240px;
-        color: #fff;
-        background-color: #1E88E5;
     }
 
     #dance {
@@ -157,7 +149,7 @@
         display: inline-block;
     }
 
-    #boxheader {
+    #yogheader {
         /* text-shadow: 2px 2px #090000; */
         color: rgb(255, 255, 255);
     }
@@ -183,70 +175,70 @@
         </div>
     </nav>
 
-    <div id="boxheader">
+    <div id="yogheader">
         <h3>You are previewing sessions for: </h3>
-        <h3 class="card-title" id="box1">Sport Name</h3>
+        <h3 class="card-title" id="yog1">Sport Name</h3>
         <h3>Week of: <span id="testdate">Date</span></h3>
 
     </div>
 
 
-    <div id="Boxing" class="container-fluid">
+    <div id="yoga" class="container-fluid">
         <h4>Date: <span id="nextmonday">...</span></h4>
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
                 id="monday7">...</span></p>
-        <button class="btnn" id="book-mon-box" onclick="addBadThur(); myFunction()">
+        <button class="btnn" id="book-mon-yog" onclick="addBadThur(); myFunction()">
             <span>Book it</span>
         </button>
 
-        <h1 class="card-title" id="box2"></h1>
+        <h1 class="card-title" id="yog2"></h1>
 
 
         <br>
     </div>
-    <div id="boxing" class="container-fluid">
+    <div id="basketball" class="container-fluid">
         <h4>Date: <span id="nexttuesday">...</span></h4>
         <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
         <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span
                 id="tuesday7">...</span></p>
-        <button class="btnn" id="book-tues-box" onclick="setBookingData('box1')">
+        <button class="btnn" id="book-tues-yog" onclick="setBookingData('yog1')">
             <span>Book it</span>
         </button>
     </div>
 
-    <h1 class="card-title" id="box3"></h1>
+    <h1 class="card-title" id="yog3"></h1>
 
 
-    <div id="badminton" class="container-fluid">
+    <div id="boxing" class="container-fluid">
         <h4>Date: <span id="nextwednesday">...</span></h4>
         <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
         <p>Duration: <span id="wednesday5">...</span>, Available Spots: <span id="wednesday6">...</span>, <span
                 id="wednesday7">...</span></p>
-        <button class="btnn" id="book-weds-box" onclick="setBookingData('box1')">
+        <button class="btnn" id="book-weds-yog" onclick="setBookingData('yog1')">
             <span>Book it</span>
         </button>
     </div>
-    <h1 class="card-title" id="box4"></h1>
+    <h1 class="card-title" id="yog4"></h1>
 
     <div id="dance" class="container-fluid">
         <h4>Date: <span id="nextthursday">...</span></h4>
         <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
         <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
                 id="thursday7">...</span></p>
-        <button class="btnn" id="book-thurs-box" onclick="addBadThur()">
+        <button class="btnn" id="book-thurs-yog" onclick="setBookingData('yog1')">
             <span>Book it</span>
         </button>
     </div>
 
-    <h1 class="card-title" id="box5"></h1>
+    <h1 class="card-title" id="yog5"></h1>
 
     <div id="soccer" class="container-fluid">
         <h4>Date: <span id="nextfriday">...</span></h4>
         <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
         <p>Duration: <span id="friday5">...</span>, Available Spots: <span id="friday6">...</span>, <span
                 id="friday7">...</span></p>
-        <button class="btnn" id="book-fri-box" onclick="setBookingData('box1')">
+        <button class="btnn" id="book-fri-yog" onclick="setBookingData('yog1')">
             <span>Book it</span>
         </button>
     </div>
@@ -267,10 +259,7 @@
         <p>See more sessions</p>
     </div> -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
 
 
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
@@ -287,12 +276,87 @@
         <span id="schedulelabel">Bookings</span>
     </footer>
 
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
+
     <script>
-        document.getElementById("book-mon-box").onclick = function () {
+        // document.getElementById("book-mon-bas").addEventListener(click, myFunction);
+        // function myFunction() {
+        //     var BasketballMonRef = db.collection("temp_data");
+        //     BasketballMonRef.add({
+        //         id: "BBY01",
+        //         code: "BBY01",
+        //         name: "Outside My house Lake Park Trail", //replace with your own city?
+        //         city: "Burnaby",
+        //         province: "BC",
+        //         level: "easy",
+        //         length: "10 km",
+        //         length_time: "2h 33mm"
+        //     })
+        //     .then(() => {
+        //                 location.href = "confirmation.html";
+        //             })
+        //             .catch((error) => {
+        //                     console.error("Error writing document: ", error);
+        //                 });;
+        // }
+
+        function addBadThur() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            var email = userDoc.data().email;
+                            console.log(user_Name);
+                            var currentUser = db.collection(email);
+                            currentUser.add({
+                                    code: "yog1",
+                                    name: "Yoga and Meditation",
+                                    code3: "monday3",
+                                    code4: "monday4",
+                                    code5: "monday5",
+                                    code6: "monday6",
+                                    code7: "monday7",
+                                    city: "Vancouver",
+                                    date: "Monday, Dec 6",
+                                    spots: "28/30",
+                                    location: "Delbrook Community Center",
+                                    age: "All Ages",
+                                    time: "6:30am - 8:30am",
+                                    price: "5$",
+                                })
+                                .then(userDoc => {
+                                    console.log(email);
+                                })
+
+                            //method #1:  insert with html only
+                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
+                            //method #2:  insert using jquery
+                            $("#name-goes-here").text(user_Name); //using jquery
+
+                        })
+
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+
+
+        document.getElementById("book-mon-yog").onclick = function () {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
-                    code: "box1",
-                    name: "Boxing",
+                    code: "yog1",
+                    name: "Yoga and Meditation",
                     city: "Vancouver",
                     date: "Monday, Dec 6",
                     spots: "28/30",
@@ -311,12 +375,12 @@
 
         };
 
-        function writeboxSpots() {
+        function writeyogSpots() {
             //define a variable for the collection you want to create in Firestore to populate data
-            var boxingRef = db.collection("Boxing");
-            boxingRef.add({
-                code: "box1",
-                name: "Boxing",
+            var basketballRef = db.collection("yoga");
+            basketballRef.add({
+                code: "yog1",
+                name: "Yoga and Meditation",
                 code3: "monday3",
                 code4: "monday4",
                 code5: "monday5",
@@ -324,14 +388,14 @@
                 code7: "monday7",
                 city: "Vancouver",
                 date: "Monday, Dec 6",
-                spots: "12/30",
+                spots: "28/30",
                 location: "Delbrook Community Center",
                 age: "All Ages",
-                time: "5:30am - 8:30am",
+                time: "6:30am - 8:30am",
                 price: "5$",
             });
-            boxingRef.add({
-                code: "box2",
+            basketballRef.add({
+                code: "yog2",
                 name: "",
                 code3: "tuesday3",
                 code4: "tuesday4",
@@ -340,14 +404,14 @@
                 code7: "tuesday7",
                 city: "Burnaby",
                 date: "Tuesday, Dec 7",
-                spots: "21/30",
+                spots: "10/30",
                 location: "Bonsor Community Center",
                 age: "All Ages",
-                time: "11:00am - 12:30am",
+                time: "10:30am - 12:30am",
                 price: "5$",
             });
-            boxingRef.add({
-                code: "box3",
+            basketballRef.add({
+                code: "yog3",
                 name: "",
                 code3: "wednesday3",
                 code4: "wednesday4",
@@ -359,12 +423,12 @@
                 spots: "10/30",
                 location: "South Arm Community Center",
                 age: "All Ages",
-                time: "7:00am - 8:30am",
+                time: "6:30am - 8:30am",
                 price: "5$",
 
             });
-            boxingRef.add({
-                code: "box4",
+            basketballRef.add({
+                code: "yog4",
                 name: "",
                 code3: "thursday3",
                 code4: "thursday4",
@@ -376,12 +440,12 @@
                 spots: "10/30",
                 location: "Delbrooke Community Center",
                 age: "All Ages",
-                time: "7:00pm - 8:30pm",
+                time: "2 hours",
                 price: "5$",
 
             });
-            boxingRef.add({
-                code: "box5",
+            basketballRef.add({
+                code: "yog5",
                 name: "",
                 code3: "friday3",
                 code4: "friday4",
@@ -397,8 +461,8 @@
                 price: "5$",
             });
 
-            // badmintonRef.add({
-            //     code: "bad6",
+            // basketballRef.add({
+            //     code: "bas6",
             //     name: "",
             //     code2: "wednesday2",
             //     code3: "wednesday3",
@@ -418,22 +482,22 @@
 
         }
 
-        function displayBoxing() {
-            db.collection("Boxing").get()
+        function displayyoga() {
+            db.collection("yoga").get()
                 .then(allSpots => {
                     allSpots.forEach(doc => {
                         var sportName = doc.data().name; //gets the name field
                         var sportID = doc.data().code;
                         //gets the unique ID field
-                        //hange the badminton ode to class
-                        // var boxDate = doc.data().date // gest date
-                        // var boxSpot = doc.data().spots
-                        var boxID3 = doc.data().code3;
-                        var boxID4 = doc.data().code4;
-                        var boxID5 = doc.data().code5;
-                        var boxID6 = doc.data().code6;
-                        var boxID7 = doc.data().code7;
-                        var boxID8 = doc.data().code8;
+                        //hange the Basketball ode to class
+                        // var basDate = doc.data().date // gest date
+                        // var basSpot = doc.data().spots
+                        var yogID3 = doc.data().code3;
+                        var yogID4 = doc.data().code4;
+                        var yogID5 = doc.data().code5;
+                        var yogID6 = doc.data().code6;
+                        var yogID7 = doc.data().code7;
+                        var yogID8 = doc.data().code8;
 
                         var monloc = doc.data().location;
                         var moncity = doc.data().city;
@@ -443,11 +507,11 @@
 
                         console.log(sportID);
                         document.getElementById(sportID).innerText = sportName;
-                        document.getElementById(boxID3).innerText = monloc;
-                        document.getElementById(boxID4).innerText = moncity;
-                        document.getElementById(boxID5).innerText = monlength;
-                        document.getElementById(boxID6).innerText = monspots;
-                        document.getElementById(boxID7).innerText = monprice;
+                        document.getElementById(yogID3).innerText = monloc;
+                        document.getElementById(yogID4).innerText = moncity;
+                        document.getElementById(yogID5).innerText = monlength;
+                        document.getElementById(yogID6).innerText = monspots;
+                        document.getElementById(yogID7).innerText = monprice;
 
 
 
@@ -456,9 +520,9 @@
         }
 
 
-        // writeBoxSpots();
+        // writeyogSpots();
         // myFunction();
-        displayBoxing();
+        displayyoga();
     </script>
     <script>
         var options = {
@@ -490,11 +554,11 @@
         document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options);
         document.getElementById("nextfriday").innerText = f.toLocaleDateString("en-US", options);
 
-        // function writeBadSpots2() {
+        // function writebasSpots2() {
         //     //define a variable for the collection you want to create in Firestore to populate data
-        //     var badmintonsRef = db.collection("Badminton2");
-        //     badmintonsRef.add({
-        //         code: "bad12",
+        //     var BasketballsRef = db.collection("Basketball2");
+        //     BasketballsRef.add({
+        //         code: "bas12",
         //     })
         // }
         // const d = new Date();
@@ -512,7 +576,7 @@
         //     })
         // }
         // writeDate();
-        // writeBadSpots2();
+        // writebasSpots2();
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
