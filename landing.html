@@ -2,325 +2,307 @@
 <html>
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- Google Icons (Material Design)-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <title>My BCIT Project</title>
-  <meta name="comp1800 boilerplate code" content="Book It">
-  <meta name="author" content="BCIT">
-  <!-- Bootstrap FirebaseUI CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
-  <!-- Google Icons (Material Design)-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Firebase 8 CDNs-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-  </script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-
-
-  <!-- Link to the api keys for your firebase project -->
-  <script src="./scripts/firebaseAPI.js"></script>
-
-</head>
-
-<style>
-              @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+    <title>My BCIT Project</title>
+    <meta name="comp1800 boilerplate code" content="Book It">
+    <meta name="author" content="BCIT">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
 *{
   font-family: 'Nunito', sans-serif;
 
 }
-  body {
+        .container {
+
+            text-align: center;
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: center;
+            background-position: center;
+
+        }
+
+        .box {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            border: 4px black solid;
+            border-radius: 20px;
+        }
+
+        #logo {
+            font-size: 100px;
+        }
+
+        #desciption {
+            font-size: 40px;
+        }
+
+        #button {
+            margin-top: 40%;
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        .wrapper {
+            text-align: center;
+            bottom: 40%;
+            position: relative;
+        }
+
+        /* a.button {
+            font-size:50px;
+            position: relative;
+            margin-top: 100px;
+            justify-content: center;
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            padding: 20px 40px;
+            margin: 20px;
+            cursor: pointer;
+            clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
+            transition: all .5s;
+
+        } */
+
+        .wrapper{    
+            text-align: center;
+    justify-content: center;  
+    top: 45px;
+    padding: 2em;
+    overflow: hidden;
+    grid-column: 1/11;
+    grid-row: 12/ span 4;
     position: relative;
 
-  }
-
-  #badminton,
-  #table {
-    margin-bottom: 15px;
-    padding-top: 20px;
-    height: 240px;
-    color: #fff;
-    background-color: #1E88E5;
-  }
-
-  #basketball,
-  #volleyball {
-    margin-bottom: 15px;
-    padding-top: 20px;
-    height: 240px;
-    color: #fff;
-    background-color: #673ab7;
-  }
-
-  #yoga {
-    margin-bottom: 15px;
-    padding-top: 20px;
-    height: 240px;
-    color: #fff;
-    background-color: #ff9800;
-  }
-  #boxing,
-  #dance {
-    margin-bottom: 15px;
-    padding-top: 20px;
-    height: 250px;
-    color: #fff;
-    background-color: #00bcd4;
-  }
-
-  #soccer {
-    margin-bottom: 15px;
-    padding-top: 20px;
-    height: 250px;
-    color: #fff;
-    background-color: #009688;
-  }
-
-  .bball{
-    float: right;
-    width: 60;
-    height: 240px;
-    left:11px;
-    bottom: 20px;
-    position: relative;
-    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
-  }
-
-  .link{
-    color:white;
-  }
-
-  .material-icons{
-            color: rgb(0, 115, 255);
-    }
-    #icon {
-        color: rgb(0, 115, 255);
-        position: relative;
-        font-family: "Avenir Next", sans-serif;
-        font-weight: 900;
-        text-transform: uppercase;
-        font-style: italic;
-        letter-spacing: 0.05em;
-        display: inline-block;
-    }
-
-    #box{
-      height: 250px;
-    }
-</style>
-
-<body class="bg-warning">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" id="icon" href="#"><i class="material-icons"></i>Book It</a>
-      <div class="btn-group">
-        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="material-icons">account_circle</i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><button class="dropdown-item" type="button">Account</button></li>
-          <li><button class="dropdown-item" type="button">History</button></li>
-          <li><button class="dropdown-item" type="button">FAQ</button></li>
-          <li><button class="dropdown-item" type="button">Settings</button></li>
-          <li><button class="dropdown-item" type="button">Log out</button></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   
-  <div class="container-fluid bg-warning text-light p-1">
-        <h1 class="display-4">Hello, <span id="name-goes-here"></span></h1>
-        <hr>
-        <p>Pick a session from below:</p>
-</div>
-
-  <div id="badminton" class="container-fluid">
-    <h5> <span class="card-title" id="bad1">Sport Name </span><span><img  class="bball" src="https://t4.ftcdn.net/jpg/03/08/07/57/240_F_308075782_n2CmkdBKAqF956PUbTKhIg8D2yTws1iW.jpg"></span></h5>
-    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30    
-    </p>
-    <p><a class="link" href="badminton_preview.html">See more sessions</a></p>
-    <p>Available in: Vancouver, Burnaby</p>
-
-
-    <br>
-  </div>
-  <div id="basketball" class="container-fluid">
-    <h5> <span class="card-title" id="basket1">Sport Name </span><span><img class="bball" src="https://media.istockphoto.com/photos/basketball-picture-id959080376?k=20&m=959080376&s=612x612&w=0&h=qekj8Q8B6faam_E7gnFzaK8RnK-bvicEqV9xHHh_oGM="></span></h5>
-    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-    <p><a class="link" href="basketball_preview.html">See more sessions</a></p>
-    <p>Available in: Vancouver, Burnaby</p>
-
-  </div>
-  <div id="boxing" class="container-fluid">
-    <h5> <span class="card-title" id="box1">Sport Name </span><span><img class="bball" id="box" src="https://t4.ftcdn.net/jpg/01/84/47/23/360_F_184472311_SsM63mVSnlJ2BDlKY4CrSkj45vwX0ofJ.jpg"></span></h5>
-      <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-      <p><a class="link" href="boxing_preview.html">See more sessions</a></p>
-      <p>Available in: Vancouver, Burnaby</p>
-  </div>
-  <div id="yoga" class="container-fluid">
-    <h5> <span class="card-title" id="yog1">Sport Name</span><span> <img class="bball" src="https://t4.ftcdn.net/jpg/03/02/02/87/360_F_302028765_gsJIkiJSeHQ2ltZGvytuTmsmgTPCshCP.jpg"></span></h5>
-      <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-      <p><a class="link" href="yoga_preview.html">See more sessions</a></p>
-      <p>Available in: Vancouver, Burnaby</p>
-  </div>
-  <div id="volleyball" class="container-fluid">
-    <h5> <span class="card-title" id="volley1">Sport Name </span><span> <img class="bball" src="https://media.istockphoto.com/photos/volleyball-in-an-empty-gym-picture-id171247618?k=20&m=171247618&s=612x612&w=0&h=A6RLdEUY7OCuN1WKYkVyWUaUlXVn-78oSnwrKbC8LqE="></span></h5>
-      <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-      <p><a class="link" href="vollyball_preview.html">See more sessions</a></p>
-      <p>Available in: Vancouver, Burnaby</p>
-  </div>
-  <div id="dance" class="container-fluid">
-    <h1>Dance Class</h1>
-    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-    <p>See more sessions</p>
-  </div>
-  <div id="soccer" class="container-fluid">
-    <h1>Soccer</h1>
-    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-    <p>See more sessions</p>
-  </div>
-  <div id="table" class="container-fluid">
-    <h1>Table Tennis</h1>
-    <p>Upcomming Session: Friday, NOVEMBER 05 12:30-2:30</p>
-    <p>See more sessions</p>
-  </div>
+  }
+  
+  #display{
+    padding: 2em;
+    width: 200%;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    box-shadow: 5px 10px 8px #888888;
+  
+  }
+  
+  #display span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  #display:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(0, 115, 255);
+    transition: all .35s;
+  }
+  
+  #display:hover{
+    color: #fff;
+  }
+  
+  #display:hover:after{
+    width: 100%;
+  }
 
 
 
-  <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
-    <i id="home" class="material-icons">home</i>
-    <i id="search" class="material-icons">search</i>
-    <i id="help" class="material-icons">help_outline</i>
-    <i id="schedule" class="material-icons">calendar_today</i>
-</div>
-
-<footer class="navbar justify-content-evenly fixed-bottom">
-    <span id="homelabel">Home</span>
-    <span id="searchlabel">Search</span>
-    <span id="helplabel">Help</span>
-    <span id="schedulelabel">Bookings</span>
-</footer>
 
 
-  <!-- Optional JavaScript; choose one of the two! -->
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" -->
-    
-    <script>
-function insertName() {
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {                                              
-                    // Do something for the current logged-in user here: 
-                    console.log(user.uid);
-                    //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid);
-                    //get the document for current user.
-                    currentUser.get()
-                    .then(userDoc => {
-                        var user_Name = userDoc.data().name;
-                        console.log(user_Name);
-                        //method #1:  insert with html only
-                        //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                        //method #2:  insert using jquery
-                        $("#name-goes-here").text(user_Name);                         //using jquery
-                    })
-                } else {
-                    // No user is signed in.
-                }
-            });
+
+
+
+        .next {
+            font-size: 13px;
+        }
+
+        div.scrollmenu {
+
+            margin-top: 10%;
+            background-color: #333;
+            overflow: auto;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        div.scrollmenu a {
+            font-size: 40px;
+            height: 200px;
+            width: 250px;
+            border: white solid 2px;
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
         }
 
 
-    function writeSports() {
-      //define a variable for the collection you want to create in Firestore to populate data
-      var sportsRef = db.collection("Available Sports");
-      sportsRef.add({
-        code: "bad1",
-        name: "Badminton",
-        city: "Vancouver, Burnaby",
-        spots: "25/30",
-        level: "HARD AF",
-        age: "0-1 yers old",
-        duraction: "2h 30min",
-      });
-      sportsRef.add({
-        code: "basket1",
-        name: "Basketball",
-        city: "Vancouver",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
-      });
-      sportsRef.add({
-        code: "box1",
-        name: "Boxing",
-        city: "Vancouver",
-        spots: "18/30",
-        level: "Causal",
-        age: "16+",
-        duraction: "2h 30min",
-      });
-      sportsRef.add({
-        code: "volley1",
-        name: "Volleyball",
-        city: "Vancouver, Burnaby",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
-      });
-      sportsRef.add({
-        code: "yoga1",
-        name: "Yoga and Meditation",
-        city: "Vancouver, Burnaby",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
-      });
-    }
-    // writeSports();
+
+       #logo span{
+            color: rgb(0, 115, 255);
+            position: relative;
+            font-family: "Avenir Next", sans-serif;
+            font-weight: 900;
+            font-size: 64px;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        /* We create a pseudo element and blur it using the SVG filter. We’ll grab the content from the custom HTML attribute. */
+
+        span:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: attr(filter-content);
+
+            filter: url(#motion-blur-filter);
+        }
+
+        /* We hide the SVG filter element from the DOM as it would take up some space */
+
+        svg {
+            display: none;
+        }
+
+        div.scrollmenu a:hover {
+            background-color: #777;
+        }
+        .material-icons{
+            color: rgb(0, 115, 255);
+
+        }
+       #icon{
+            color: rgb(0, 115, 255);
+            position: relative;
+            font-family: "Avenir Next", sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="bg-warning">
 
 
-function displaySports() {
-           db.collection("Available Sports").get()
-	           .then(allSports => {
-		           allSports.forEach(doc => {
-			           var sportName = doc.data().name; //gets the name field
-			           var sportID = doc.data().code; //gets the unique ID field
-			           console.log(sportID);
-			           document.getElementById(sportID).innerText = sportName;
-           })
-           })
-                        }
-   displaySports();
-   insertName();
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="icon" href="#"><i class="material-icons"></i>Book It</a>
+            <div class="btn-group">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="material-icons">account_circle</i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><button class="dropdown-item" type="button">Account</button></li>
+                    <li><button class="dropdown-item" type="button">History</button></li>
+                    <li><button class="dropdown-item" type="button">FAQ</button></li>
+                    <li><button class="dropdown-item" type="button">Settings</button></li>
+                    <li><button class="dropdown-item" type="button">Log out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="logo"><span filter-content="S">Book It</span></h1>
+
+        <svg xmlns="http://www.w3.org/2000/svg">
+
+            <!-- filterUnits is required to prevent clipping the blur outside the viewBox -->
+
+            <filter id="motion-blur-filter" filterunits="userSpaceOnUse">
+
+                <!-- We only want horizontal blurring. x: 100, y: 0 -->
+
+                <fegaussianblur stddeviation="100 0"></fegaussianblur>
+            </filter>
+        </svg>
+        <div class="box">
+            <h2 id="desciption">Any sport with just a click of a button!</h2>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="wrapper"><a id="display" href="login_page.html" ><span>Log In</span></a></div>
 
 
-  </script>
 
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <!--
+    
+
+    <div class="scrollmenu bg-info">
+        <a id="basket" class="bg-success" href="#Baksetball">Baksetball<p class="next">Next Session: Wednesday Nov 10th
+            </p></a>
+        <a class="bg-primary" href="#Badminton">Badminton<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Soccer">Soccer<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Table">Table Tennis<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Boxing">Boxing<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Yoga">Yoga<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Skating">Skating<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Dance">Dance<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Pickleball">Pickleball<p class="next">Next Session: Wednesday Nov 10th</p></a>
+    </div>
+
+
+
+
+
+    <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
+        <i id="home" class="material-icons">home</i>
+        <i id="search" class="material-icons">search</i>
+        <i id="help" class="material-icons">help_outline</i>
+        <i id="schedule" class="material-icons">calendar_today</i>
+    </div>
+
+    <footer class="navbar justify-content-evenly fixed-bottom">
+        <span id="homelabel">Home</span>
+        <span id="searchlabel">Search</span>
+        <span id="helplabel">Help</span>
+        <span id="schedulelabel">Bookings</span>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->

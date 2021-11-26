@@ -296,7 +296,7 @@
                             var email = userDoc.data().email;
                             console.log(user_Name);
                             var currentUser = db.collection(email);
-                            currentUser.add({
+                            currentUser.doc("bad1").set({
                                     code: "bad1",
                                     name: "Badminton",
                                     code3: "monday3",
@@ -312,14 +312,11 @@
                                     time: "6:30am - 8:30am",
                                     price: "5$",
                                 })
-                                .then(userDoc => {
-                                    console.log(email);
-                                })
-
-                            //method #1:  insert with html only
-                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                            //method #2:  insert using jquery
-                            $("#name-goes-here").text(user_Name); //using jquery
+                                .then(add_to_temp())
+                                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("doesi t write?");
+                })
 
                         })
 
@@ -352,7 +349,7 @@
         //                 });;
         // }
 
-        document.getElementById("book-mon-bad").onclick = function () {
+        function add_to_temp() {
             var tempRef = db.collection("temp_data");
             tempRef.doc("test").set({
                 code: "bad1",
@@ -519,7 +516,7 @@
                 })
         }
 
-
+        // addBadThur();
         // writeBadSpots();
         // myFunction();
         displayBadminton();
@@ -541,12 +538,7 @@
         th.setDate(th.getDate() + ((7 - th.getDay()) % 7 + 4) % 10);
         const f = new Date();
         f.setDate(f.getDate() + ((7 - f.getDay()) % 7 + 5) % 11);
-        // function getMonday(n) {
-        //     n = new Date(n);
-        //     var day = n.getDay(),
-        //         diff = n.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
-        //     return new Date(n.setDate(diff));
-        // }
+
         document.getElementById("testdate").innerText = m.toLocaleDateString("en-US", options);
         document.getElementById("nextmonday").innerText = m.toLocaleDateString("en-US", options);
         document.getElementById("nexttuesday").innerText = t.toLocaleDateString("en-US", options);
@@ -554,29 +546,6 @@
         document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options);
         document.getElementById("nextfriday").innerText = f.toLocaleDateString("en-US", options);
 
-        // function writeBadSpots2() {
-        //     //define a variable for the collection you want to create in Firestore to populate data
-        //     var badmintonsRef = db.collection("Badminton2");
-        //     badmintonsRef.add({
-        //         code: "bad12",
-        //     })
-        // }
-        // const d = new Date();
-        // d.setDate(d.getDate() + ((7 - d.getDay()) % 7 + 1) % 7);
-        // getElementById("keke").innerText = d;
-
-        // function writeDate() {
-        //     // const d2 = new Date();
-        //     // d2.setDate(d2.getDate() + ((7 - d2.getDay()) % 7 + 1) % 7);
-        //     var dateRef = db.collection("datest")
-        //     dateRef.add({
-        //         code = "date1",
-        //         date = d,
-        //         date2 = d2,
-        //     })
-        // }
-        // writeDate();
-        // writeBadSpots2();
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
