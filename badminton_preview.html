@@ -288,14 +288,9 @@
                 if (user) {
 
                     //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid);
+                    currentUser = db.collection("users").doc(user.uid).collection("savedSports");
                     //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            var user_Name = userDoc.data().name;
-                            var email = userDoc.data().email;
-                            console.log(user_Name);
-                            var currentUser = db.collection(email);
+
                             currentUser.doc("bad1").set({
                                     code: "bad1",
                                     name: "Badminton",
@@ -316,7 +311,7 @@
                                 .then(() => {
                     location.href = "confirmation.html";
                     console.log("doesi t write?");
-                })
+
 
                         })
 
