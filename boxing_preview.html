@@ -199,7 +199,7 @@
             <span>Book it</span>
         </button>
 
-        <h1 class="card-title" id="bad2"></h1>
+        <h1 class="card-title" id="box2"></h1>
 
 
         <br>
@@ -214,7 +214,7 @@
         </button>
     </div>
 
-    <h1 class="card-title" id="bad3"></h1>
+    <h1 class="card-title" id="box3"></h1>
 
 
     <div id="badminton" class="container-fluid">
@@ -226,19 +226,19 @@
             <span>Book it</span>
         </button>
     </div>
-    <h1 class="card-title" id="bad4"></h1>
+    <h1 class="card-title" id="box4"></h1>
 
     <div id="dance" class="container-fluid">
         <h4>Date: <span id="nextthursday">...</span></h4>
         <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
         <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
                 id="thursday7">...</span></p>
-        <button class="btnn" id="book-thurs-bad" onclick="addBadThur()">
+        <button class="btnn" id="book-thurs-bad" onclick="addBadThur('box1')">
             <span>Book it</span>
         </button>
     </div>
 
-    <h1 class="card-title" id="bad5"></h1>
+    <h1 class="card-title" id="box5"></h1>
 
     <div id="soccer" class="container-fluid">
         <h4>Date: <span id="nextfriday">...</span></h4>
@@ -384,8 +384,8 @@
 
         function writeBadSpots() {
             //define a variable for the collection you want to create in Firestore to populate data
-            var badmintonRef = db.collection("Boxing");
-            badmintonRef.add({
+            var boxingRef = db.collection("Boxing");
+            boxingRef.add({
                 code: "box1",
                 name: "Boxing",
                 code3: "monday3",
@@ -401,7 +401,7 @@
                 time: "5:30am - 8:30am",
                 price: "5$",
             });
-            badmintonRef.add({
+            boxingRef.add({
                 code: "box2",
                 name: "",
                 code3: "tuesday3",
@@ -417,7 +417,7 @@
                 time: "11:00am - 12:30am",
                 price: "5$",
             });
-            badmintonRef.add({
+            boxingRef.add({
                 code: "box3",
                 name: "",
                 code3: "wednesday3",
@@ -434,7 +434,7 @@
                 price: "5$",
 
             });
-            badmintonRef.add({
+            boxingRef.add({
                 code: "box4",
                 name: "",
                 code3: "thursday3",
@@ -451,7 +451,7 @@
                 price: "5$",
 
             });
-            badmintonRef.add({
+            boxingRef.add({
                 code: "box5",
                 name: "",
                 code3: "friday3",
