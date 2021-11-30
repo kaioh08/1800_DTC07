@@ -114,56 +114,8 @@
             </div>
         </div>
     </nav>
-
-    <!-- <div id="top"><h1></h1></div>
-        <div id="current">This page shows your booked events! !</div>
-        <div id="nobook"><h1>You do not seem to have any events...</h1></div>
-
-        <div class="wrapper">
-        <a id="display" href="landing.html" ><span>Book an event!</span></a>
-  </div> -->
-    <!-- <div class="container"> -->
     <h1>Your Booked Sessions</h1>
-    <!-- Here is container for cards  -->
-    <!-- <div class="container">
-            <div id="countries-go-here" class="row row-cols-auto">
 
-
-            </div>
-        </div>
-    </div>
-    <template id="CardTemplate">
-        <div class="card py-2 mx-2" style="width: 18rem;">
-            <img class="card-image card-img-top" src=" ..." alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a class="card-href btn btn-primary" href="#">Get Details</a>
-            </div>
-        </div>
-    </template> -->
-
-    <!-- <div class="container">
-    <div class="card-group" id="hikeCardGroup">
-        
-        <template id="hikeCardTemplate">
-            <div class="card">
-                <img class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">placeholder</h5>
-                    <p class="card-length">placeholder</p>
-                    <a href="review.html" class="link-primary">Write a review</a>
-                    <br>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <a href="#" class="btn btn-primary" style="float: right">Read more</a>
-                </div>
-            </div>
-    </template>
-    
-    </div>
-</div> -->
 
     <div class="container" style="width:70%">
         <div class="card-group" id="eventCardGroup">
@@ -183,11 +135,6 @@
 
         </div>
     </div>
-    <!-- <div class="wrapper">
-        <button type="button" class="btn btn-primary" href="currently_booked.html" onclick="deleteData()">Go To My
-            Events</button>
-
-    </div> -->
 
     <div class="wrapper">
         <button type="button" class="btn btn-primary" onclick="location.href='events_page.html';">Book Another
@@ -198,10 +145,10 @@
 
 
     <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
-        <i id="home" class="material-icons">home</i>
+        <a href="events_page.html"><i id="home" class="material-icons">home</i></a>
         <i id="search" class="material-icons">search</i>
-        <i id="help" class="material-icons">help_outline</i>
-        <i id="schedule" class="material-icons">calendar_today</i>
+        <a href="help.html"><i id="help" class="material-icons">help_outline</i></a>
+        <a href="currently_booked.html"><i id="schedule" class="material-icons">calendar_today</i></a>
     </div>
 
     <footer class="navbar justify-content-evenly fixed-bottom">
@@ -213,10 +160,6 @@
 
     <!-- Optional JavaScript; choose one of the two! -->
 
-    <script>
-
-    </script>
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -227,74 +170,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-    <script>
-        function displaystuff() {
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-
-                    currentUser = db.collection("users").doc(user.uid);
-                    currentUser.get()
-                        .then(userDoc => {
-                            var user_Name = userDoc.data().name;
-                            var email = userDoc.data().email;
-                            console.log(user_Name);
-                            var currentUser = db.collection(email);
-                            let eventCardTemplate = document.getElementById("eventCardTemplate");
-                            let eventCardGroup = document.getElementById("eventCardGroup");
-
-                            db.collection(email).get()
-                                .then(allEvents => {
-                                    allEvents.forEach(doc => {
-                                        // console.log(doc.data().date);
-                                        // console.log("Sdfsdf");
-
-                                        var sportName = doc.data().name; //gets the name field
-                                        var sportID = doc.data()
-                                            .code; //gets the unique ID field
-                                        var sportName = doc.data().name;
-                                        var monloc = doc.data().location;
-                                        var moncity = doc.data().city;
-                                        var monlength = doc.data().time;
-                                        var monspots = doc.data().spots;
-                                        var monprice = doc.data().price;
-                                        var mondate = doc.data().date;
-                                        console.log(sportID);
-                                        // document.getElementById(sportID).innerText = sportName;
-                                        let testEventCard = eventCardTemplate.content.cloneNode(
-                                            true);
-
-                                        testEventCard.querySelector('.card-title').innerHTML =
-                                            sportName;
-                                        testEventCard.querySelector('.card-monlength')
-                                            .innerHTML = monlength;
-                                        testEventCard.querySelector('.card-moncity').innerHTML =
-                                            moncity + ", " + monloc;
-                                        testEventCard.querySelector('.card-mondate').innerHTML =
-                                            mondate;
-
-                                        testEventCard.querySelector('a').onclick = () => db
-                                            .collection(email).doc(sportID).delete().then(
-                                                StatusCompletedSucceeded());;
-                                        testEventCard.querySelector('img').src =
-                                            `./images/${sportID}.jpg`;
-                                        eventCardGroup.appendChild(testEventCard);
-                                    })
-                                })
-
-                        })
-                } else {
-                    // No user is signed in.
-                }
-            });
-        }
-        async function StatusCompletedSucceeded() {
-        
-
-            
-        }
-
-        displaystuff();
-    </script>
+    <script src="scripts/bookings.js"></script>
 </body>
 
 </html>
