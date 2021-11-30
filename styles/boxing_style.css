@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+
+    * {
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+    body {
+        position: relative;
+
+    }
+
+    #badminton,
+    #table {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        height: 240px;
+        color: #fff;
+        background-color: #673ab7;
+    }
+
+    #basketball,
+    #volleyball {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        height: 240px;
+        color: #fff;
+        background-color: #673ab7;
+    }
+
+    #boxing,
+    #yoga {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        height: 240px;
+        color: #fff;
+        background-color: #ff9800;
+    }
+
+    #Boxing {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        height: 240px;
+        color: #fff;
+        background-color: #1E88E5;
+    }
+
+    #dance {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        height: 250px;
+        color: #fff;
+        background-color: #00bcd4;
+    }
+
+    #soccer {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        height: 250px;
+        color: #fff;
+        background-color: #009688;
+    }
+
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #5CA4EA;
+        font-family: 'Lato', sans-serif;
+    }
+
+
+
+    .btnn {
+        width: 180px;
+        height: 60px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #91C9FF;
+        outline: none;
+        transition: 1s ease-in-out;
+    }
+
+
+    .btnn:hover {
+        transition: 1s ease-in-out;
+        background: #646a71;
+    }
+
+    .btnn:hover svg {
+        stroke-dashoffset: -480;
+    }
+
+    .btnn span {
+        color: white;
+        font-size: 18px;
+        font-weight: 100;
+    }
+
+    .material-icons {
+        color: rgb(0, 115, 255);
+    }
+
+    #icon {
+        color: rgb(0, 115, 255);
+        position: relative;
+        font-family: "Avenir Next", sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-style: italic;
+        letter-spacing: 0.05em;
+        display: inline-block;
+    }
+
+    #boxheader {
+        /* text-shadow: 2px 2px #090000; */
+        color: rgb(255, 255, 255);
+    }
