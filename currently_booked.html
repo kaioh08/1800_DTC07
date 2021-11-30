@@ -213,9 +213,10 @@
                                 testEventCard.querySelector('.card-mondate').innerHTML =
                                     mondate;
 
-                                testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(displaynewstuff());
+
+                                testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete();
                                 testEventCard.querySelector('img').src =
-                                    `./images/${sportID}.jpg`;
+                                    `./images/${sportName}.jpg`;
                                 eventCardGroup.appendChild(testEventCard);
                             })
 
@@ -224,14 +225,15 @@
                 } else {
                     // No user is signed in.
                 }
+
             });
+
         }
-        // async function displaynewstuff() {
-        //     location.reload();
-        //     displaystuff();
+        async function displaynewstuff() {
+            displaystuff();
+            await location.reload();
 
-
-        // }
+        }
         displaystuff();
     </script>
 </body>
