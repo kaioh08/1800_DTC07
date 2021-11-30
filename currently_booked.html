@@ -180,8 +180,8 @@
                 if (user) {
 
                     currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-                    currentUser.orderBy("date")
-                    currentUser.get()
+                    currentUserquery = currentUser.orderBy("code")
+                    currentUserquery.get()
                         .then(userDoc => {
                             let eventCardTemplate = document.getElementById("eventCardTemplate");
                             let eventCardGroup = document.getElementById("eventCardGroup");
@@ -213,7 +213,7 @@
                                 testEventCard.querySelector('.card-mondate').innerHTML =
                                     mondate;
 
-                                testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(displaystuff());
+                                testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(displaynewstuff());
                                 testEventCard.querySelector('img').src =
                                     `./images/${sportID}.jpg`;
                                 eventCardGroup.appendChild(testEventCard);
@@ -226,7 +226,12 @@
                 }
             });
         }
+        // async function displaynewstuff() {
+        //     location.reload();
+        //     displaystuff();
 
+
+        // }
         displaystuff();
     </script>
 </body>
