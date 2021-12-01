@@ -10,11 +10,7 @@ body {
 
 }
 
-#background {
-    background-color: #baf0fa;
-}
-
-#badminton,
+#firstcard,
 #table {
     margin-bottom: 15px;
     padding-top: 20px;
@@ -23,7 +19,7 @@ body {
     background-color: #90e0ef;
 }
 
-#basketball,
+#secondcard,
 #volleyball {
     margin-bottom: 15px;
     padding-top: 20px;
@@ -32,7 +28,7 @@ body {
     background-color: #00b4d8;
 }
 
-#boxing,
+#thirdcard,
 #yoga {
     margin-bottom: 15px;
     padding-top: 20px;
@@ -41,7 +37,7 @@ body {
     background-color: #0077b6;
 }
 
-#dance {
+#fourthcard {
     margin-bottom: 15px;
     padding-top: 20px;
     height: 250px;
@@ -49,7 +45,7 @@ body {
     background-color: #023e8a;
 }
 
-#soccer {
+#lastcard {
     margin-bottom: 15px;
     padding-top: 20px;
     height: 250px;
@@ -108,7 +104,7 @@ html {
     display: inline-block;
 }
 
-#badheader {
+#badmintonheader {
     /* text-shadow: 2px 2px #090000; */
     color: rgb(255, 255, 255);
 }
