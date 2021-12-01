@@ -15,7 +15,7 @@ function addYogaMon() {
                 price: "5$",
             })
             var tempRef = db.collection("temp_data");
-            tempRef.doc("test").set({
+            tempRef.doc("temp").set({
                     code: "yoga1",
                     name: "Yoga",
                     city: "Vancouver",
@@ -31,8 +31,7 @@ function addYogaMon() {
                     location.href = "confirmation.html";
                     console.log("does it write?");
                 })
-        } else {
-        }
+        } else {}
     });
 }
 
@@ -67,8 +66,7 @@ function addYogaTues() {
                     location.href = "confirmation.html";
                     console.log("does it write?");
                 })
-        } else {
-        }
+        } else {}
     });
 }
 

@@ -1,73 +1,62 @@
-function addBoxThur() {
+function addBoxMon() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid);
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    var user_Name = userDoc.data().name;
-                    var email = userDoc.data().email;
-                    console.log(user_Name);
-                    var currentUser = db.collection(email);
-                    currentUser.add({
-                            code: "box1",
-                            name: "Boxing",
-                            code3: "monday3",
-                            code4: "monday4",
-                            code5: "monday5",
-                            code6: "monday6",
-                            code7: "monday7",
-                            city: "Vancouver",
-                            date: "Monday, Dec 6",
-                            spots: "28/30",
-                            location: "Delbrook Community Center",
-                            age: "All Ages",
-                            time: "6:30am - 8:30am",
-                            price: "5$",
-                        })
-                        .then(userDoc => {
-                            console.log(email);
-                        })
-
-                    //method #1:  insert with html only
-                    //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                    //method #2:  insert using jquery
-                    $("#name-goes-here").text(user_Name); //using jquery
-
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
+            currentUser.doc("box1").set({
+                code: "box1",
+                name: "Boxing",
+                city: "Vancouver",
+                date: "Monday, Dec 6",
+                spots: "28/30",
+                location: "Sugarray's Boxing Gym",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            })
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("temp").set({
+                    code: "box1",
+                    name: "Boxing",
+                    city: "Vancouver",
+                    date: "Monday, Dec 6",
+                    spots: "28/30",
+                    location: "Sugarray's Boxing Gym",
+                    age: "All Ages",
+                    time: "6:30am - 8:30am",
+                    price: "5$",
                 })
-
-
-        } else {
-            // No user is signed in.
-        }
+                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("does it write?");
+                })
+        } else {}
     });
 }
 
-document.getElementById("book-mon-box").onclick = function () {
-    var tempRef = db.collection("temp_data");
-    tempRef.doc("test").set({
-            code: "box1",
-            name: "Boxing",
-            city: "Vancouver",
-            date: "Monday, Dec 6",
-            spots: "28/30",
-            location: "Delbrook Community Center",
-            age: "All Ages",
-            time: "6:30am - 8:30am",
-            price: "5$",
-        })
-        .then(() => {
-            location.href = "confirmation.html";
-            console.log("does it write?");
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
+// document.getElementById("book-mon-box").onclick = function () {
+//     var tempRef = db.collection("temp_data");
+//     tempRef.doc("test").set({
+//             code: "box1",
+//             name: "Boxing",
+//             city: "Vancouver",
+//             date: "Monday, Dec 6",
+//             spots: "28/30",
+//             location: "Sugarray's Boxing Gym",
+//             age: "All Ages",
+//             time: "6:30am - 8:30am",
+//             price: "5$",
+//         })
+//         .then(() => {
+//             location.href = "confirmation.html";
+//             console.log("does it write?");
+//         })
+//         .catch((error) => {
+//             console.error("Error writing document: ", error);
+//         });
 
-};
+// };
 
 function writeboxSpots() {
     //define a variable for the collection you want to create in Firestore to populate data
@@ -83,7 +72,7 @@ function writeboxSpots() {
         city: "Vancouver",
         date: "Monday, Dec 6",
         spots: "12/30",
-        location: "Delbrook Community Center",
+        location: "Sugarray's Boxing Gym",
         age: "All Ages",
         time: "5:30am - 8:30am",
         price: "5$",
