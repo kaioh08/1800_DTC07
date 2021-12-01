@@ -69,7 +69,7 @@
 
         document.getElementById("book-mon-bas").onclick = function () {
             var tempRef = db.collection("temp_data");
-            tempRef.doc("test").set({
+            tempRef.doc("temp").set({
                 code: "bas1",
                 name: "Basketball",
                 city: "Vancouver",
