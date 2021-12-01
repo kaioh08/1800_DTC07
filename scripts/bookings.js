@@ -36,7 +36,8 @@ function displaystuff() {
                         testEventCard.querySelector('.card-mondate').innerHTML =
                             mondate;
 
-                        testEventCard.querySelector('a').onclick = () => displaynewstuff();
+                        testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(delayRefreshPage(1000));
+                        
                         testEventCard.querySelector('img').src =
                             `./images/${sportName}.jpg`;
                         eventCardGroup.appendChild(testEventCard);
