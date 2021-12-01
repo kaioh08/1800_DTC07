@@ -37,133 +37,12 @@
 
     <!-- Link to the api keys for your firebase project -->
     <script src="./scripts/firebaseAPI.js"></script>
+    
+    <link href="styles/boxing_style.css" rel="stylesheet">
 
 </head>
 
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
-
-    * {
-        font-family: 'Nunito', sans-serif;
-
-    }
-
-    body {
-        position: relative;
-
-    }
-
-    #badminton,
-    #table {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 240px;
-        color: #fff;
-        background-color: #673ab7;
-    }
-
-    #basketball,
-    #volleyball {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 240px;
-        color: #fff;
-        background-color: #673ab7;
-    }
-
-    #boxing,
-    #yoga {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 240px;
-        color: #fff;
-        background-color: #ff9800;
-    }
-
-    #Boxing {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 240px;
-        color: #fff;
-        background-color: #1E88E5;
-    }
-
-    #dance {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 250px;
-        color: #fff;
-        background-color: #00bcd4;
-    }
-
-    #soccer {
-        margin-bottom: 15px;
-        padding-top: 20px;
-        height: 250px;
-        color: #fff;
-        background-color: #009688;
-    }
-
-    body,
-    html {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: #5CA4EA;
-        font-family: 'Lato', sans-serif;
-    }
-
-
-
-    .btnn {
-        width: 180px;
-        height: 60px;
-        cursor: pointer;
-        background: transparent;
-        border: 1px solid #91C9FF;
-        outline: none;
-        transition: 1s ease-in-out;
-    }
-
-
-    .btnn:hover {
-        transition: 1s ease-in-out;
-        background: #646a71;
-    }
-
-    .btnn:hover svg {
-        stroke-dashoffset: -480;
-    }
-
-    .btnn span {
-        color: white;
-        font-size: 18px;
-        font-weight: 100;
-    }
-
-    .material-icons {
-        color: rgb(0, 115, 255);
-    }
-
-    #icon {
-        color: rgb(0, 115, 255);
-        position: relative;
-        font-family: "Avenir Next", sans-serif;
-        font-weight: 900;
-        text-transform: uppercase;
-        font-style: italic;
-        letter-spacing: 0.05em;
-        display: inline-block;
-    }
-
-    #boxheader {
-        /* text-shadow: 2px 2px #090000; */
-        color: rgb(255, 255, 255);
-    }
-</style>
-
-<body class="bg-warning">
+<body class="background">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" id="icon" href="#"><i class="material-icons"></i>Book It</a>
@@ -191,7 +70,7 @@
     </div>
 
 
-    <div id="Boxing" class="container-fluid">
+    <div id="firstcard" class="container-fluid">
         <h4>Date: <span id="nextmonday">...</span></h4>
         <p>Location: <span id="monday3">...</span>, <span id="monday4">...</span></p>
         <p>Duration: <span id="monday5">...</span>, Available Spots: <span id="monday6">...</span>, <span
@@ -205,7 +84,7 @@
 
         <br>
     </div>
-    <div id="boxing" class="container-fluid">
+    <div id="secondcard" class="container-fluid">
         <h4>Date: <span id="nexttuesday">...</span></h4>
         <p>Location: <span id="tuesday3">...</span>, <span id="tuesday4">...</span></p>
         <p>Duration: <span id="tuesday5">...</span>, Available Spots: <span id="tuesday6">...</span>, <span
@@ -218,7 +97,7 @@
     <h1 class="card-title" id="box3"></h1>
 
 
-    <div id="badminton" class="container-fluid">
+    <div id="thirdcard" class="container-fluid">
         <h4>Date: <span id="nextwednesday">...</span></h4>
         <p>Location: <span id="wednesday3">...</span>, <span id="wednesday4">...</span></p>
         <p>Duration: <span id="wednesday5">...</span>, Available Spots: <span id="wednesday6">...</span>, <span
@@ -229,7 +108,7 @@
     </div>
     <h1 class="card-title" id="box4"></h1>
 
-    <div id="dance" class="container-fluid">
+    <div id="fourthcard" class="container-fluid">
         <h4>Date: <span id="nextthursday">...</span></h4>
         <p>Location: <span id="thursday3">...</span>, <span id="thursday4">...</span></p>
         <p>Duration: <span id="thursday5">...</span>, Available Spots: <span id="thursday6">...</span>, <span
@@ -241,7 +120,7 @@
 
     <h1 class="card-title" id="box5"></h1>
 
-    <div id="soccer" class="container-fluid">
+    <div id="fifthcard" class="container-fluid">
         <h4>Date: <span id="nextfriday">...</span></h4>
         <p>Location: <span id="friday3">...</span>, <span id="friday4">...</span></p>
         <p>Duration: <span id="friday5">...</span>, Available Spots: <span id="friday6">...</span>, <span
