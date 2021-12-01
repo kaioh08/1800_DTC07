@@ -14,12 +14,11 @@ body {
   background-color: #5CA4EA;
 }
 
-#firstcard,
-#table {
+#firstcard{
   margin-bottom: 15px;
   padding-top: 20px;
   height: 240px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   background-color: #90e0ef;
 }
 
