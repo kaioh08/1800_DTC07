@@ -70,6 +70,78 @@ function addYogaTues() {
     });
 }
 
+function addYogaWeds() {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
+            currentUser.doc("yoga3").set({
+                code: "yoga3",
+                name: "Yoga",
+                city: "Vancouver",
+                date: "Wednesday, Dec 8",
+                spots: "0/30",
+                location: "Coal Harbour Community Centre",
+                age: "All Ages",
+                time: "6:00pm - 8:00pm",
+                price: "5$",
+            })
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("temp").set({
+                    code: "yoga1",
+                    name: "Yoga",
+                    city: "Vancouver",
+                    date: "Wednesday, Dec 8",
+                    spots: "0/30",
+                    location: "Coal Harbour Community Centre",
+                    age: "All Ages",
+                    time: "6:00pm - 8:00pm",
+                    price: "5$",
+                })
+
+                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("does it write?");
+                })
+        } else {}
+    });
+}
+
+function addYogaThurs() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
+            currentUser.doc("yoga4").set({
+                code: "yoga4",
+                name: "Yoga",
+                city: "Vancouver",
+                date: "Thursday, Dec 9",
+                spots: "28/30",
+                location: "False Creek Community Centre",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            })
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("temp").set({
+                    code: "yoga1",
+                    name: "Yoga",
+                    city: "Vancouver",
+                    date: "Thursday, Dec 9",
+                    spots: "0/30",
+                    location: "False Creek Community Centre",
+                    age: "All Ages",
+                    time: "6:30am - 8:30am",
+                    price: "5$",
+                })
+                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("does it write?");
+                })
+        } else {}
+    });
+}
+
 function writeYogaSpots() {
     //define a variable for the collection you want to create in Firestore to populate data
     var yogaRef = db.collection("Yoga");
@@ -116,7 +188,7 @@ function writeYogaSpots() {
         city: "Richmond",
         date: "Wednesday, Dec 8",
         spots: "10/30",
-        location: "South Arm Community Center",
+        location: "Coal Harbour Community Centre",
         age: "All Ages",
         time: "6:30am - 8:30am",
         price: "5$",
@@ -133,7 +205,7 @@ function writeYogaSpots() {
         city: "Vancouver",
         date: "Thursday, Dec 9",
         spots: "10/30",
-        location: "Delbrooke Community Center",
+        location: "False Creek Community Centre",
         age: "All Ages",
         time: "2 hours",
         price: "5$",

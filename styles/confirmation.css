@@ -63,7 +63,6 @@ body {
   justify-content: center;
   top: 45px;
   padding: 2em;
-  overflow: hidden;
   grid-column: 1/11;
   grid-row: 12/ span 4;
   position: relative;
