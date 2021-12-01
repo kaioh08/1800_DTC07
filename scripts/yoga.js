@@ -51,7 +51,7 @@ function addYogaTues() {
                 price: "5$",
             })
             var tempRef = db.collection("temp_data");
-            tempRef.doc("test").set({
+            tempRef.doc("temp").set({
                     code: "yoga1",
                     name: "Yoga",
                     city: "Vancouver",

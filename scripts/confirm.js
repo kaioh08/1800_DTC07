@@ -31,8 +31,8 @@ function displayTempData() {
     var del = document.getElementById("display")
     
     function deleteData() {
-        db.collection("temp_data").doc("test").delete();
-        db.collection("temp_data").doc("test").delete().then(() => {
+        db.collection("temp_data").doc("temp").delete();
+        db.collection("temp_data").doc("temp").delete().then(() => {
             location.href = "currently_booked.html"
             console.log("Document successfully deleted!");
         }).catch((error) => {
