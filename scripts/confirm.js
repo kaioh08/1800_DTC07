@@ -21,20 +21,15 @@ function displayTempData() {
                 testTempCard.querySelector('.card-moncity').innerHTML = moncity;
                 testTempCard.querySelector('.card-mondate').innerHTML = mondate;
                 testTempCard.querySelector('.card-monloc').innerHTML = monloc;
-
-                // testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
-                testTempCard.querySelector('img').src = `./images/${sportID}.jpg`;
+                testTempCard.querySelector('img').src = `./images/${sportName}.jpg`;
                 tempCardGroup.appendChild(testTempCard);
             })
 
         })
 }
-// document.getElementById("display").onclick = function(){
-    // var del = document.getElementById("display").addEventListener("click", deleteData());
+
     var del = document.getElementById("display")
     
-    // del.onclick=deleteData();
-    // del.addEventListener("click", deleteData());
     function deleteData() {
         db.collection("temp_data").doc("test").delete();
         db.collection("temp_data").doc("test").delete().then(() => {
@@ -44,24 +39,6 @@ function displayTempData() {
             console.error("Error removing document: ", error);
         });
     }
-// }
-
-// .then(() => {
-//     location.href = "confirmation.html";
-// })
-// .catch((error) => {
-//     console.error("Error writing document: ", error);
-// });;
-// }
-// document.getElementById("display").addEventListener("click", (e) =>{
-//     e.stopPropagation();
-//     let id = e.target.
-// })
-
 
 
 displayTempData();
-// writeHikes();
-// insertName();
-// read_display_quote();
-// deleteData();

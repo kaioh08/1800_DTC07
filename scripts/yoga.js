@@ -1,106 +1,76 @@
-function addYogaTues() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-
-            //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid);
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    var user_Name = userDoc.data().name;
-                    var email = userDoc.data().email;
-                    console.log(user_Name);
-                    var currentUser = db.collection(email);
-                    currentUser.doc("yoga1").set({
-                            code: "yoga1",
-                            name: "Yoga",
-                            code3: "monday3",
-                            code4: "monday4",
-                            code5: "monday5",
-                            code6: "monday6",
-                            code7: "monday7",
-                            city: "Vancouver",
-                            date: "Tuesday, Dec 7",
-                            spots: "28/30",
-                            location: "Britannia Community Centre",
-                            age: "All Ages",
-                            time: "6:30am - 8:30am",
-                            price: "5$",
-                        })
-                        .then(add_to_temp())
-                        .then(() => {
-            location.href = "confirmation.html";
-            console.log("doesi t write?");
-        })
-
-                })
-
-        } else {
-            // No user is signed in.
-        }
-    });
-}
-
 function addYogaMon() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            //get the document for current user.
             currentUser.doc("yoga1").set({
-                            code: "yoga1",
-                            name: "Yoga",
-                            code3: "monday3",
-                            code4: "monday4",
-                            code5: "monday5",
-                            code6: "monday6",
-                            code7: "monday7",
-                            city: "Vancouver",
-                            date: "Monday Dec ",
-                            spots: "28/30",
-                            location: "Britannia Community Centre",
-                            age: "All Ages",
-                            time: "6:30am - 8:30am",
-                            price: "5$",
-                        })
-                        .then(add_to_temp())
-                        .then(() => {
-            location.href = "confirmation.html";
-            console.log("doesi t write?");
-        })
+                code: "yoga1",
+                name: "Yoga",
+                city: "Vancouver",
+                date: "Monday Dec ",
+                spots: "28/30",
+                location: "The Yoga Bar",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            })
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("test").set({
+                    code: "yoga1",
+                    name: "Yoga",
+                    city: "Vancouver",
+                    date: "Monday, Dec 6",
+                    spots: "0/30",
+                    location: "The Yoga Bar",
+                    age: "All Ages",
+                    time: "6:30am - 8:30am",
+                    price: "5$",
+                })
 
-
+                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("does it write?");
+                })
         } else {
-            // No user is signed in.
         }
     });
 }
 
-
-function add_to_temp() {
-    var tempRef = db.collection("temp_data");
-    tempRef.doc("test").set({
-        code: "yoga1",
-        name: "Yoga",
-        city: "Vancouver",
-        date: "Tuesday, Dec 7",
-        spots: "0/30",
-        location: "Britannia Community Centre",
-        age: "All Ages",
-        time: "6:30am - 8:30am",
-        price: "5$",
-        })
-        .then(() => {
-            location.href = "confirmation.html";
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
-
-};
+function addYogaTues() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
+            currentUser.doc("yoga2").set({
+                code: "yoga2",
+                name: "Yoga",
+                city: "Vancouver",
+                date: "Tuesday, Dec 7",
+                spots: "28/30",
+                location: "Britannia Community Centre",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            })
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("test").set({
+                    code: "yoga1",
+                    name: "Yoga",
+                    city: "Vancouver",
+                    date: "Tuesday, Dec 7",
+                    spots: "0/30",
+                    location: "Britannia Community Centre",
+                    age: "All Ages",
+                    time: "6:30am - 8:30am",
+                    price: "5$",
+                })
+                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("does it write?");
+                })
+        } else {
+        }
+    });
+}
 
 function writeYogaSpots() {
     //define a variable for the collection you want to create in Firestore to populate data

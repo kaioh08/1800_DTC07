@@ -36,9 +36,9 @@ function displaystuff() {
                         testEventCard.querySelector('.card-mondate').innerHTML =
                             mondate;
 
-                        testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(displaynewstuff());
+                        testEventCard.querySelector('a').onclick = () => displaynewstuff();
                         testEventCard.querySelector('img').src =
-                            `./images/${sportID}.jpg`;
+                            `./images/${sportName}.jpg`;
                         eventCardGroup.appendChild(testEventCard);
                     })
 
@@ -49,10 +49,34 @@ function displaystuff() {
         }
     });
 }
-// async function displaynewstuff() {
-//     location.reload();
-//     displaystuff();
+async function displaynewstuff() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
+            currentUser.get()
+            
+            .then(userDoc => {
+                userDoc.forEach(doc => {
 
+            var sportID = doc.data()
+            .code;
+            currentUser.doc(sportID).delete();
+            delayRefreshPage(1000);
 
-// }
+                })
+            })
+
+        }
+
+    })
+    delayRefreshPage(1000);
+
+}
+function refreshPage() {
+    //ensure reloading from server instead of cache
+    location.reload(true);
+}
+function delayRefreshPage(mileSeconds) {
+    window.setTimeout(refreshPage, mileSeconds);
+}
 displaystuff();
