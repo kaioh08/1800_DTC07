@@ -10,13 +10,17 @@
 
     }
 
+    #background{
+        background-color: #baf0fa;
+    }
+
     #badminton,
     #table {
         margin-bottom: 15px;
         padding-top: 20px;
         height: 240px;
         color: #fff;
-        background-color: #1E88E5;
+        background-color: #90e0ef;
     }
 
     #basketball,
@@ -25,7 +29,7 @@
         padding-top: 20px;
         height: 240px;
         color: #fff;
-        background-color: #673ab7;
+        background-color: #00b4d8;
     }
 
     #boxing,
@@ -34,7 +38,7 @@
         padding-top: 20px;
         height: 240px;
         color: #fff;
-        background-color: #ff9800;
+        background-color: #0077b6;
     }
 
     #dance {
@@ -42,7 +46,7 @@
         padding-top: 20px;
         height: 250px;
         color: #fff;
-        background-color: #00bcd4;
+        background-color: #023e8a;
     }
 
     #soccer {
@@ -50,7 +54,7 @@
         padding-top: 20px;
         height: 250px;
         color: #fff;
-        background-color: #009688;
+        background-color: #3f37c9;
     }
 
     body,
@@ -70,7 +74,7 @@
         height: 60px;
         cursor: pointer;
         background: transparent;
-        border: 1px solid #91C9FF;
+        border: 1px solid #03045e;
         outline: none;
         transition: 1s ease-in-out;
     }
