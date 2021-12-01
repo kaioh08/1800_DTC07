@@ -2,86 +2,40 @@ function addBadThur() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            //get the document for current user.
-
-                    currentUser.doc("bad1").set({
-                            code: "bad1",
-                            name: "Badminton",
-                            code3: "monday3",
-                            code4: "monday4",
-                            code5: "monday5",
-                            code6: "monday6",
-                            code7: "monday7",
-                            city: "Vancouver",
-                            date: "Monday, Dec 6",
-                            spots: "28/30",
-                            location: "Delbrook Community Center",
-                            age: "All Ages",
-                            time: "6:30am - 8:30am",
-                            price: "5$",
-                        })
-                        .then(add_to_temp())
-                        .then(() => {
-            location.href = "confirmation.html";
-            console.log("doesi t write?");
-
-
+            currentUser.doc("bad1").set({
+                code: "bad1",
+                name: "Badminton",
+                city: "Vancouver",
+                date: "Monday, Dec 6",
+                spots: "28/30",
+                location: "Delbrook Community Center",
+                age: "All Ages",
+                time: "6:30am - 8:30am",
+                price: "5$",
+            })
+            var tempRef = db.collection("temp_data");
+            tempRef.doc("test").set({
+                    code: "bad1",
+                    name: "Badminton",
+                    city: "Vancouver",
+                    date: "Monday, Dec 6",
+                    spots: "28/30",
+                    location: "Delbrook Community Center",
+                    age: "All Ages",
+                    time: "6:30am - 8:30am",
+                    price: "5$",
                 })
-
-
+                .then(() => {
+                    location.href = "confirmation.html";
+                    console.log("doesi t write?");
+                })
         } else {
             // No user is signed in.
         }
     });
 }
 
-
-// document.getElementById("book-mon-bad").addEventListener(click, myFunction);
-// function myFunction() {
-//     var badmintonMonRef = db.collection("temp_data");
-//     badmintonMonRef.add({
-//         id: "BBY01",
-//         code: "BBY01",
-//         name: "Outside My house Lake Park Trail", //replace with your own city?
-//         city: "Burnaby",
-//         province: "BC",
-//         level: "easy",
-//         length: "10 km",
-//         length_time: "2h 33mm"
-//     })
-//     .then(() => {
-//                 location.href = "confirmation.html";
-//             })
-//             .catch((error) => {
-//                     console.error("Error writing document: ", error);
-//                 });;
-// }
-
-function add_to_temp() {
-    var tempRef = db.collection("temp_data");
-    tempRef.doc("test").set({
-        code: "bad1",
-        name: "Badminton",
-        city: "Vancouver",
-        date: "Monday, Dec 6",
-        spots: "28/30",
-        location: "Delbrook Community Center",
-        age: "All Ages",
-        time: "6:30am - 8:30am",
-        price: "5$",
-        })
-        .then(() => {
-            location.href = "confirmation.html";
-            console.log("doesi t write?");
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
-
-};
 
 function writeBadSpots() {
     //define a variable for the collection you want to create in Firestore to populate data
