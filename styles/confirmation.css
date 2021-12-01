@@ -6,7 +6,13 @@
 body{
   font-family: 'Nunito', sans-serif;
   text-align: center;
+  
 }
+
+#background{
+  background: #5CA4EA;
+}
+
 #top{
   padding-top: 50px;
 
