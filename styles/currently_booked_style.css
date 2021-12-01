@@ -3,6 +3,10 @@ body {
     text-align: center;
 }
 
+.background {
+    background-color: #baf0fa;
+}
+
 .wrapper {
     justify-content: center;
     top: 45px;
