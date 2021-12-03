@@ -16,14 +16,17 @@
     <title>My BCIT Project</title>
     <meta name="comp1800 boilerplate code" content="Book It">
     <meta name="author" content="BCIT">
+    <link rel="stylesheet" href="styles/landing_style.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<body class="background">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="material-icons">local_activity</i>Book It</a>
+            <a class="navbar-brand" id="icon" href="#"><i class="material-icons"></i>Book It</a>
             <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="material-icons">account_circle</i>
                 </button>
@@ -38,23 +41,61 @@
         </div>
     </nav>
 
-    <div class="fixed-bottom py-3 bg-secondary">
-        <div class="container text-center">
-            My Sticky Footer
+    <div class="container">
+        <h1 id="logo"><span filter-content="S">Book It</span></h1>
+
+        <svg xmlns="http://www.w3.org/2000/svg">
+
+            <!-- filterUnits is required to prevent clipping the blur outside the viewBox -->
+
+            <filter id="motion-blur-filter" filterunits="userSpaceOnUse">
+
+                <!-- We only want horizontal blurring. x: 100, y: 0 -->
+
+                <fegaussianblur stddeviation="100 0"></fegaussianblur>
+            </filter>
+        </svg>
+        <div class="box">
+            <h2 id="desciption">Any sport with just a click of a button!</h2>
         </div>
+        <br>
+        <br>
+    </div>
+    <div class="wrapper"><a id="display" href="login_page.html"><span>Log In</span></a></div>
+
+
+
+
+
+    <div class="scrollmenu bg-info">
+        <a id="basket" class="firstcard" href="basketball_preview.html">Baksetball<p class="next">Next Session: Wednesday Nov 10th
+            </p></a>
+        <a class="secondcard" href="badminton_preview.html">Badminton<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="vollyball_preview.html" class="thirdcard">Volleyball<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Table" class="fourthcard">Table Tennis<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="boxing_preview.html" class="fifthcard">Boxing<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="yoga_preview.html" class="fourthcard">Yoga<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Skating" class="thirdcard">Skating<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Dance" class="secondcard">Dance<p class="next">Next Session: Wednesday Nov 10th</p></a>
+        <a href="#Pickleball" class="firstcard">Pickleball<p class="next">Next Session: Wednesday Nov 10th</p></a>
     </div>
 
-    <footer class="navbar bg-secondary fixed-bottom">
-        <i class="material-icons">star</i>
-        <i class="material-icons">home</i>
-        <i class="material-icons">map</i>
-    </footer>
 
-    <footer class="navbar justify-content-evenly bg-secondary fixed-bottom">
-        <i class="material-icons">home</i>
-        <i class="material-icons">search</i>
-        <i class="material-icons">chat</i>
-        <i class="material-icons">calendar_today</i>
+
+
+
+    <div class="fixed-bottom navbar justify-content-evenly py-4 bg-light">
+        <a href="events_page.html"><i id="home" class="material-icons">home</i></a>
+        <i id="search" class="material-icons">search</i>
+        <a href="help.html"><i id="help" class="material-icons">help_outline</i></a>
+        <a href="currently_booked.html"><i id="schedule" class="material-icons">calendar_today</i></a>
+    </div>
+
+    <footer class="navbar justify-content-evenly fixed-bottom">
+        <span id="homelabel">Home</span>
+        <span id="searchlabel">Search</span>
+        <span id="helplabel">Help</span>
+        <span id="schedulelabel">Bookings</span>
     </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
