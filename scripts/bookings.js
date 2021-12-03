@@ -39,7 +39,7 @@ function displaystuff() {
                         testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(delayRefreshPage(1000)); // calls the delayRefreshPage function
                         
                         testEventCard.querySelector('img').src =
-                            `./images/${sportName}.jpg`;
+                            `/images/${sportName}.jpg`;
                         eventCardGroup.appendChild(testEventCard);
                     })
 
