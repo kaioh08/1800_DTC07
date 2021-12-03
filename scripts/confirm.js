@@ -21,7 +21,7 @@ function displayTempData() {
                 testTempCard.querySelector('.card-moncity').innerHTML = moncity;
                 testTempCard.querySelector('.card-mondate').innerHTML = mondate;
                 testTempCard.querySelector('.card-monloc').innerHTML = monloc;
-                testTempCard.querySelector('img').src = `./images/${sportName}.jpg`;
+                testTempCard.querySelector('img').src = `images/${sportName}.jpg`;
                 tempCardGroup.appendChild(testTempCard);
             })
 
