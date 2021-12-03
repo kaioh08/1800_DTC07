@@ -1,7 +1,8 @@
 function addBasMon() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
-
+        // Makes the button under monday save the sports to the confirmation page // temp_data collection 
+        // the button also makes the data saved under the collection unique to the user ID
         if (user) {
             currentUser = db.collection("users").doc(user.uid).collection("savedSports");
             currentUser.doc("bas1").set({
