@@ -1,9 +1,9 @@
 function displaystuff() {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {  // checks if the use is logged in 
         if (user) {
 
-            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            currentUserquery = currentUser.orderBy("code")
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports"); // stores a variable according to "savedSports" collection under the user 
+            currentUserquery = currentUser.orderBy("code")  // queries the data by the code value 
             currentUserquery.get()
                 .then(userDoc => {
                     let eventCardTemplate = document.getElementById("eventCardTemplate");
@@ -35,8 +35,8 @@ function displaystuff() {
 
                         testEventCard.querySelector('.card-mondate').innerHTML =
                             mondate;
-
-                        testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(delayRefreshPage(1000));
+                        // the code deletes the data according to the card the button is in
+                        testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(delayRefreshPage(1000)); // calls the delayRefreshPage function
                         
                         testEventCard.querySelector('img').src =
                             `./images/${sportName}.jpg`;
@@ -50,34 +50,12 @@ function displaystuff() {
         }
     });
 }
-async function displaynewstuff() {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            currentUser.get()
-            
-            .then(userDoc => {
-                userDoc.forEach(doc => {
 
-            var sportID = doc.data()
-            .code;
-            currentUser.doc(sportID).delete();
-            delayRefreshPage(1000);
-
-                })
-            })
-
-        }
-
-    })
-    delayRefreshPage(1000);
-
-}
 function refreshPage() {
     //ensure reloading from server instead of cache
-    location.reload(true);
+    location.reload(true); // resfreshed the page 
 }
 function delayRefreshPage(mileSeconds) {
-    window.setTimeout(refreshPage, mileSeconds);
+    window.setTimeout(refreshPage, mileSeconds); // sets a timer, and refreshes the page after a set number of miliseconds. 
 }
 displaystuff();
