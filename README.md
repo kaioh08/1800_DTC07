@@ -1,4 +1,4 @@
-## My Web Application (Title)
+## Book IT
 
 - [General info](#general-info)
 - [Technologies](#technologies)
@@ -7,6 +7,8 @@
 ## General Info
 
 This browser based web application to ...
+
+Book It is an event booking application. With Book It,  users will be able to book sporting events at local recreational centers. users can save their bookings, preview what sports are available, and cancel their bookings.Our MVP has also filled the CRUD requirements by making the web app able to store booked data, read events, update booked events, and delete booked events. 
 
 - Hello, my name is Nicky. I'm excited about the project because I like to work on apps.
 - Hi my name is Kai . I am excited about this project becasue the app would actually help us!
@@ -19,7 +21,7 @@ Technologies used for this project:
 - HTML, CSS
 - JavaScript
 - Bootstrap
-- ...
+- Firebase 
 
 ## Content
 
@@ -102,9 +104,22 @@ Firebase hosting files:
 ├── 404.html
 
 
+FireBase APIs
+var firebaseConfig = {
+  apiKey: "AIzaSyBrHYgVBtlG1z7cyEjZIv8aPiiWIgWifo4",
+  authDomain: "book-it-5ab7c.firebaseapp.com",
+  projectId: "book-it-5ab7c",
+  storageBucket: "book-it-5ab7c.appspot.com",
+  messagingSenderId: "320719821616",
+  appId: "1:320719821616:web:e34f7b28198b12082e86f5",
+  measurementId: "G-4ZD4YVV5F1"
+};
+  
+
+
 ```
 
-Tips for file naming files and folders:
+Tips for file naming files and folders: (Sorry we saw this a little too late)
 
 - use lowercase with no spaces
 - use dashes (not underscore) for word separation
