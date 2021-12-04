@@ -72,5 +72,5 @@ function displaySports() { // displays data from the collection Available Sports
             })
         })
 }
-displaySports();
-insertName();
+displaySports();  //reads the sports from firebase
+insertName();  //reads the name of the user 

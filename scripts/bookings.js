@@ -11,30 +11,27 @@ function displaystuff() {
                     userDoc.forEach(doc => {
 
 
-                        var sportName = doc.data().name;
+                        var sportName = doc.data().name; // gets the name of the sport
                         var sportID = doc.data()
-                            .code;
+                            .code;  // gets the code of the event (this is what is used to query data)
                         var sportName = doc.data().name;
-                        var monloc = doc.data().location;
-                        var moncity = doc.data().city;
-                        var monlength = doc.data().time;
-                        var monspots = doc.data().spots;
-                        var monprice = doc.data().price;
-                        var mondate = doc.data().date;
-                        console.log(sportID);
+                        var monloc = doc.data().location;  // gets the location of event
+                        var moncity = doc.data().city;  // gets the city of event
+                        var monlength = doc.data().time;  // gets the time of the event
+                        var mondate = doc.data().date; // gets the date of the event
 
                         let testEventCard = eventCardTemplate.content.cloneNode(
                             true);
 
                         testEventCard.querySelector('.card-title').innerHTML =
-                            sportName;
+                            sportName;  // the text with card-title gets over written by the name of the sport
                         testEventCard.querySelector('.card-monlength')
-                            .innerHTML = monlength;
+                            .innerHTML = monlength;  // the text with card-monlength gets over written by the length of the event 
                         testEventCard.querySelector('.card-moncity').innerHTML =
-                            moncity + ", " + monloc;
+                            moncity + ", " + monloc;  // the text with card-moncity gets over written by the city of the event 
 
                         testEventCard.querySelector('.card-mondate').innerHTML =
-                            mondate;
+                            mondate;  // the text with card-mondate gets over written by date of the event 
                         // the code deletes the data according to the card the button is in
                         testEventCard.querySelector('a').onclick = () => currentUser.doc(sportID).delete().then(delayRefreshPage(1000)); // calls the delayRefreshPage function
                         
