@@ -242,7 +242,6 @@ function displayYoga() {
                 var badID5 = doc.data().code5;
                 var badID6 = doc.data().code6;
                 var badID7 = doc.data().code7;
-                var badID8 = doc.data().code8;
 
                 var monloc = doc.data().location;
                 var moncity = doc.data().city;
