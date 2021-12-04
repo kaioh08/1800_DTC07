@@ -5,13 +5,10 @@ function displayTempData() {
     db.collection("temp_data").get()
         .then(allTemp => {
             allTemp.forEach(doc => {
-                var sportID = doc.data().code; //gets the unique ID field
                 var sportName = doc.data().name;  // gets the name of the sport 
                 var monloc = doc.data().location;  // gets the location of the sport (venue)
                 var moncity = doc.data().city;  // gets the city of the sport 
                 var monlength = doc.data().time;  // gets the scheudled time of the sport 
-                var monspots = doc.data().spots;  // gets the number of spots 
-                var monprice = doc.data().price;  // gets the price of the sports
                 var mondate = doc.data().date;  // gets the date of the sport 
 
                 // reads the necessary data into the htlm page 
