@@ -21,7 +21,7 @@ Technologies used for this project:
 - HTML, CSS
 - JavaScript
 - Bootstrap
-- Firebase 
+- Firebase   
 
 ## Content
 
@@ -104,17 +104,6 @@ Firebase hosting files:
 ├── 404.html
 
 
-FireBase APIs
-var firebaseConfig = {
-  apiKey: "AIzaSyBrHYgVBtlG1z7cyEjZIv8aPiiWIgWifo4",
-  authDomain: "book-it-5ab7c.firebaseapp.com",
-  projectId: "book-it-5ab7c",
-  storageBucket: "book-it-5ab7c.appspot.com",
-  messagingSenderId: "320719821616",
-  appId: "1:320719821616:web:e34f7b28198b12082e86f5",
-  measurementId: "G-4ZD4YVV5F1"
-};
-  
 
 
 ```
@@ -129,3 +118,27 @@ yoga photo: https://t4.ftcdn.net/jpg/03/02/02/87/360_F_302028765_gsJIkiJSeHQ2ltZ
 dance photo: https://st.depositphotos.com/1825047/4138/i/600/depositphotos_41388073-stock-photo-the-dancer.jpg
 volleyball photo https://media.istockphoto.com/photos/volleyball-in-an-empty-gym-picture-id171247618?k=20&m=171247618&s=612x612&w=0&h=A6RLdEUY7OCuN1WKYkVyWUaUlXVn-78oSnwrKbC8LqE=
 table tennis: https://media.istockphoto.com/photos/ping-pong-or-table-tennis-background-with-rackets-picture-id503250996?k=20&m=503250996&s=612x612&w=0&h=tMaVlByxg1uq8XNBN8bJoid8Bed_tXfgAkold6fmy0w=
+
+
+## References:
+Used Firebase API 
+
+var firebaseConfig = {
+  apiKey: "AIzaSyBrHYgVBtlG1z7cyEjZIv8aPiiWIgWifo4",
+  authDomain: "book-it-5ab7c.firebaseapp.com",
+  projectId: "book-it-5ab7c",
+  storageBucket: "book-it-5ab7c.appspot.com",
+  messagingSenderId: "320719821616",
+  appId: "1:320719821616:web:e34f7b28198b12082e86f5",
+  measurementId: "G-4ZD4YVV5F1"
+};
+  
+
+
+Ammar, A., Et alOn Behalf Of The Eclb-Covid Consortium (2020). COVID-19 Home Confinement Negatively Impacts Social Participation and Life Satisfaction: A Worldwide Multicenter Study. International journal of environmental research and public health, 17(17), 6237. https://doi.org/10.3390/ijerph17176237
+
+
+Lavie, C. J., Ozemek, C., Carbone, S., Katzmarzyk, P. T., & Blair, S. N. (2019). Sedentary Behavior, Exercise, and Cardiovascular Health. Circulation research, 124(5), 799–815. https://doi.org/10.1161/CIRCRESAHA.118.312669
+
+
+Xiao, H., Zhang, Y., Kong, D., Li, S., & Yang, N. (2020). Social Capital and Sleep Quality in Individuals Who Self-Isolated for 14 Days During the Coronavirus Disease 2019 (COVID-19) Outbreak in January 2020 in China. Medical science monitor : international medical journal of experimental and clinical research, 26, e923921. https://doi.org/10.12659/MSM.923921
