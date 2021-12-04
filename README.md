@@ -78,7 +78,7 @@ It has the following subfolders and files:
     /login.js
     /volleyball.js
     /yoga.js
-                 #
+                 
 ├── styles                   # Folder for styles
     /badminton_style.css
     /basketball_style.css
@@ -99,6 +99,7 @@ Firebase hosting files:
 ├── .firebase.indexes.json
 ├── .firebase.rules
 ├── .storage.rules
+├── 404.html
 
 
 ```
