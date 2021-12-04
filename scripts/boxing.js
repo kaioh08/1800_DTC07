@@ -4,19 +4,19 @@ function addBoxMon() {
         if (user) {
             //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            currentUser.doc("box1").set({
-                code: "box1",
-                name: "Boxing",
-                city: "Vancouver",
-                date: "Monday, Dec 6",
-                spots: "28/30",
-                location: "Sugarray's Boxing Gym",
-                age: "All Ages",
-                time: "6:30am - 8:30am",
-                price: "5$",
+            currentUser.doc("box1").set({  // writes new data to the collection savedSports
+                code: "box1",  // event code
+                name: "Boxing",  // sport name
+                city: "Vancouver",  // city selected
+                date: "Monday, Dec 6",  //date of event
+                spots: "28/30",  // how many spots are left
+                location: "Sugarray's Boxing Gym",  // where the event is taking place
+                age: "All Ages",  // the age range of the event
+                time: "6:30am - 8:30am",  // the duration of the event
+                price: "5$",  // how much the event costs
             })
-            var tempRef = db.collection("temp_data");
-            tempRef.doc("temp").set({
+            var tempRef = db.collection("temp_data");  // writes to the temp_Data colection
+            tempRef.doc("temp").set({  // makes a document called temp where the app reads it from the firebase
                     code: "box1",
                     name: "Boxing",
                     city: "Vancouver",
@@ -28,8 +28,8 @@ function addBoxMon() {
                     price: "5$",
                 })
                 .then(() => {
-                    location.href = "confirmation.html";
-                    console.log("does it write?");
+                    location.href = "confirmation.html";  // redirects the users to the confirmation page 
+                    console.log("does it write?");  // checks if the button works
                 })
         } else {}
     });
@@ -129,25 +129,25 @@ function displayBoxing() {
             allSpots.forEach(doc => {
                 var sportName = doc.data().name; //gets the name field
                 var sportID = doc.data().code; //gets the unique ID field
-                var boxID3 = doc.data().code3;
-                var boxID4 = doc.data().code4;
+                var boxID3 = doc.data().code3; 
+                var boxID4 = doc.data().code4; 
                 var boxID5 = doc.data().code5;
-                var boxID6 = doc.data().code6;
-                var boxID7 = doc.data().code7;
+                var boxID6 = doc.data().code6; 
+                var boxID7 = doc.data().code7; 
 
-                var monloc = doc.data().location;
-                var moncity = doc.data().city;
-                var monlength = doc.data().time;
-                var monspots = doc.data().spots;
-                var monprice = doc.data().price;
+                var monloc = doc.data().location; // gets the location of event
+                var moncity = doc.data().city;  // gets the city of event
+                var monlength = doc.data().time; // gets the time of the event
+                var monspots = doc.data().spots; // gets the available spots
+                var monprice = doc.data().price; // gets the price of event
 
                 console.log(sportID);
-                document.getElementById(sportID).innerText = sportName;
-                document.getElementById(boxID3).innerText = monloc;
-                document.getElementById(boxID4).innerText = moncity;
-                document.getElementById(boxID5).innerText = monlength;
-                document.getElementById(boxID6).innerText = monspots;
-                document.getElementById(boxID7).innerText = monprice;
+                document.getElementById(sportID).innerText = sportName; // fills the id with sport name
+                document.getElementById(boxID3).innerText = monloc; // fills the id with location
+                document.getElementById(boxID4).innerText = moncity; // fills the id with city
+                document.getElementById(boxID5).innerText = monlength; // fills the id with length
+                document.getElementById(boxID6).innerText = monspots; // fills the id with spots
+                document.getElementById(boxID7).innerText = monprice; // fills the id with price
 
 
 
