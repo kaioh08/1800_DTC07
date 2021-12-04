@@ -62,7 +62,6 @@ function writeSports() { // writes sports in sport collection
         city: "Vancouver, Burnaby, Richmond",
     });
 }
-// writeSports();
 
 
 function displaySports() { // displays data from the collection Available Sports

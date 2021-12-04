@@ -236,11 +236,7 @@ function displayYoga() {
         .then(allSpots => {
             allSpots.forEach(doc => {
                 var sportName = doc.data().name; //gets the name field
-                var sportID = doc.data().code;
-                //gets the unique ID field
-                //hange the badminton ode to class
-                // var badDate = doc.data().date // gest date
-                // var badSpot = doc.data().spots
+                var sportID = doc.data().code; //gets the unique ID field
                 var badID3 = doc.data().code3;
                 var badID4 = doc.data().code4;
                 var badID5 = doc.data().code5;
@@ -268,7 +264,7 @@ function displayYoga() {
         })
 }
 
-// writeYogaSpots();
+
 displayYoga();
 var options = {
     weekday: 'long',

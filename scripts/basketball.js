@@ -1,11 +1,11 @@
-function addBasMon() {
+function addBasMon() { // adds temporary data
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         // Makes the button under monday save the sports to the confirmation page // temp_data collection 
         // the button also makes the data saved under the collection unique to the user ID
         if (user) {
             currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            currentUser.doc("bas1").set({
+            currentUser.doc("bas1").set({ // creates new document in savedSports
                 code: "bas1",
                 name: "Basketball",
                 city: "Vancouver",
@@ -36,17 +36,10 @@ function addBasMon() {
     });
 }
 
-
-
-
-
-
-
-
-function writebasSpots() {
+function writebasSpots() { // adds data to be displayed
     //define a variable for the collection you want to create in Firestore to populate data
     var basketballRef = db.collection("Basketball");
-    basketballRef.add({
+    basketballRef.add({ // adds data to Basketball
         code: "bas1",
         name: "Basketball",
         code3: "monday3",
@@ -128,44 +121,19 @@ function writebasSpots() {
         time: "2 hours",
         price: "5$",
     });
-
-    // basketballRef.add({
-    //     code: "bas6",
-    //     name: "",
-    //     code2: "wednesday2",
-    //     code3: "wednesday3",
-    //     code4: "wednesday4",
-    //     code5: "wednesday5",
-    //     code6: "wednesday6",
-    //     code7: "wednesday7",
-    //     city: "Burnaby",
-    //     date: "Wednesday, Dec 11",
-    //     spots: "10/30",
-    //     location: "Christine Sinclair Community Center",
-    //     age: "All Ages",
-    //     duration: "2 hours",
-    //     price: "5$",
-
-    // });
-
 }
 
-function displayBasketball() {
+function displayBasketball() { // displays data from basketball
     db.collection("Basketball").get()
         .then(allSpots => {
             allSpots.forEach(doc => {
                 var sportName = doc.data().name; //gets the name field
-                var sportID = doc.data().code;
-                //gets the unique ID field
-                //hange the Basketball ode to class
-                // var basDate = doc.data().date // gest date
-                // var basSpot = doc.data().spots
+                var sportID = doc.data().code; //gets the unique ID field
                 var basID3 = doc.data().code3;
                 var basID4 = doc.data().code4;
                 var basID5 = doc.data().code5;
                 var basID6 = doc.data().code6;
                 var basID7 = doc.data().code7;
-                var basID8 = doc.data().code8;
 
                 var monloc = doc.data().location;
                 var moncity = doc.data().city;
@@ -187,9 +155,6 @@ function displayBasketball() {
         })
 }
 
-
-// writebasSpots();
-// myFunction();
 displayBasketball();
 
 var options = {
@@ -208,39 +173,10 @@ const th = new Date();
 th.setDate(th.getDate() + ((7 - th.getDay()) % 7 + 4) % 10);
 const f = new Date();
 f.setDate(f.getDate() + ((7 - f.getDay()) % 7 + 5) % 11);
-// function getMonday(n) {
-//     n = new Date(n);
-//     var day = n.getDay(),
-//         diff = n.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
-//     return new Date(n.setDate(diff));
-// }
+
 document.getElementById("testdate").innerText = m.toLocaleDateString("en-US", options);
 document.getElementById("nextmonday").innerText = m.toLocaleDateString("en-US", options);
 document.getElementById("nexttuesday").innerText = t.toLocaleDateString("en-US", options);
 document.getElementById("nextwednesday").innerText = w.toLocaleDateString("en-US", options);
 document.getElementById("nextthursday").innerText = th.toLocaleDateString("en-US", options);
 document.getElementById("nextfriday").innerText = f.toLocaleDateString("en-US", options);
-
-// function writebasSpots2() {
-//     //define a variable for the collection you want to create in Firestore to populate data
-//     var BasketballsRef = db.collection("Basketball2");
-//     BasketballsRef.add({
-//         code: "bas12",
-//     })
-// }
-// const d = new Date();
-// d.setDate(d.getDate() + ((7 - d.getDay()) % 7 + 1) % 7);
-// getElementById("keke").innerText = d;
-
-// function writeDate() {
-//     // const d2 = new Date();
-//     // d2.setDate(d2.getDate() + ((7 - d2.getDay()) % 7 + 1) % 7);
-//     var dateRef = db.collection("datest")
-//     dateRef.add({
-//         code = "date1",
-//         date = d,
-//         date2 = d2,
-//     })
-// }
-// writeDate();
-// writebasSpots2();
