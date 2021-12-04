@@ -132,10 +132,7 @@ function displayBadminton() { // displays information for events
             allSpots.forEach(doc => { //gets data for all events in the badminton collection
                 var sportName = doc.data().name; //gets the name field
                 var sportID = doc.data().code;
-                //gets the unique ID field
-                //hange the badminton ode to class
-                // var badDate = doc.data().date // gest date
-                // var badSpot = doc.data().spots
+
                 var badID3 = doc.data().code3; // gets a placeholder for location
                 var badID4 = doc.data().code4; // gets a placeholder for city
                 var badID5 = doc.data().code5; // gets a placeholder for duration
