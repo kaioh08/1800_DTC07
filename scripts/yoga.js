@@ -3,19 +3,19 @@ function addYogaMon() {
         // Check if user is signed in:
         if (user) {
             currentUser = db.collection("users").doc(user.uid).collection("savedSports");
-            currentUser.doc("yoga1").set({
-                code: "yoga1",
-                name: "Yoga",
-                city: "Vancouver",
-                date: "Monday Dec ",
-                spots: "28/30",
-                location: "The Yoga Bar",
-                age: "All Ages",
-                time: "6:30am - 8:30am",
-                price: "5$",
+            currentUser.doc("yoga1").set({ // writes to savedSports collection
+                code: "yoga1", // event id
+                name: "Yoga", // sport name
+                city: "Vancouver", // city of event
+                date: "Monday Dec ", // date of event
+                spots: "28/30", // how many spots left
+                location: "The Yoga Bar", // location of event
+                age: "All Ages", // age range
+                time: "6:30am - 8:30am", // duration of event
+                price: "5$", // how much the event costs
             })
-            var tempRef = db.collection("temp_data");
-            tempRef.doc("temp").set({
+            var tempRef = db.collection("temp_data"); // writes to temp_data collection
+            tempRef.doc("temp").set({ // creates temp document to be read
                     code: "yoga1",
                     name: "Yoga",
                     city: "Vancouver",
@@ -28,8 +28,8 @@ function addYogaMon() {
                 })
 
                 .then(() => {
-                    location.href = "confirmation.html";
-                    console.log("does it write?");
+                    location.href = "confirmation.html"; // redirects to confirmation
+                    console.log("does it write?"); // test if button works
                 })
         } else {}
     });
@@ -144,7 +144,7 @@ function addYogaThurs() {
 
 function writeYogaSpots() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var yogaRef = db.collection("Yoga");
+    var yogaRef = db.collection("Yoga"); // writes to yoga collection
     yogaRef.add({
         code: "yoga1",
         name: "Yoga",
@@ -243,19 +243,19 @@ function displayYoga() {
                 var yogaID6 = doc.data().code6;
                 var yogaID7 = doc.data().code7;
 
-                var monloc = doc.data().location;
-                var moncity = doc.data().city;
-                var monlength = doc.data().time;
-                var monspots = doc.data().spots;
-                var monprice = doc.data().price;
+                var monloc = doc.data().location; // gets the location
+                var moncity = doc.data().city; // gets the city
+                var monlength = doc.data().time; // gets the time of event
+                var monspots = doc.data().spots; // gets the spots
+                var monprice = doc.data().price; // gets the price
 
                 console.log(sportID);
-                document.getElementById(sportID).innerText = sportName;
-                document.getElementById(yogaID3).innerText = monloc;
-                document.getElementById(yogaID4).innerText = moncity;
-                document.getElementById(yogaID5).innerText = monlength;
-                document.getElementById(yogaID6).innerText = monspots;
-                document.getElementById(yogaID7).innerText = monprice;
+                document.getElementById(sportID).innerText = sportName; // fill id with sport name
+                document.getElementById(yogaID3).innerText = monloc; // fill id with location
+                document.getElementById(yogaID4).innerText = moncity; // fill id with city
+                document.getElementById(yogaID5).innerText = monlength; // fill id with length
+                document.getElementById(yogaID6).innerText = monspots; // fill id with spots
+                document.getElementById(yogaID7).innerText = monprice; // fill id with price
 
 
 
@@ -264,7 +264,7 @@ function displayYoga() {
 }
 
 
-displayYoga();
+displayYoga(); // algorithm that gets the next week's date
 var options = {
     weekday: 'long',
     year: 'numeric',
@@ -272,16 +272,16 @@ var options = {
     day: 'numeric'
 };
 var m = new Date();
-m.setDate(m.getDate() + ((7 - m.getDay()) % 7 + 1) % 7);
+m.setDate(m.getDate() + ((7 - m.getDay()) % 7 + 1) % 7); // next week monday
 const t = new Date();
-t.setDate(t.getDate() + ((7 - t.getDay()) % 7 + 2) % 8);
+t.setDate(t.getDate() + ((7 - t.getDay()) % 7 + 2) % 8); // next week tuesday
 const w = new Date();
-w.setDate(w.getDate() + ((7 - w.getDay()) % 7 + 3) % 9);
+w.setDate(w.getDate() + ((7 - w.getDay()) % 7 + 3) % 9); // next week wednesday
 const th = new Date();
-th.setDate(th.getDate() + ((7 - th.getDay()) % 7 + 4) % 10);
+th.setDate(th.getDate() + ((7 - th.getDay()) % 7 + 4) % 10); // next week thursday
 const f = new Date();
-f.setDate(f.getDate() + ((7 - f.getDay()) % 7 + 5) % 11);
-document.getElementById("testdate").innerText = m.toLocaleDateString("en-US", options);
+f.setDate(f.getDate() + ((7 - f.getDay()) % 7 + 5) % 11); // next week friday
+document.getElementById("testdate").innerText = m.toLocaleDateString("en-US", options); // replaces time according to id
 document.getElementById("nextmonday").innerText = m.toLocaleDateString("en-US", options);
 document.getElementById("nexttuesday").innerText = t.toLocaleDateString("en-US", options);
 document.getElementById("nextwednesday").innerText = w.toLocaleDateString("en-US", options);
