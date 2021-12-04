@@ -28,14 +28,14 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── index.html               # landing HTML file, this is what users see when you come to url. --> this needs
 ├──README.md
 ├── images
 ├── html
 ├── scripts
 ├── styles
 
-
+### index.html is outside the html folder in order for the the deployed application to be functional 
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
