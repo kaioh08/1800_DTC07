@@ -1,45 +1,37 @@
-function addBadThur() {
+function addVolMon() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid);
+            currentUser = db.collection("users").doc(user.uid).collection("savedSports"); // the collection savedSports in the collection users
             //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    var user_Name = userDoc.data().name;
-                    var email = userDoc.data().email;
-                    console.log(user_Name);
-                    var currentUser = db.collection(email);
-                    currentUser.add({
-                            code: "vol1",
-                            name: "Volleyball",
-                            code3: "monday3",
-                            code4: "monday4",
-                            code5: "monday5",
-                            code6: "monday6",
-                            code7: "monday7",
-                            city: "Vancouver",
-                            date: "Monday, Dec 6",
-                            spots: "28/30",
-                            location: "Delbrook Community Center",
-                            age: "All Ages",
-                            time: "6:30am - 8:30am",
-                            price: "5$",
-                        })
-                        .then(userDoc => {
-                            console.log(email);
-                        })
-
-                    //method #1:  insert with html only
-                    //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                    //method #2:  insert using jquery
-                    $("#name-goes-here").text(user_Name); //using jquery
-
+            currentUser.doc("vol1").set({
+                code: "vol1", // event code
+                name: "Volleyball", // sport name
+                city: "Burnaby", // city selected
+                date: "Monday, Dec 6", //date of event
+                spots: "28/30", // how many spots are left
+                location: "Bonsor Community Center", // where the event is taking place
+                age: "All Ages", // the age range of the event
+                time: "6:30pm - 8:30pm", // the duration of the event
+                price: "5$", // how much the event costs
+            })
+            var tempRef = db.collection("temp_data"); // Temporary data to be deleted after we confirmed the booking
+            tempRef.doc("temp").set({ // writes new data to collection temp_data
+                    code: "vol1", // values are same as savedSports collection
+                    name: "Volleyball",
+                    city: "Vancouver",
+                    date: "Monday, Dec 6",
+                    spots: "28/30",
+                    location: "Bonsor Community Center", // where the event is taking place
+                    age: "All Ages",
+                    time: "6:30pm - 8:30pm",
+                    price: "5$",
                 })
-
-
+                .then(() => { // activate after collections are made
+                    location.href = "confirmation.html"; // redirect to confirmation
+                    console.log("doesi t write?");
+                })
         } else {
             // No user is signed in.
         }
@@ -47,28 +39,6 @@ function addBadThur() {
 }
 
 
-document.getElementById("book-mon-vol").onclick = function () {
-    var tempRef = db.collection("temp_data");
-    tempRef.doc("test").set({
-            code: "vol1",
-            name: "Volleyball",
-            city: "Vancouver",
-            date: "Monday, Dec 6",
-            spots: "28/30",
-            location: "Delbrook Community Center",
-            age: "All Ages",
-            time: "6:30am - 8:30am",
-            price: "5$",
-        })
-        .then(() => {
-            location.href = "confirmation.html";
-            console.log("does it write?");
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
-
-};
 
 function writevolSpots() {
     //define a variable for the collection you want to create in Firestore to populate data
@@ -84,9 +54,8 @@ function writevolSpots() {
         city: "Vancouver",
         date: "Monday, Dec 6",
         spots: "28/30",
-        location: "Delbrook Community Center",
-        age: "All Ages",
-        time: "6:30am - 8:30am",
+        location: "Bonsor Community Center", 
+        time: "6:30pm - 8:30pm",
         price: "5$",
     });
     basketballRef.add({
@@ -169,7 +138,6 @@ function displayVolleyball() {
                 var volID5 = doc.data().code5;
                 var volID6 = doc.data().code6;
                 var volID7 = doc.data().code7;
-                var volID8 = doc.data().code8;
 
                 var monloc = doc.data().location;
                 var moncity = doc.data().city;
