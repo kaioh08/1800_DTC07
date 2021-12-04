@@ -23,84 +23,56 @@ function insertName() {
 }
 
 
-function writeSports() {
+function writeSports() { // writes sports in sport collection
     //define a variable for the collection you want to create in Firestore to populate data
     var sportsRef = db.collection("Available Sports");
     sportsRef.add({
-        code: "bad1",
-        name: "Badminton",
-        city: "Vancouver, Burnaby",
-        spots: "25/30",
-        level: "HARD AF",
-        age: "All Ages",
-        duraction: "2h 30min",
+        code: "bad1", // sport id
+        name: "Badminton", // sport name
+        city: "Vancouver, Burnaby", // available cities
     });
     sportsRef.add({
         code: "basket1",
         name: "Basketball",
         city: "Vancouver",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
     });
     sportsRef.add({
         code: "box1",
         name: "Boxing",
         city: "Vancouver",
-        spots: "18/30",
-        level: "Causal",
-        age: "16+",
-        duraction: "2h 30min",
     });
     sportsRef.add({
         code: "volley1",
         name: "Volleyball",
         city: "Vancouver, Burnaby",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
     });
     sportsRef.add({
         code: "yoga1",
         name: "Yoga and Meditation",
         city: "Vancouver, Burnaby",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
     });
     sportsRef.add({
         code: "dance1",
         name: "Dance",
         city: "Vancouver, Burnaby",
-        spots: "2/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h",
     });
     sportsRef.add({
         code: "table1",
         name: "Table Tennis",
         city: "Vancouver, Burnaby, Richmond",
-        spots: "28/30",
-        level: "Casual",
-        age: "16+",
-        duraction: "2h 30min",
     });
 }
 // writeSports();
 
 
-function displaySports() {
+function displaySports() { // displays data from the collection Available Sports
     db.collection("Available Sports").get()
         .then(allSports => {
-            allSports.forEach(doc => {
+            allSports.forEach(doc => { // gets data for each item in the collection
                 var sportName = doc.data().name; //gets the name field
                 var sportID = doc.data().code; //gets the unique ID field
                 console.log(sportID);
-                document.getElementById(sportID).innerText = sportName;
+                document.getElementById(sportID).innerText = sportName; //replaces html of the id with the sport name
             })
         })
 }
