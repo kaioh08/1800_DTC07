@@ -237,11 +237,11 @@ function displayYoga() {
             allSpots.forEach(doc => {
                 var sportName = doc.data().name; //gets the name field
                 var sportID = doc.data().code; //gets the unique ID field
-                var badID3 = doc.data().code3;
-                var badID4 = doc.data().code4;
-                var badID5 = doc.data().code5;
-                var badID6 = doc.data().code6;
-                var badID7 = doc.data().code7;
+                var yogaID3 = doc.data().code3;
+                var yogaID4 = doc.data().code4;
+                var yogaID5 = doc.data().code5;
+                var yogaID6 = doc.data().code6;
+                var yogaID7 = doc.data().code7;
 
                 var monloc = doc.data().location;
                 var moncity = doc.data().city;
@@ -251,11 +251,11 @@ function displayYoga() {
 
                 console.log(sportID);
                 document.getElementById(sportID).innerText = sportName;
-                document.getElementById(badID3).innerText = monloc;
-                document.getElementById(badID4).innerText = moncity;
-                document.getElementById(badID5).innerText = monlength;
-                document.getElementById(badID6).innerText = monspots;
-                document.getElementById(badID7).innerText = monprice;
+                document.getElementById(yogaID3).innerText = monloc;
+                document.getElementById(yogaID4).innerText = moncity;
+                document.getElementById(yogaID5).innerText = monlength;
+                document.getElementById(yogaID6).innerText = monspots;
+                document.getElementById(yogaID7).innerText = monprice;
 
 
 
