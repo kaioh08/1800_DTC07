@@ -10,9 +10,9 @@ This browser based web application to ...
 
 Book It is an event booking application. With Book It,  users will be able to book sporting events at local recreational centers. users can save their bookings, preview what sports are available, and cancel their bookings.Our MVP has also filled the CRUD requirements by making the web app able to store booked data, read events, update booked events, and delete booked events. 
 
-- Hello, my name is Nicky. I'm excited about the project because I like to work on apps.
-- Hi my name is Kai . I am excited about this project becasue the app would actually help us!
-- Hi my name is Al. I am excited about this project because I love working in groups!
+- Hello, my name is Nicky. I'm excited about the project because I like to work on apps. (coder)
+- Hi my name is Kai . I am excited about this project because is helpful! (project manager)
+- Hi my name is Al. I am excited about this project because I love working in groups! (desinger)
 
 ## Technologies
 
@@ -119,10 +119,6 @@ var firebaseConfig = {
 
 ```
 
-Tips for file naming files and folders: (Sorry we saw this a little too late)
-
-- use lowercase with no spaces
-- use dashes (not underscore) for word separation
 
 ## image sources :
 
